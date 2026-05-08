@@ -29,13 +29,13 @@ export default function EventsSection() {
   return (
     <section
       id="events"
-      className="relative px-5 sm:px-8 md:px-10 py-20 sm:py-24 md:py-32"
+      className="relative px-4 sm:px-8 md:px-10 py-16 sm:py-24 md:py-32"
       style={{ background: '#0C0C0C' }}
     >
       <FadeIn delay={0} y={40}>
         <h2
-          className="hero-heading font-black uppercase text-center leading-none tracking-tight mb-12 sm:mb-16 md:mb-20"
-          style={{ fontSize: 'clamp(3rem, 12vw, 160px)' }}
+          className="hero-heading font-black uppercase text-center leading-none tracking-tight mb-8 sm:mb-16 md:mb-20"
+          style={{ fontSize: 'clamp(2.5rem, 12vw, 160px)' }}
         >
           {t.events.title}
         </h2>
@@ -44,7 +44,7 @@ export default function EventsSection() {
       <FadeIn delay={0.1} y={30}>
         <motion.div
           ref={trackRef}
-          className="flex gap-5 sm:gap-6 md:gap-8 cursor-grab active:cursor-grabbing pb-6 overflow-x-auto sm:overflow-visible scrollbar-hide"
+          className="flex gap-4 sm:gap-6 md:gap-8 cursor-grab active:cursor-grabbing pb-4 overflow-x-auto scrollbar-hide"
           drag="x"
           dragConstraints={{ left: -maxDrag, right: 0 }}
           dragElastic={0.08}
@@ -58,11 +58,14 @@ export default function EventsSection() {
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.7, delay: i * 0.08, ease: [0.25, 0.1, 0.25, 1] }}
               whileHover={{ y: -8 }}
-              className="relative flex-shrink-0 w-[78vw] sm:w-[420px] md:w-[460px] lg:w-[500px] rounded-[32px] sm:rounded-[40px] overflow-hidden border-2 border-[#D7E2EA]/30 hover:border-[#f1552d] transition-colors duration-300 group"
-              style={{ background: '#141414' }}
+              className="relative flex-shrink-0 rounded-[24px] sm:rounded-[32px] md:rounded-[40px] overflow-hidden border-2 border-[#D7E2EA]/30 hover:border-[#f1552d] transition-colors duration-300 group"
+              style={{
+                background: '#141414',
+                width: 'clamp(260px, 72vw, 500px)',
+              }}
             >
               <Link to={`/eventi/${item.slug}`} className="block">
-                <div className="relative h-[340px] sm:h-[380px] md:h-[420px] overflow-hidden">
+                <div className="relative overflow-hidden" style={{ height: 'clamp(200px, 45vw, 420px)' }}>
                   <img
                     src={item.cover}
                     alt={item.name}
@@ -72,32 +75,29 @@ export default function EventsSection() {
                   />
                   <div
                     className="absolute inset-0"
-                    style={{
-                      background:
-                        'linear-gradient(180deg, rgba(12,12,12,0) 40%, rgba(12,12,12,0.85) 100%)',
-                    }}
+                    style={{ background: 'linear-gradient(180deg, rgba(12,12,12,0) 40%, rgba(12,12,12,0.85) 100%)' }}
                   />
-                  <span className="absolute top-4 left-4 inline-flex items-center rounded-full bg-[#f1552d] text-white text-[11px] font-semibold uppercase tracking-widest px-3 py-1">
+                  <span className="absolute top-3 left-3 sm:top-4 sm:left-4 inline-flex items-center rounded-full bg-[#f1552d] text-white text-[10px] sm:text-[11px] font-semibold uppercase tracking-widest px-2.5 py-1 sm:px-3">
                     {item.category}
                   </span>
                 </div>
-                <div className="p-5 sm:p-6 md:p-7 flex flex-col gap-2 sm:gap-3">
-                  <div className="flex items-center justify-between text-[#D7E2EA]/60 text-xs sm:text-sm uppercase tracking-widest">
+                <div className="p-4 sm:p-5 md:p-7 flex flex-col gap-2 sm:gap-3">
+                  <div className="flex items-center justify-between text-[#D7E2EA]/60 text-[11px] sm:text-sm uppercase tracking-widest">
                     <span>{item.year}</span>
                     <span>{item.location}</span>
                   </div>
                   <h3
                     className="text-[#D7E2EA] font-bold uppercase leading-tight transition-colors duration-300 group-hover:text-[#f1552d]"
-                    style={{ fontSize: 'clamp(1.4rem, 2.6vw, 2rem)' }}
+                    style={{ fontSize: 'clamp(1.1rem, 4vw, 2rem)' }}
                   >
                     {item.name}
                   </h3>
-                  <p className="text-[#D7E2EA]/70 text-sm sm:text-base leading-relaxed">
+                  <p className="text-[#D7E2EA]/70 text-sm leading-relaxed line-clamp-3">
                     {item.desc}
                   </p>
-                  <span className="mt-2 inline-flex items-center gap-2 text-[#f1552d] font-medium uppercase tracking-widest text-xs sm:text-sm">
+                  <span className="mt-1 inline-flex items-center gap-2 text-[#f1552d] font-medium uppercase tracking-widest text-xs sm:text-sm">
                     {t.events.cta}
-                    <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+                    <svg width="14" height="10" viewBox="0 0 16 12" fill="none" aria-hidden="true">
                       <path d="M1 6h13M9 1l5 5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </span>

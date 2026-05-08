@@ -30,12 +30,12 @@ export default function EventPage() {
     <main style={{ background: '#0C0C0C', overflowX: 'clip' }}>
       <NavBar />
 
-      <section className="relative px-5 sm:px-8 md:px-10 pt-10 sm:pt-14 pb-12">
+      <section className="relative px-4 sm:px-8 md:px-10 pt-6 sm:pt-12 md:pt-20 pb-8 sm:pb-12">
         <div className="max-w-6xl mx-auto">
           <FadeIn delay={0} y={-10}>
             <Link
               to="/#events"
-              className="inline-flex items-center gap-2 text-[#D7E2EA]/70 hover:text-[#f1552d] transition-colors duration-200 text-xs sm:text-sm uppercase tracking-widest mb-6"
+              className="inline-flex items-center gap-2 text-[#D7E2EA]/70 hover:text-[#f1552d] transition-colors duration-200 text-xs uppercase tracking-widest mb-4 sm:mb-6"
             >
               <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
                 <path d="M15 6H2M7 1L2 6l5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -52,8 +52,8 @@ export default function EventPage() {
 
           <FadeIn delay={0.1} y={40}>
             <h1
-              className="hero-heading font-black uppercase leading-[0.95] tracking-tight mt-4"
-              style={{ fontSize: 'clamp(2.5rem, 10vw, 160px)' }}
+              className="hero-heading font-black uppercase leading-[0.95] tracking-tight mt-3 sm:mt-4"
+              style={{ fontSize: 'clamp(2rem, 9vw, 140px)' }}
             >
               {meta.name}
             </h1>
@@ -70,7 +70,7 @@ export default function EventPage() {
         </div>
       </section>
 
-      <section className="px-5 sm:px-8 md:px-10 pb-16">
+      <section className="px-4 sm:px-8 md:px-10 pb-12 sm:pb-16">
         <div className="max-w-6xl mx-auto">
           <motion.img
             initial={{ opacity: 0, y: 40 }}
@@ -79,20 +79,20 @@ export default function EventPage() {
             transition={{ duration: 0.7 }}
             src={data.cover}
             alt={meta.name}
-            className="w-full object-cover rounded-[40px] sm:rounded-[50px] md:rounded-[60px]"
-            style={{ height: 'clamp(280px, 50vw, 680px)' }}
+            className="w-full object-cover rounded-[20px] sm:rounded-[40px] md:rounded-[60px]"
+            style={{ height: 'clamp(220px, 45vw, 680px)' }}
           />
         </div>
       </section>
 
-      <section className="px-5 sm:px-8 md:px-10 pb-20">
+      <section className="px-4 sm:px-8 md:px-10 pb-12 sm:pb-20">
         <div className="max-w-6xl mx-auto">
           <FadeIn delay={0} y={20}>
-            <h2 className="text-[#D7E2EA] uppercase tracking-widest text-sm mb-6">
+            <h2 className="text-[#D7E2EA] uppercase tracking-widest text-[11px] sm:text-sm mb-4 sm:mb-6">
               {t.common.gallery}
             </h2>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-5">
             {data.gallery.map((src, i) => (
               <motion.img
                 key={src}
@@ -103,16 +103,16 @@ export default function EventPage() {
                 src={src}
                 alt={`${meta.name} ${i + 1}`}
                 loading="lazy"
-                className="w-full object-cover rounded-[32px] sm:rounded-[40px]"
-                style={{ height: 'clamp(220px, 26vw, 360px)' }}
+                className="w-full object-cover rounded-[16px] sm:rounded-[32px] md:rounded-[40px]"
+                style={{ height: 'clamp(180px, 26vw, 360px)' }}
               />
             ))}
           </div>
         </div>
       </section>
 
-      <section className="px-5 sm:px-8 md:px-10 pb-24 sm:pb-28 md:pb-32">
-        <div className="max-w-3xl mx-auto text-center flex flex-col items-center gap-8">
+      <section className="px-4 sm:px-8 md:px-10 pb-16 sm:pb-24 md:pb-32">
+        <div className="max-w-3xl mx-auto text-center flex flex-col items-center gap-6 sm:gap-8">
           <FadeIn delay={0} y={20}>
             <h2
               className="hero-heading font-black uppercase leading-tight"

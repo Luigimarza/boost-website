@@ -39,6 +39,17 @@ html {
   scrollbar-width: none;
 }
 
+@keyframes floatA {
+  0%, 100% { transform: translateY(0px) rotate(-1deg); }
+  50%       { transform: translateY(-18px) rotate(1deg); }
+}
+@keyframes floatB {
+  0%, 100% { transform: translateY(0px) rotate(1deg); }
+  50%       { transform: translateY(-22px) rotate(-1.5deg); }
+}
+.float-a { animation: floatA 5s ease-in-out infinite; }
+.float-b { animation: floatB 6s ease-in-out infinite; }
+
 input:-webkit-autofill,
 textarea:-webkit-autofill,
 select:-webkit-autofill {

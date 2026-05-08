@@ -9,7 +9,7 @@ export default function ContactPage() {
     <main style={{ background: '#0C0C0C', overflowX: 'clip' }}>
       <NavBar />
 
-      <section className="px-5 sm:px-8 md:px-10 pt-12 sm:pt-16 md:pt-20 pb-10">
+      <section className="px-4 sm:px-8 md:px-10 pt-8 sm:pt-14 md:pt-20 pb-8 sm:pb-10">
         <div className="max-w-5xl mx-auto text-center">
           <FadeIn delay={0} y={40}>
             <h1
@@ -30,8 +30,8 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="px-5 sm:px-8 md:px-10 pb-12">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
+      <section className="px-4 sm:px-8 md:px-10 pb-10 sm:pb-12">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-5 md:gap-6">
           {[
             { label: t.contactPage.emailLabel, value: 'boostcreativeai@gmail.com', href: 'mailto:boostcreativeai@gmail.com' },
             { label: t.contactPage.phoneLabel, value: '+39 000 000 0000', href: 'tel:+390000000000' },
@@ -39,7 +39,7 @@ export default function ContactPage() {
           ].map((c, i) => (
             <FadeIn key={c.label} delay={i * 0.1} y={30}>
               <div
-                className="rounded-[32px] border-2 border-[#D7E2EA]/30 hover:border-[#f1552d] transition-colors duration-300 p-6 sm:p-7 h-full"
+                className="rounded-[20px] sm:rounded-[28px] md:rounded-[32px] border-2 border-[#D7E2EA]/30 hover:border-[#f1552d] transition-colors duration-300 p-5 sm:p-6 md:p-7 h-full"
                 style={{ background: '#141414' }}
               >
                 <span className="text-[#f1552d] text-xs uppercase tracking-widest font-semibold">
