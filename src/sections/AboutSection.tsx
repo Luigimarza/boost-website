@@ -16,7 +16,7 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="relative min-h-screen flex flex-col items-center justify-center px-5 sm:px-8 md:px-10 py-20 sm:py-24 md:py-32 overflow-hidden"
+      className="relative flex flex-col items-center justify-center px-5 sm:px-8 md:px-10 py-14 sm:py-16 md:py-24 overflow-hidden"
     >
       {/* Decorative icons — smaller on mobile */}
       <FadeIn delay={0.1} x={-80} y={0} duration={0.9} className="absolute top-[4%] left-[1%] sm:left-[2%] md:left-[4%] pointer-events-none">
@@ -32,7 +32,7 @@ export default function AboutSection() {
         <img src={ASSETS.group} alt="" className="w-[90px] sm:w-[140px] md:w-[220px]" />
       </FadeIn>
 
-      <div className="flex flex-col items-center gap-8 sm:gap-12 md:gap-16 relative z-10 max-w-2xl w-full mx-auto">
+      <div className="flex flex-col items-center gap-6 sm:gap-10 md:gap-12 relative z-10 max-w-2xl w-full mx-auto">
         <FadeIn delay={0} y={40}>
           <h2
             className="hero-heading font-black uppercase leading-none tracking-tight text-center"

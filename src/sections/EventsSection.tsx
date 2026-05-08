@@ -29,12 +29,12 @@ export default function EventsSection() {
   return (
     <section
       id="events"
-      className="relative px-4 sm:px-8 md:px-10 py-16 sm:py-24 md:py-32"
+      className="relative px-4 sm:px-8 md:px-10 py-10 sm:py-16 md:py-24"
       style={{ background: '#0C0C0C' }}
     >
       <FadeIn delay={0} y={40}>
         <h2
-          className="hero-heading font-black uppercase text-center leading-none tracking-tight mb-8 sm:mb-16 md:mb-20"
+          className="hero-heading font-black uppercase text-center leading-none tracking-tight mb-6 sm:mb-10 md:mb-14"
           style={{ fontSize: 'clamp(2.5rem, 12vw, 160px)' }}
         >
           {t.events.title}

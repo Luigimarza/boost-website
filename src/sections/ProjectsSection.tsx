@@ -108,12 +108,12 @@ export default function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="relative z-10 -mt-8 sm:-mt-12 md:-mt-14 rounded-t-[24px] sm:rounded-t-[50px] md:rounded-t-[60px] px-3 sm:px-8 md:px-10 py-14 sm:py-24 md:py-32"
+      className="relative z-10 -mt-8 sm:-mt-12 md:-mt-14 rounded-t-[24px] sm:rounded-t-[50px] md:rounded-t-[60px] px-3 sm:px-8 md:px-10 py-10 sm:py-16 md:py-24"
       style={{ background: '#0C0C0C' }}
     >
       <FadeIn delay={0} y={40}>
         <h2
-          className="hero-heading font-black uppercase text-center leading-none tracking-tight mb-10 sm:mb-20 md:mb-24"
+          className="hero-heading font-black uppercase text-center leading-none tracking-tight mb-6 sm:mb-14 md:mb-18"
           style={{ fontSize: 'clamp(2.5rem, 12vw, 160px)' }}
         >
           {t.projects.title}

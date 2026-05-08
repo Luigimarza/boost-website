@@ -35,7 +35,7 @@ export default function ContactFormSection() {
   return (
     <section
       id="contact"
-      className="relative px-4 sm:px-8 md:px-10 py-16 sm:py-24 md:py-32"
+      className="relative px-4 sm:px-8 md:px-10 py-10 sm:py-16 md:py-24"
       style={{ background: '#0C0C0C' }}
     >
       <div className="max-w-5xl mx-auto">
@@ -50,7 +50,7 @@ export default function ContactFormSection() {
 
         <FadeIn delay={0.1} y={20}>
           <p
-            className="text-[#D7E2EA]/80 text-center mt-4 mb-10 sm:mb-16 md:mb-20"
+            className="text-[#D7E2EA]/80 text-center mt-3 mb-8 sm:mb-12 md:mb-16"
             style={{ fontSize: 'clamp(0.9rem, 1.8vw, 1.4rem)' }}
           >
             {t.contactForm.subtitle}
