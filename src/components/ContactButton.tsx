@@ -8,7 +8,7 @@ type ContactButtonProps = {
 };
 
 const baseClass =
-  'inline-flex items-center justify-center rounded-full text-white font-medium uppercase tracking-widest px-8 py-3 sm:px-10 sm:py-3.5 md:px-12 md:py-4 text-xs sm:text-sm md:text-base transition-transform duration-300 hover:scale-[1.04]';
+  'inline-flex items-center justify-center rounded-full text-white font-medium uppercase tracking-widest px-10 py-3.5 sm:px-11 sm:py-4 md:px-12 md:py-4 text-sm md:text-base transition-transform duration-300 hover:scale-[1.04]';
 
 const baseStyle: React.CSSProperties = {
   background:
