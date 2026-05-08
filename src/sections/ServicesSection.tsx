@@ -25,7 +25,7 @@ export default function ServicesSection() {
             key={s.n}
             delay={i * 0.08}
             y={30}
-            className="group flex flex-row gap-3 sm:gap-8 md:gap-12 py-4 sm:py-7 md:py-9 transition-colors duration-300 hover:bg-[#f1552d]/[0.04]"
+            className="group flex flex-row gap-4 sm:gap-8 md:gap-12 py-5 sm:py-7 md:py-9 transition-colors duration-300 hover:bg-[#f1552d]/[0.04]"
             style={{
               borderTop: i === 0 ? '1px solid rgba(12, 12, 12, 0.15)' : 'none',
               borderBottom: '1px solid rgba(12, 12, 12, 0.15)',
@@ -37,17 +37,17 @@ export default function ServicesSection() {
                 color: '#0C0C0C',
                 fontSize: 'clamp(2rem, 8vw, 140px)',
                 lineHeight: 1,
-                minWidth: 'clamp(2.2rem, 8vw, 100px)',
+                minWidth: 'clamp(3rem, 9vw, 100px)',
               }}
             >
               {s.n}
             </span>
-            <div className="flex flex-col gap-1 sm:gap-4 flex-1 justify-center">
+            <div className="flex flex-col gap-2 sm:gap-4 flex-1 justify-center">
               <h3
                 className="font-medium uppercase transition-colors duration-300 group-hover:text-[#f1552d]"
                 style={{
                   color: '#0C0C0C',
-                  fontSize: 'clamp(0.85rem, 2.2vw, 2.1rem)',
+                  fontSize: 'clamp(1.15rem, 4.5vw, 2.1rem)',
                   lineHeight: 1.2,
                 }}
               >
@@ -58,7 +58,7 @@ export default function ServicesSection() {
                 style={{
                   color: '#0C0C0C',
                   opacity: 0.6,
-                  fontSize: 'clamp(0.75rem, 1.5vw, 1.25rem)',
+                  fontSize: 'clamp(0.9rem, 3.5vw, 1.25rem)',
                 }}
               >
                 {s.desc}
