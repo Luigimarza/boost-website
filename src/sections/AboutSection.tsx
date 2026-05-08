@@ -44,8 +44,8 @@ export default function AboutSection() {
 
         <AnimatedText
           text={t.about.body}
-          className="text-[#D7E2EA] font-medium text-center leading-relaxed"
-          style={{ fontSize: 'clamp(0.95rem, 2vw, 1.35rem)' }}
+          className="text-[#D7E2EA] font-medium text-center leading-relaxed mx-auto"
+          style={{ fontSize: 'clamp(1.2rem, 4vw, 1.6rem)' }}
         />
 
         <FadeIn delay={0} y={20}>
