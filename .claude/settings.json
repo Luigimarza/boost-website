@@ -6,8 +6,8 @@
         "hooks": [
           {
             "type": "command",
-            "command": "cd \"c:/Users/luigi/OneDrive/Desktop/BOOST WEBSITE\" && git add -A && git diff --cached --quiet && echo 'nothing to commit' || (git commit -m \"auto: update $(date +%Y%m%d-%H%M%S)\" && git push origin main)",
-            "timeout": 30,
+            "command": "cd \"c:/Users/luigi/OneDrive/Desktop/BOOST WEBSITE\" && git add -A && git diff --cached --quiet && echo 'nothing to commit' || (git commit -m \"auto: update $(date +%Y%m%d-%H%M%S)\" && git push origin main && npx vercel deploy --prod --scope luigimarzas-projects)",
+            "timeout": 120,
             "statusMessage": "Syncing to GitHub..."
           }
         ]

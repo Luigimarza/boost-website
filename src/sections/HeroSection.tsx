@@ -17,42 +17,56 @@ export default function HeroSection() {
     >
       <NavBar />
 
-      {/* Big title */}
-      <div className="overflow-hidden mt-4 sm:mt-4 md:-mt-2 px-2">
+      {/* ── DESKTOP TITLE ─────────────────────────────────── */}
+      <div className="hidden md:block overflow-hidden mt-4 md:-mt-2 px-2">
         <FadeIn delay={0.15} y={40}>
-          <h1 className="hero-heading font-black uppercase tracking-tight leading-none whitespace-nowrap w-full text-center text-[14vw] sm:text-[15vw] md:text-[16vw] lg:text-[16.5vw]">
+          <h1 className="hero-heading font-black uppercase tracking-tight leading-none whitespace-nowrap w-full text-center md:text-[16vw] lg:text-[16.5vw]">
             {t.hero.title}
           </h1>
         </FadeIn>
       </div>
 
-      {/* ── LEFT PORTRAIT ─────────────────────────────────── */}
-      {/* Mobile: very large, positioned top-third, floats */}
-      {/* Desktop: bottom-anchored, magnet effect */}
-      <div className="block md:hidden absolute left-0 z-10"
-           style={{ top: '22%', width: 'clamp(160px, 48vw, 260px)' }}>
-        <FadeIn delay={0.45} y={30} x={-20}>
-          <img
-            src={PORTRAIT_LEFT}
-            alt="Boost portrait left"
-            className="w-full h-auto select-none pointer-events-none float-a"
-            draggable={false}
-          />
-        </FadeIn>
-      </div>
+      {/* ── MOBILE TITLE + PORTRAITS ─────────────────────── */}
+      <div className="block md:hidden relative mt-2" style={{ height: 'clamp(310px, 95vw, 440px)' }}>
+        {/* Title behind portraits */}
+        <div className="relative z-0 text-center pt-2">
+          <FadeIn delay={0.1} y={40}>
+            <h1>
+              <span className="block hero-heading font-black uppercase tracking-tight leading-none"
+                    style={{ fontSize: 'clamp(3.6rem, 22vw, 7rem)' }}>
+                {t.hero.title.split(' ')[0]}
+              </span>
+              <span className="block hero-heading font-black uppercase tracking-tight leading-none"
+                    style={{ fontSize: 'clamp(2.3rem, 14vw, 4.5rem)' }}>
+                {t.hero.title.split(' ').slice(1).join(' ')}
+              </span>
+            </h1>
+          </FadeIn>
+        </div>
 
-      {/* ── RIGHT PORTRAIT ─────────────────────────────────── */}
-      {/* Mobile: very large, positioned lower, floats with different phase */}
-      <div className="block md:hidden absolute right-0 z-10"
-           style={{ top: '44%', width: 'clamp(160px, 48vw, 260px)' }}>
-        <FadeIn delay={0.55} y={30} x={20}>
-          <img
-            src={PORTRAIT_RIGHT}
-            alt="Boost portrait right"
-            className="w-full h-auto select-none pointer-events-none float-b"
-            draggable={false}
-          />
-        </FadeIn>
+        {/* Left portrait — overlaps title */}
+        <div className="absolute left-0 top-0 z-10" style={{ width: 'clamp(150px, 44vw, 255px)' }}>
+          <FadeIn delay={0.45} y={30} x={-20}>
+            <img
+              src={PORTRAIT_LEFT}
+              alt="Boost portrait left"
+              className="w-full h-auto select-none pointer-events-none float-a"
+              draggable={false}
+            />
+          </FadeIn>
+        </div>
+
+        {/* Right portrait — overlaps title, slightly lower */}
+        <div className="absolute right-0 z-10" style={{ top: '18%', width: 'clamp(150px, 44vw, 255px)' }}>
+          <FadeIn delay={0.55} y={30} x={20}>
+            <img
+              src={PORTRAIT_RIGHT}
+              alt="Boost portrait right"
+              className="w-full h-auto select-none pointer-events-none float-b"
+              draggable={false}
+            />
+          </FadeIn>
+        </div>
       </div>
 
       {/* Desktop only — Magnet portraits */}
@@ -79,7 +93,7 @@ export default function HeroSection() {
       </Magnet>
 
       {/* Tagline + CTA */}
-      <div className="mt-6 sm:mt-8 md:mt-10 flex flex-col items-center justify-center gap-5 sm:gap-6 md:gap-7 px-6 md:px-10 relative z-20 pb-8 sm:pb-0">
+      <div className="mt-12 sm:mt-8 md:mt-10 flex flex-col items-center justify-center gap-5 sm:gap-6 md:gap-7 px-6 md:px-10 relative z-20 pb-8 sm:pb-0">
         <FadeIn delay={0.35} y={20}>
           <p
             className="text-[#D7E2EA] font-medium leading-relaxed text-center max-w-[300px] sm:max-w-[560px] md:max-w-[720px]"
@@ -93,8 +107,6 @@ export default function HeroSection() {
         </FadeIn>
       </div>
 
-      {/* spacer so portraits don't overlap CTA on mobile */}
-      <div className="block md:hidden" style={{ height: 'clamp(220px, 52vw, 300px)' }} />
     </section>
   );
 }
