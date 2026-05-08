@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 
 const GIFS = [
-  'https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif',
+  '/test-card.gif',
   'https://motionsites.ai/assets/hero-codenest-preview-Cgppc2qV.gif',
   'https://motionsites.ai/assets/hero-vex-ventures-preview-BczMFIiw.gif',
   'https://motionsites.ai/assets/hero-stellar-ai-v2-preview-DjvxjG3C.gif',
@@ -9,7 +9,7 @@ const GIFS = [
   'https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif',
   'https://motionsites.ai/assets/hero-vitara-preview-Cjz2QYyU.gif',
   'https://motionsites.ai/assets/hero-terra-preview-BFjrCr7T.gif',
-  '/test-card.gif',
+  'https://motionsites.ai/assets/hero-skyelite-preview-DHaZIgUv.gif',
   'https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif',
   'https://motionsites.ai/assets/hero-designpro-preview-D8c5_een.gif',
   'https://motionsites.ai/assets/hero-stellar-ai-preview-D3HL6bw1.gif',
