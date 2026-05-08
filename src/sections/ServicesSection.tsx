@@ -7,12 +7,12 @@ export default function ServicesSection() {
   return (
     <section
       id="services"
-      className="px-4 sm:px-8 md:px-10 py-10 sm:py-16 md:py-24 rounded-t-[32px] sm:rounded-t-[50px] md:rounded-t-[60px]"
+      className="px-5 sm:px-8 md:px-10 py-12 sm:py-16 md:py-24 rounded-t-[32px] sm:rounded-t-[50px] md:rounded-t-[60px]"
       style={{ background: '#FFFFFF' }}
     >
       <FadeIn delay={0} y={40}>
         <h2
-          className="font-black uppercase text-center mb-6 sm:mb-14 md:mb-20"
+          className="font-black uppercase text-center mb-8 sm:mb-14 md:mb-20"
           style={{ color: '#0C0C0C', fontSize: 'clamp(2.5rem, 12vw, 160px)', lineHeight: 1 }}
         >
           {t.services.title}
@@ -47,7 +47,7 @@ export default function ServicesSection() {
                 className="font-medium uppercase transition-colors duration-300 group-hover:text-[#f1552d]"
                 style={{
                   color: '#0C0C0C',
-                  fontSize: 'clamp(1.15rem, 4.5vw, 2.1rem)',
+                  fontSize: 'clamp(1.3rem, 5vw, 2.1rem)',
                   lineHeight: 1.2,
                 }}
               >
@@ -58,7 +58,7 @@ export default function ServicesSection() {
                 style={{
                   color: '#0C0C0C',
                   opacity: 0.6,
-                  fontSize: 'clamp(0.9rem, 3.5vw, 1.25rem)',
+                  fontSize: 'clamp(1rem, 3.8vw, 1.25rem)',
                 }}
               >
                 {s.desc}
