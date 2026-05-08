@@ -37,7 +37,7 @@ export default function AnimatedText({ text, className, style }: AnimatedTextPro
           style={{
             opacity: opacities[i],
             transition: 'opacity 0.15s linear',
-            whiteSpace: c === ' ' ? 'pre' : undefined,
+            whiteSpace: c === ' ' ? 'pre-wrap' : undefined,
           }}
         >
           {c}

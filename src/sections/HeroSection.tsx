@@ -94,10 +94,10 @@ export default function HeroSection() {
       </Magnet>
 
       {/* Tagline + CTA */}
-      <div className="mt-2 sm:mt-6 md:mt-8 flex flex-col items-center justify-center gap-4 sm:gap-5 md:gap-6 px-6 md:px-10 relative z-20 pb-8 sm:pb-0">
+      <div className="-mt-4 sm:mt-6 md:mt-8 flex flex-col items-center justify-center gap-4 sm:gap-5 md:gap-6 px-6 md:px-10 relative z-20 pb-8 sm:pb-0">
         <AnimatedText
           text={t.hero.tagline}
-          className="text-[#D7E2EA] font-medium leading-relaxed text-center max-w-[320px] sm:max-w-[560px] md:max-w-[720px]"
+          className="text-[#D7E2EA] font-medium leading-relaxed text-center w-full max-w-[88vw] sm:max-w-[560px] md:max-w-[720px]"
           style={{ fontSize: 'clamp(1.2rem, 4vw, 1.6rem)' }}
         />
         <FadeIn delay={0.5} y={20}>
