@@ -13,7 +13,7 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative min-h-screen flex flex-col"
+      className="relative md:min-h-screen flex flex-col"
       style={{ overflowX: 'clip' }}
     >
       <NavBar />
@@ -94,7 +94,7 @@ export default function HeroSection() {
       </Magnet>
 
       {/* Tagline + CTA */}
-      <div className="-mt-4 sm:mt-6 md:mt-8 flex flex-col items-center justify-center gap-4 sm:gap-5 md:gap-6 px-6 md:px-10 relative z-20 pb-8 sm:pb-0">
+      <div className="-mt-10 sm:mt-6 md:mt-8 flex flex-col items-center justify-center gap-4 sm:gap-5 md:gap-6 px-6 md:px-10 relative z-20 pb-4 sm:pb-0">
         <AnimatedText
           text={t.hero.tagline}
           className="text-[#D7E2EA] font-medium leading-relaxed text-center w-full max-w-[88vw] sm:max-w-[560px] md:max-w-[720px]"
