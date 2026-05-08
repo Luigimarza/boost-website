@@ -1,4 +1,5 @@
 import FadeIn from '../components/FadeIn';
+import AnimatedText from '../components/AnimatedText';
 import Magnet from '../components/Magnet';
 import ContactButton from '../components/ContactButton';
 import NavBar from '../components/NavBar';
