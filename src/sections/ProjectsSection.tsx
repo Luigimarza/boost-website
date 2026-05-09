@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import FadeIn from '../components/FadeIn';
 import LiveProjectButton from '../components/LiveProjectButton';
@@ -144,6 +145,26 @@ export default function ProjectsSection() {
           />
         ))}
       </div>
+
+      <FadeIn delay={0} y={20}>
+        <div className="flex justify-center mt-10 sm:mt-14 md:mt-16">
+          <Link
+            to="/progetti"
+            className="inline-flex items-center gap-3 rounded-full border-2 border-[#D7E2EA] text-[#D7E2EA] font-medium uppercase tracking-widest px-8 py-3.5 sm:px-12 sm:py-4 text-sm sm:text-base hover:bg-[#f1552d] hover:border-[#f1552d] hover:text-white transition-colors duration-200"
+          >
+            {t.projects.viewAll}
+            <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+              <path
+                d="M1 6h13M9 1l5 5-5 5"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </Link>
+        </div>
+      </FadeIn>
     </section>
   );
 }

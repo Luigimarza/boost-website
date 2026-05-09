@@ -1,7 +1,7 @@
 export type Lang = 'it' | 'en';
 
 export type Dict = {
-  nav: { about: string; events: string; projects: string; contact: string };
+  nav: { about: string; events: string; projects: string; careers: string; contact: string };
   hero: { title: string; tagline: string; cta: string };
   about: { title: string; body: string; cta: string };
   services: { title: string; list: { n: string; name: string; desc: string }[] };
@@ -24,6 +24,28 @@ export type Dict = {
     backTo: string;
     categoryClient: string;
     categoryPersonal: string;
+    viewAll: string;
+    allTitle: string;
+    allSubtitle: string;
+  };
+  careers: {
+    title: string;
+    subtitle: string;
+    intro: string;
+    formTitle: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
+    role: string;
+    rolePlaceholder: string;
+    roles: string[];
+    portfolio: string;
+    portfolioPlaceholder: string;
+    message: string;
+    messagePlaceholder: string;
+    submit: string;
+    success: string;
   };
   contactForm: {
     title: string;
@@ -62,6 +84,7 @@ export const translations: Record<Lang, Dict> = {
       about: 'CHI SIAMO',
       events: 'EVENTI',
       projects: 'PROGETTI',
+      careers: 'LAVORA CON NOI',
       contact: 'CONTATTI',
     },
     hero: {
@@ -114,6 +137,41 @@ export const translations: Record<Lang, Dict> = {
       backTo: 'Torna ai progetti',
       categoryClient: 'Cliente',
       categoryPersonal: 'Personale',
+      viewAll: 'Vedi tutti i progetti',
+      allTitle: 'TUTTI I PROGETTI',
+      allSubtitle: 'Una raccolta dei lavori realizzati per clienti e progetti personali.',
+    },
+    careers: {
+      title: 'LAVORA CON NOI',
+      subtitle: 'Cerchiamo professionisti del marketing pronti a entrare in un team creativo che cresce ogni giorno.',
+      intro: 'Compila il form per candidarti. Ti ricontatteremo se il tuo profilo corrisponde alle nostre esigenze.',
+      formTitle: 'CANDIDATI',
+      firstName: 'Nome',
+      lastName: 'Cognome',
+      email: 'Email',
+      phone: 'Cellulare',
+      role: 'Ruolo professionale',
+      rolePlaceholder: 'Seleziona il tuo ruolo',
+      roles: [
+        'Social Media Manager',
+        'Copywriter',
+        'Content Creator',
+        'Performance Marketer / Adv',
+        'SEO Specialist',
+        'Email Marketing Specialist',
+        'Graphic Designer',
+        'Video Editor / Motion',
+        'Brand Strategist',
+        'PR & Communication',
+        'Marketing Manager',
+        'Altro',
+      ],
+      portfolio: 'Portfolio / Linkedin',
+      portfolioPlaceholder: 'URL al tuo portfolio o profilo',
+      message: 'Raccontaci di te',
+      messagePlaceholder: 'Esperienze, progetti rilevanti, perché vuoi unirti a noi…',
+      submit: 'Invia candidatura',
+      success: 'Grazie! Abbiamo ricevuto la tua candidatura.',
     },
     contactForm: {
       title: 'LAVORIAMO INSIEME?',
@@ -154,6 +212,7 @@ export const translations: Record<Lang, Dict> = {
       about: 'ABOUT',
       events: 'EVENTS',
       projects: 'PROJECTS',
+      careers: 'CAREERS',
       contact: 'CONTACT',
     },
     hero: {
@@ -206,6 +265,41 @@ export const translations: Record<Lang, Dict> = {
       backTo: 'Back to projects',
       categoryClient: 'Client',
       categoryPersonal: 'Personal',
+      viewAll: 'View all projects',
+      allTitle: 'ALL PROJECTS',
+      allSubtitle: 'A selection of works delivered for clients and personal projects.',
+    },
+    careers: {
+      title: 'CAREERS',
+      subtitle: 'We look for marketing professionals ready to join a creative team that grows every day.',
+      intro: 'Fill the form to apply. We will reach out if your profile matches our needs.',
+      formTitle: 'APPLY',
+      firstName: 'First name',
+      lastName: 'Last name',
+      email: 'Email',
+      phone: 'Phone',
+      role: 'Professional role',
+      rolePlaceholder: 'Select your role',
+      roles: [
+        'Social Media Manager',
+        'Copywriter',
+        'Content Creator',
+        'Performance Marketer / Ads',
+        'SEO Specialist',
+        'Email Marketing Specialist',
+        'Graphic Designer',
+        'Video Editor / Motion',
+        'Brand Strategist',
+        'PR & Communication',
+        'Marketing Manager',
+        'Other',
+      ],
+      portfolio: 'Portfolio / Linkedin',
+      portfolioPlaceholder: 'URL to your portfolio or profile',
+      message: 'Tell us about you',
+      messagePlaceholder: 'Experience, relevant projects, why you want to join us…',
+      submit: 'Send application',
+      success: 'Thanks! We received your application.',
     },
     contactForm: {
       title: 'LET’S WORK TOGETHER?',
