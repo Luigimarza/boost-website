@@ -40,7 +40,7 @@ function ProjectCard({
             >
               {project.n}
             </span>
-            <div className="flex flex-col gap-0.5 min-w-0">
+            <div className="flex flex-col gap-1 sm:gap-1.5 min-w-0">
               <span
                 className="text-[#f1552d] font-medium uppercase tracking-widest"
                 style={{ fontSize: 'clamp(0.6rem, 1vw, 0.95rem)' }}
@@ -53,6 +53,19 @@ function ProjectCard({
               >
                 {project.name}
               </h3>
+              {project.service && (
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-1">
+                  {project.service.split('·').map((s) => (
+                    <span
+                      key={s.trim()}
+                      className="inline-flex items-center rounded-full border border-[#D7E2EA]/40 text-[#D7E2EA] uppercase tracking-widest font-medium px-2.5 py-0.5 sm:px-3 sm:py-1"
+                      style={{ fontSize: 'clamp(0.55rem, 0.85vw, 0.8rem)' }}
+                    >
+                      {s.trim()}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
           <div className="pl-0 sm:pl-0">
