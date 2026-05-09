@@ -1,13 +1,45 @@
+import { useRef, useState } from 'react';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 import FadeIn from '../components/FadeIn';
 import { useLanguage } from '../i18n/LanguageContext';
 
+const SERVICE_IMAGES = [
+  'https://images.unsplash.com/photo-1561070791-2526d30994b8?auto=format&fit=crop&w=800&q=80',
+  'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80',
+  'https://images.unsplash.com/photo-1611926653458-09294b3142bf?auto=format&fit=crop&w=800&q=80',
+  'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80',
+  'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80',
+  'https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=800&q=80',
+];
+
+const PREVIEW_W = 280;
+const PREVIEW_H = 360;
+
 export default function ServicesSection() {
   const { t } = useLanguage();
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const [activeIdx, setActiveIdx] = useState<number | null>(null);
+
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const springX = useSpring(x, { stiffness: 350, damping: 30, mass: 0.4 });
+  const springY = useSpring(y, { stiffness: 350, damping: 30, mass: 0.4 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    x.set(e.clientX - rect.left - PREVIEW_W / 2);
+    y.set(e.clientY - rect.top - PREVIEW_H / 2);
+  };
 
   return (
     <section
       id="services"
-      className="px-5 sm:px-8 md:px-10 py-12 sm:py-16 md:py-24 rounded-t-[32px] sm:rounded-t-[50px] md:rounded-t-[60px]"
+      ref={sectionRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={() => setActiveIdx(null)}
+      className="relative px-5 sm:px-8 md:px-10 py-12 sm:py-16 md:py-24 rounded-t-[32px] sm:rounded-t-[50px] md:rounded-t-[60px] overflow-hidden"
       style={{ background: '#FFFFFF' }}
     >
       <FadeIn delay={0} y={40}>
@@ -19,7 +51,7 @@ export default function ServicesSection() {
         </h2>
       </FadeIn>
 
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-5xl mx-auto relative">
         {t.services.list.map((s, i) => (
           <FadeIn
             key={s.n}
@@ -30,6 +62,7 @@ export default function ServicesSection() {
               borderTop: i === 0 ? '1px solid rgba(12, 12, 12, 0.15)' : 'none',
               borderBottom: '1px solid rgba(12, 12, 12, 0.15)',
             }}
+            onMouseEnter={() => setActiveIdx(i)}
           >
             <span
               className="font-black flex-shrink-0 transition-colors duration-300 group-hover:text-[#f1552d]"
@@ -67,6 +100,35 @@ export default function ServicesSection() {
           </FadeIn>
         ))}
       </div>
+
+      {/* Cursor follow preview — desktop only */}
+      <motion.div
+        aria-hidden="true"
+        className="hidden md:block pointer-events-none absolute top-0 left-0 z-30 rounded-[24px] overflow-hidden shadow-2xl"
+        style={{
+          x: springX,
+          y: springY,
+          width: PREVIEW_W,
+          height: PREVIEW_H,
+        }}
+        animate={{
+          opacity: activeIdx !== null ? 1 : 0,
+          scale: activeIdx !== null ? 1 : 0.85,
+        }}
+        transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
+      >
+        {SERVICE_IMAGES.map((src, i) => (
+          <motion.img
+            key={src}
+            src={src}
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
+            initial={false}
+            animate={{ opacity: activeIdx === i ? 1 : 0 }}
+            transition={{ duration: 0.3 }}
+          />
+        ))}
+      </motion.div>
     </section>
   );
 }
