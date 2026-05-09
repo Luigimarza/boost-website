@@ -106,11 +106,11 @@ export default function HeroSection() {
         </FadeIn>
       </div>
 
-      {/* Desktop only — clients logo bar (horizontal marquee with edge fade) */}
+      {/* Desktop only — clients logo bar (seamless horizontal marquee with edge fade) */}
       <div
-        className="hidden md:block relative z-20 mt-14 lg:mt-20 xl:mt-24 overflow-hidden w-full"
+        className="hidden md:block relative z-20 mt-24 lg:mt-32 xl:mt-40 overflow-hidden w-full"
         style={{
-          height: 'clamp(110px, 10vw, 200px)',
+          height: 'clamp(150px, 14vw, 260px)',
           maskImage:
             'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
           WebkitMaskImage:
@@ -122,7 +122,7 @@ export default function HeroSection() {
           className="flex items-center h-full will-change-transform"
           style={{ width: 'max-content' }}
           animate={{ x: ['0%', '-50%'] }}
-          transition={{ duration: 25, ease: 'linear', repeat: Infinity }}
+          transition={{ duration: 22, ease: 'linear', repeat: Infinity, repeatType: 'loop' }}
         >
           {[0, 1].map((i) => (
             <img
