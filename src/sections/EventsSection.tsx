@@ -31,8 +31,13 @@ export default function EventsSection() {
 
       <FadeIn delay={0.1} y={30}>
         <div
-          className="flex gap-4 sm:gap-6 md:gap-8 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4 px-4 sm:px-8 md:px-10"
-          style={{ scrollPaddingLeft: '1rem', WebkitOverflowScrolling: 'touch' }}
+          className="flex gap-4 sm:gap-6 md:gap-8 overflow-x-auto overflow-y-hidden scrollbar-hide snap-x snap-mandatory pb-4 px-4 sm:px-8 md:px-10"
+          style={{
+            scrollPaddingLeft: '1rem',
+            WebkitOverflowScrolling: 'touch',
+            touchAction: 'pan-x',
+            overscrollBehaviorX: 'contain',
+          }}
         >
           {items.map((item, i) => (
             <motion.div
@@ -41,7 +46,6 @@ export default function EventsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.7, delay: (i % 4) * 0.08, ease: [0.25, 0.1, 0.25, 1] }}
-              whileHover={{ y: -8 }}
               className="relative flex-shrink-0 snap-start rounded-[24px] sm:rounded-[32px] md:rounded-[40px] overflow-hidden border-2 border-[#D7E2EA]/30 hover:border-[#f1552d] transition-colors duration-300 group"
               style={{
                 background: '#141414',
