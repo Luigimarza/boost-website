@@ -8,7 +8,7 @@ import { EVENTS } from '../data/events';
 
 export default function EventPage() {
   const { slug } = useParams();
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const meta = t.events.list.find((e) => e.slug === slug);
   const data = EVENTS.find((e) => e.slug === slug);
 
@@ -26,10 +26,18 @@ export default function EventPage() {
     );
   }
 
+  const metaItems = [
+    { label: t.events.dateLabel, value: data.date[lang] },
+    { label: t.events.locationLabel, value: data.location },
+    { label: t.events.attendanceLabel, value: data.attendance },
+    { label: t.events.categoryLabel, value: data.category },
+  ];
+
   return (
     <main style={{ background: '#0C0C0C', overflowX: 'clip' }}>
       <NavBar />
 
+      {/* Hero */}
       <section className="relative px-4 sm:px-8 md:px-10 pt-6 sm:pt-12 md:pt-20 pb-8 sm:pb-12">
         <div className="max-w-6xl mx-auto">
           <FadeIn delay={0} y={-10}>
@@ -70,6 +78,7 @@ export default function EventPage() {
         </div>
       </section>
 
+      {/* Cover */}
       <section className="px-4 sm:px-8 md:px-10 pb-12 sm:pb-16">
         <div className="max-w-6xl mx-auto">
           <motion.img
@@ -85,11 +94,99 @@ export default function EventPage() {
         </div>
       </section>
 
+      {/* About + meta info */}
+      <section className="px-4 sm:px-8 md:px-10 pb-12 sm:pb-20">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 sm:gap-12 md:gap-16">
+          <div className="md:col-span-7">
+            <FadeIn delay={0} y={20}>
+              <span className="block text-[#f1552d] uppercase tracking-widest text-[11px] sm:text-sm mb-4 sm:mb-6">
+                {t.events.aboutTitle}
+              </span>
+            </FadeIn>
+            <FadeIn delay={0.05} y={20}>
+              <p
+                className="text-[#D7E2EA] font-medium leading-relaxed"
+                style={{ fontSize: 'clamp(1rem, 1.7vw, 1.45rem)' }}
+              >
+                {data.description[lang]}
+              </p>
+            </FadeIn>
+          </div>
+
+          <div className="md:col-span-5">
+            <FadeIn delay={0.1} y={20}>
+              <div
+                className="rounded-[20px] sm:rounded-[32px] md:rounded-[40px] border-2 border-[#D7E2EA]/20 p-5 sm:p-7 md:p-8 flex flex-col gap-4 sm:gap-5"
+                style={{ background: 'rgba(215, 226, 234, 0.03)' }}
+              >
+                {metaItems.map((item, i) => (
+                  <div
+                    key={item.label}
+                    className={`flex items-center justify-between gap-4 ${
+                      i < metaItems.length - 1 ? 'pb-4 sm:pb-5 border-b border-[#D7E2EA]/15' : ''
+                    }`}
+                  >
+                    <span className="text-[#D7E2EA]/50 uppercase tracking-widest text-[10px] sm:text-xs">
+                      {item.label}
+                    </span>
+                    <span className="text-[#D7E2EA] font-medium text-right text-sm sm:text-base">
+                      {item.value}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats / Results */}
       <section className="px-4 sm:px-8 md:px-10 pb-12 sm:pb-20">
         <div className="max-w-6xl mx-auto">
           <FadeIn delay={0} y={20}>
-            <h2 className="text-[#D7E2EA] uppercase tracking-widest text-[11px] sm:text-sm mb-4 sm:mb-6">
-              {t.common.gallery}
+            <h2
+              className="hero-heading font-black uppercase leading-none mb-6 sm:mb-10"
+              style={{ fontSize: 'clamp(1.8rem, 6vw, 5rem)' }}
+            >
+              {t.events.resultsTitle}
+            </h2>
+          </FadeIn>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-5">
+            {data.stats.map((stat, i) => (
+              <motion.div
+                key={stat.value + stat.label.it}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: i * 0.08 }}
+                className="rounded-[20px] sm:rounded-[32px] md:rounded-[40px] border-2 border-[#D7E2EA]/20 p-5 sm:p-7 md:p-8 flex flex-col justify-between min-h-[140px] sm:min-h-[180px] md:min-h-[220px] transition-colors duration-300 hover:border-[#f1552d]"
+                style={{ background: 'rgba(215, 226, 234, 0.03)' }}
+              >
+                <span
+                  className="text-[#f1552d] font-black leading-none"
+                  style={{ fontSize: 'clamp(2.4rem, 6vw, 4.5rem)' }}
+                >
+                  {stat.value}
+                </span>
+                <span className="text-[#D7E2EA]/70 uppercase tracking-widest text-[10px] sm:text-xs mt-3 sm:mt-5">
+                  {stat.label[lang]}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery */}
+      <section className="px-4 sm:px-8 md:px-10 pb-12 sm:pb-20">
+        <div className="max-w-6xl mx-auto">
+          <FadeIn delay={0} y={20}>
+            <h2
+              className="hero-heading font-black uppercase leading-none mb-6 sm:mb-10"
+              style={{ fontSize: 'clamp(1.8rem, 6vw, 5rem)' }}
+            >
+              {t.events.galleryTitle}
             </h2>
           </FadeIn>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-5">
@@ -99,7 +196,7 @@ export default function EventPage() {
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
+                transition={{ duration: 0.6, delay: (i % 3) * 0.1 }}
                 src={src}
                 alt={`${meta.name} ${i + 1}`}
                 loading="lazy"
@@ -111,6 +208,7 @@ export default function EventPage() {
         </div>
       </section>
 
+      {/* CTA */}
       <section className="px-4 sm:px-8 md:px-10 pb-16 sm:pb-24 md:pb-32">
         <div className="max-w-3xl mx-auto text-center flex flex-col items-center gap-6 sm:gap-8">
           <FadeIn delay={0} y={20}>

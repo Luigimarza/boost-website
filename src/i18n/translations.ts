@@ -9,6 +9,13 @@ export type Dict = {
     title: string;
     cta: string;
     backTo: string;
+    aboutTitle: string;
+    resultsTitle: string;
+    galleryTitle: string;
+    dateLabel: string;
+    locationLabel: string;
+    attendanceLabel: string;
+    categoryLabel: string;
     list: { slug: string; name: string; desc: string }[];
   };
   projects: {
@@ -83,6 +90,13 @@ export const translations: Record<Lang, Dict> = {
       title: 'EVENTI',
       cta: 'Scopri di più',
       backTo: 'Torna agli eventi',
+      aboutTitle: "L'evento",
+      resultsTitle: 'Numeri raggiunti',
+      galleryTitle: 'Galleria',
+      dateLabel: 'Data',
+      locationLabel: 'Location',
+      attendanceLabel: 'Affluenza',
+      categoryLabel: 'Categoria',
       list: [
         { slug: 'babbi-in-moto', name: 'Babbi in Moto', desc: 'Una parata di Babbi Natale in moto che attraversa la città per portare sorrisi e raccolta fondi.' },
         { slug: 'oktoberland', name: 'Oktoberland', desc: 'La festa della birra più grande del territorio: musica, food e atmosfera bavarese.' },
@@ -165,6 +179,13 @@ export const translations: Record<Lang, Dict> = {
       title: 'EVENTS',
       cta: 'Discover more',
       backTo: 'Back to events',
+      aboutTitle: 'About the event',
+      resultsTitle: 'Results achieved',
+      galleryTitle: 'Gallery',
+      dateLabel: 'Date',
+      locationLabel: 'Location',
+      attendanceLabel: 'Attendance',
+      categoryLabel: 'Category',
       list: [
         { slug: 'babbi-in-moto', name: 'Babbi in Moto', desc: 'A parade of motorcycle Santas riding through the city for smiles and charity.' },
         { slug: 'oktoberland', name: 'Oktoberland', desc: 'The biggest beer festival in the area: music, food and Bavarian atmosphere.' },
