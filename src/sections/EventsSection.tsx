@@ -65,7 +65,7 @@ export default function EventsSection() {
               }}
             >
               <Link to={`/eventi/${item.slug}`} className="block">
-                <div className="relative overflow-hidden" style={{ height: 'clamp(200px, 45vw, 420px)' }}>
+                <div className="relative overflow-hidden" style={{ aspectRatio: '1000 / 1200' }}>
                   <img
                     src={item.cover}
                     alt={item.name}

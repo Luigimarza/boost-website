@@ -103,6 +103,9 @@ export const translations: Record<Lang, Dict> = {
         { slug: 'horrorworld', name: 'HorrorWorld', desc: 'Un parco a tema horror con percorsi spaventosi, attori e attrazioni live.' },
         { slug: 'christmasland', name: 'ChristmasLand', desc: 'Il villaggio di Natale immersivo con luci, mercatini e spettacoli per tutta la famiglia.' },
         { slug: 'fight4naples', name: 'Fight4Naples', desc: 'Evento sportivo di combattimento con i migliori atleti italiani sul ring di Napoli.' },
+        { slug: 'kpop-fest', name: 'K-Pop Fest', desc: 'Il primo grande festival K-Pop del Sud Italia: dance contest, cover band, ospiti internazionali e community.' },
+        { slug: 'mascotte-village', name: 'Mascotte Village', desc: 'Il villaggio di Carnevale con sfilate di mascotte, laboratori, spettacoli dal vivo e parate cittadine.' },
+        { slug: 'wonka-vs-cappellaio', name: 'Wonka vs Cappellaio', desc: "Un'esperienza pasquale immersiva tra Wonka e il Cappellaio Matto: caccia al tesoro, laboratori e show." },
       ],
     },
     projects: {
@@ -192,6 +195,9 @@ export const translations: Record<Lang, Dict> = {
         { slug: 'horrorworld', name: 'HorrorWorld', desc: 'A horror theme park with scary trails, live actors and immersive attractions.' },
         { slug: 'christmasland', name: 'ChristmasLand', desc: 'An immersive Christmas village with lights, markets and family shows.' },
         { slug: 'fight4naples', name: 'Fight4Naples', desc: 'Combat sport event featuring the best Italian fighters on the Naples ring.' },
+        { slug: 'kpop-fest', name: 'K-Pop Fest', desc: 'The first big K-Pop festival in Southern Italy: dance contests, cover bands, international guests and community.' },
+        { slug: 'mascotte-village', name: 'Mascotte Village', desc: 'A Carnival village with mascot parades, kids labs, live shows and city-wide parades.' },
+        { slug: 'wonka-vs-cappellaio', name: 'Wonka vs Cappellaio', desc: "An immersive Easter experience pitting Wonka against the Mad Hatter: treasure hunts, labs and shows." },
       ],
     },
     projects: {
