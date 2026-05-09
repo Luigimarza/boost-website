@@ -12,8 +12,8 @@ const SERVICE_IMAGES = [
   'https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=800&q=80',
 ];
 
-const PREVIEW_W = 480;
-const PREVIEW_H = 320;
+const PREVIEW_W = 320;
+const PREVIEW_H = 200;
 
 export default function ServicesSection() {
   const { t } = useLanguage();
