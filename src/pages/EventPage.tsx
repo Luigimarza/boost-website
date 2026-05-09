@@ -152,7 +152,10 @@ export default function EventPage() {
             </h2>
           </FadeIn>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-5">
+          <div
+            className="grid gap-3 sm:gap-4 md:gap-5"
+            style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))' }}
+          >
             {data.stats.map((stat, i) => (
               <motion.div
                 key={stat.value + stat.label.it}
