@@ -1,5 +1,14 @@
 import { motion, type HTMLMotionProps } from 'framer-motion';
-import type { ElementType, ReactNode } from 'react';
+import { useMemo, type ElementType, type ReactNode } from 'react';
+
+const motionCache = new Map<ElementType, ElementType>();
+function getMotionTag(as: ElementType): ElementType {
+  const cached = motionCache.get(as);
+  if (cached) return cached;
+  const created = motion.create(as as ElementType) as ElementType;
+  motionCache.set(as, created);
+  return created;
+}
 
 type FadeInProps = {
   as?: ElementType;
@@ -23,7 +32,7 @@ export default function FadeIn({
   children,
   ...rest
 }: FadeInProps) {
-  const MotionTag = motion.create(as as ElementType) as ElementType;
+  const MotionTag = useMemo(() => getMotionTag(as), [as]);
   return (
     <MotionTag
       className={className}

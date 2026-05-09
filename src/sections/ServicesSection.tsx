@@ -12,8 +12,8 @@ const SERVICE_IMAGES = [
   'https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=800&q=80',
 ];
 
-const PREVIEW_W = 280;
-const PREVIEW_H = 360;
+const PREVIEW_W = 480;
+const PREVIEW_H = 320;
 
 export default function ServicesSection() {
   const { t } = useLanguage();
@@ -104,7 +104,7 @@ export default function ServicesSection() {
       {/* Cursor follow preview — desktop only */}
       <motion.div
         aria-hidden="true"
-        className="hidden md:block pointer-events-none absolute top-0 left-0 z-30 rounded-[24px] overflow-hidden shadow-2xl"
+        className="hidden md:block pointer-events-none absolute top-0 left-0 z-30 overflow-hidden shadow-2xl"
         style={{
           x: springX,
           y: springY,
