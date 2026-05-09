@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import FadeIn from '../components/FadeIn';
 import AnimatedText from '../components/AnimatedText';
 import Magnet from '../components/Magnet';
@@ -103,6 +104,30 @@ export default function HeroSection() {
         <FadeIn delay={0.5} y={20}>
           <ContactButton label={t.hero.cta} href="#contact" />
         </FadeIn>
+      </div>
+
+      {/* Desktop only — clients logo bar (slow horizontal marquee) */}
+      <div
+        className="hidden md:block relative z-20 mt-6 lg:mt-8 overflow-hidden w-full"
+        style={{ height: 'clamp(60px, 6vw, 110px)' }}
+        aria-hidden="true"
+      >
+        <motion.div
+          className="flex items-center h-full will-change-transform"
+          style={{ width: 'max-content' }}
+          animate={{ x: ['0%', '-50%'] }}
+          transition={{ duration: 50, ease: 'linear', repeat: Infinity }}
+        >
+          {[0, 1].map((i) => (
+            <img
+              key={i}
+              src="/clients-bar.png"
+              alt=""
+              draggable={false}
+              className="h-full w-auto select-none pointer-events-none flex-shrink-0"
+            />
+          ))}
+        </motion.div>
       </div>
 
     </section>
