@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 
 const GIFS = [
   '/test-card.gif',
-  'https://motionsites.ai/assets/hero-codenest-preview-Cgppc2qV.gif',
+  '/marquee/cose-fighe.gif',
   'https://motionsites.ai/assets/hero-vex-ventures-preview-BczMFIiw.gif',
   'https://motionsites.ai/assets/hero-stellar-ai-v2-preview-DjvxjG3C.gif',
   'https://motionsites.ai/assets/hero-asme-preview-B_nGDnTP.gif',
@@ -12,7 +12,7 @@ const GIFS = [
   'https://motionsites.ai/assets/hero-skyelite-preview-DHaZIgUv.gif',
   'https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif',
   'https://motionsites.ai/assets/hero-designpro-preview-D8c5_een.gif',
-  'https://motionsites.ai/assets/hero-stellar-ai-preview-D3HL6bw1.gif',
+  '/marquee/be-visible.jpg',
   'https://motionsites.ai/assets/hero-xportfolio-preview-D4A8maiC.gif',
   'https://motionsites.ai/assets/hero-orbit-web3-preview-BXt4OttD.gif',
   'https://motionsites.ai/assets/hero-nexora-preview-cx5HmUgo.gif',
