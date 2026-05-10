@@ -13,6 +13,7 @@ export default function HeroSection() {
   const { t } = useLanguage();
 
   return (
+    <>
     <section
       className="relative md:min-h-screen flex flex-col"
       style={{ overflowX: 'clip' }}
@@ -106,10 +107,13 @@ export default function HeroSection() {
         </FadeIn>
       </div>
 
+      </section>
+
       {/* Desktop only — clients logo bar (seamless horizontal marquee with edge fade) */}
       <div
-        className="hidden md:block relative z-20 mt-24 lg:mt-32 xl:mt-40 overflow-hidden w-full"
+        className="hidden md:block relative z-20 overflow-hidden w-full -mt-2 lg:-mt-4"
         style={{
+          background: '#0C0C0C',
           height: 'clamp(150px, 14vw, 260px)',
           maskImage:
             'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
@@ -121,7 +125,8 @@ export default function HeroSection() {
         <motion.div
           className="flex items-center h-full will-change-transform"
           style={{ width: 'max-content' }}
-          animate={{ x: ['0%', '-50%'] }}
+          initial={{ x: 0 }}
+          animate={{ x: '-50%' }}
           transition={{ duration: 22, ease: 'linear', repeat: Infinity, repeatType: 'loop' }}
         >
           {[0, 1].map((i) => (
@@ -135,7 +140,6 @@ export default function HeroSection() {
           ))}
         </motion.div>
       </div>
-
-    </section>
+    </>
   );
 }
