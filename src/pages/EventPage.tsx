@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import NavBar from '../components/NavBar';
@@ -6,11 +7,15 @@ import ContactButton from '../components/ContactButton';
 import { useLanguage } from '../i18n/LanguageContext';
 import { EVENTS } from '../data/events';
 
+const GALLERY_INITIAL = 9;
+const GALLERY_STEP = 9;
+
 export default function EventPage() {
   const { slug } = useParams();
   const { t, lang } = useLanguage();
   const meta = t.events.list.find((e) => e.slug === slug);
   const data = EVENTS.find((e) => e.slug === slug);
+  const [galleryVisible, setGalleryVisible] = useState(GALLERY_INITIAL);
 
   if (!meta || !data) {
     return (
@@ -193,21 +198,43 @@ export default function EventPage() {
             </h2>
           </FadeIn>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-5">
-            {data.gallery.map((src, i) => (
-              <motion.img
+            {data.gallery.slice(0, galleryVisible).map((src, i) => (
+              <motion.div
                 key={src}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: (i % 3) * 0.1 }}
-                src={src}
-                alt={`${meta.name} ${i + 1}`}
-                loading="lazy"
-                className="w-full object-cover rounded-[16px] sm:rounded-[32px] md:rounded-[40px]"
-                style={{ height: 'clamp(180px, 26vw, 360px)' }}
-              />
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.6, delay: (i % 3) * 0.08 }}
+                className="overflow-hidden rounded-[16px] sm:rounded-[32px] md:rounded-[40px] bg-[#1a1a1a]"
+                style={{ aspectRatio: '4 / 3' }}
+              >
+                <img
+                  src={src}
+                  alt={`${meta.name} ${i + 1}`}
+                  loading="lazy"
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
             ))}
           </div>
+
+          {data.gallery.length > GALLERY_INITIAL && (
+            <div className="flex justify-center mt-8 sm:mt-12">
+              <button
+                type="button"
+                onClick={() =>
+                  setGalleryVisible((v) =>
+                    v >= data.gallery.length ? GALLERY_INITIAL : v + GALLERY_STEP
+                  )
+                }
+                className="inline-flex items-center gap-2 border-2 border-[#D7E2EA]/30 hover:border-[#f1552d] hover:text-[#f1552d] text-[#D7E2EA] uppercase tracking-widest text-xs sm:text-sm font-medium px-6 sm:px-8 py-3 sm:py-4 rounded-full transition-colors duration-200"
+              >
+                {galleryVisible >= data.gallery.length
+                  ? t.events.galleryShowLess
+                  : t.events.galleryViewMore}
+              </button>
+            </div>
+          )}
         </div>
       </section>
 

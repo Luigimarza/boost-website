@@ -12,6 +12,8 @@ export type Dict = {
     aboutTitle: string;
     resultsTitle: string;
     galleryTitle: string;
+    galleryViewMore: string;
+    galleryShowLess: string;
     dateLabel: string;
     locationLabel: string;
     attendanceLabel: string;
@@ -116,6 +118,8 @@ export const translations: Record<Lang, Dict> = {
       aboutTitle: "L'evento",
       resultsTitle: 'Numeri raggiunti',
       galleryTitle: 'Galleria',
+      galleryViewMore: 'Visualizza di più',
+      galleryShowLess: 'Mostra meno',
       dateLabel: 'Data',
       locationLabel: 'Location',
       attendanceLabel: 'Affluenza',
@@ -244,6 +248,8 @@ export const translations: Record<Lang, Dict> = {
       aboutTitle: 'About the event',
       resultsTitle: 'Results achieved',
       galleryTitle: 'Gallery',
+      galleryViewMore: 'View more',
+      galleryShowLess: 'Show less',
       dateLabel: 'Date',
       locationLabel: 'Location',
       attendanceLabel: 'Attendance',
