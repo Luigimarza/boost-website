@@ -112,67 +112,64 @@ export default function EventPage() {
         </div>
       </section>
 
-      {/* Cover */}
-      <section className="px-4 sm:px-8 md:px-10 pb-12 sm:pb-16">
-        <div className="max-w-6xl mx-auto">
-          <motion.img
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            src={data.cover}
-            alt={meta.name}
-            fetchPriority="high"
-            decoding="async"
-            className="w-full object-cover rounded-[20px] sm:rounded-[40px] md:rounded-[60px]"
-            style={{ height: 'clamp(220px, 45vw, 680px)' }}
-          />
+      {/* Cover (portrait) + meta info side-by-side */}
+      <section className="px-4 sm:px-8 md:px-10 pb-8 sm:pb-12">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 items-stretch">
+          <FadeIn delay={0} y={30}>
+            <motion.img
+              initial={{ opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              src={data.cover}
+              alt={meta.name}
+              fetchPriority="high"
+              decoding="async"
+              className="w-full h-full object-cover rounded-[20px] sm:rounded-[32px] md:rounded-[40px]"
+              style={{ aspectRatio: '4 / 5' }}
+            />
+          </FadeIn>
+
+          <FadeIn delay={0.1} y={30}>
+            <div
+              className="h-full rounded-[20px] sm:rounded-[32px] md:rounded-[40px] border-2 border-[#D7E2EA]/20 p-5 sm:p-7 md:p-9 flex flex-col justify-center gap-4 sm:gap-5"
+              style={{ background: 'rgba(215, 226, 234, 0.03)' }}
+            >
+              {metaItems.map((item, i) => (
+                <div
+                  key={item.label}
+                  className={`flex items-center justify-between gap-4 ${
+                    i < metaItems.length - 1 ? 'pb-4 sm:pb-5 border-b border-[#D7E2EA]/15' : ''
+                  }`}
+                >
+                  <span className="text-[#D7E2EA]/50 uppercase tracking-widest text-[10px] sm:text-xs">
+                    {item.label}
+                  </span>
+                  <span className="text-[#D7E2EA] font-medium text-right text-sm sm:text-base">
+                    {item.value}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </FadeIn>
         </div>
       </section>
 
-      {/* About + meta info */}
+      {/* Description full-width below */}
       <section className="px-4 sm:px-8 md:px-10 pb-12 sm:pb-20">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 sm:gap-12 md:gap-16">
-          <div className="md:col-span-7">
-            <FadeIn delay={0} y={20}>
-              <span className="block text-[#f1552d] uppercase tracking-widest text-[11px] sm:text-sm mb-4 sm:mb-6">
-                {t.events.aboutTitle}
-              </span>
-            </FadeIn>
-            <FadeIn delay={0.05} y={20}>
-              <p
-                className="text-[#D7E2EA] font-medium leading-relaxed"
-                style={{ fontSize: 'clamp(1rem, 1.7vw, 1.45rem)' }}
-              >
-                {data.description[lang]}
-              </p>
-            </FadeIn>
-          </div>
-
-          <div className="md:col-span-5">
-            <FadeIn delay={0.1} y={20}>
-              <div
-                className="rounded-[20px] sm:rounded-[32px] md:rounded-[40px] border-2 border-[#D7E2EA]/20 p-5 sm:p-7 md:p-8 flex flex-col gap-4 sm:gap-5"
-                style={{ background: 'rgba(215, 226, 234, 0.03)' }}
-              >
-                {metaItems.map((item, i) => (
-                  <div
-                    key={item.label}
-                    className={`flex items-center justify-between gap-4 ${
-                      i < metaItems.length - 1 ? 'pb-4 sm:pb-5 border-b border-[#D7E2EA]/15' : ''
-                    }`}
-                  >
-                    <span className="text-[#D7E2EA]/50 uppercase tracking-widest text-[10px] sm:text-xs">
-                      {item.label}
-                    </span>
-                    <span className="text-[#D7E2EA] font-medium text-right text-sm sm:text-base">
-                      {item.value}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </FadeIn>
-          </div>
+        <div className="max-w-6xl mx-auto">
+          <FadeIn delay={0} y={20}>
+            <span className="block text-[#f1552d] uppercase tracking-widest text-[11px] sm:text-sm mb-4 sm:mb-6">
+              {t.events.aboutTitle}
+            </span>
+          </FadeIn>
+          <FadeIn delay={0.05} y={20}>
+            <p
+              className="text-[#D7E2EA] font-medium leading-relaxed max-w-4xl"
+              style={{ fontSize: 'clamp(1rem, 1.7vw, 1.45rem)' }}
+            >
+              {data.description[lang]}
+            </p>
+          </FadeIn>
         </div>
       </section>
 
