@@ -112,7 +112,7 @@ export default function EventPage() {
         </div>
       </section>
 
-      {/* Cover (portrait) + meta info side-by-side */}
+      {/* Cover (portrait) left + info/results stack right */}
       <section className="px-4 sm:px-8 md:px-10 pb-8 sm:pb-12">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 items-stretch">
           <FadeIn delay={0} y={30}>
@@ -129,28 +129,64 @@ export default function EventPage() {
             />
           </FadeIn>
 
-          <FadeIn delay={0.1} y={30}>
-            <div
-              className="h-full rounded-[20px] sm:rounded-[32px] md:rounded-[40px] border-2 border-[#D7E2EA]/20 p-5 sm:p-7 md:p-9 flex flex-col justify-center gap-4 sm:gap-5"
-              style={{ background: 'rgba(215, 226, 234, 0.03)' }}
-            >
-              {metaItems.map((item, i) => (
-                <div
-                  key={item.label}
-                  className={`flex items-center justify-between gap-4 ${
-                    i < metaItems.length - 1 ? 'pb-4 sm:pb-5 border-b border-[#D7E2EA]/15' : ''
-                  }`}
-                >
-                  <span className="text-[#D7E2EA]/50 uppercase tracking-widest text-[10px] sm:text-xs">
-                    {item.label}
-                  </span>
-                  <span className="text-[#D7E2EA] font-medium text-right text-sm sm:text-base">
-                    {item.value}
-                  </span>
+          <div className="flex flex-col gap-4 sm:gap-5 md:gap-6 h-full">
+            <FadeIn delay={0.1} y={30}>
+              <div
+                className="rounded-[20px] sm:rounded-[28px] md:rounded-[32px] border-2 border-[#D7E2EA]/20 p-5 sm:p-6 md:p-7 flex flex-col gap-3 sm:gap-4"
+                style={{ background: 'rgba(215, 226, 234, 0.03)' }}
+              >
+                {metaItems.map((item, i) => (
+                  <div
+                    key={item.label}
+                    className={`flex items-center justify-between gap-4 ${
+                      i < metaItems.length - 1 ? 'pb-3 sm:pb-4 border-b border-[#D7E2EA]/15' : ''
+                    }`}
+                  >
+                    <span className="text-[#D7E2EA]/50 uppercase tracking-widest text-[10px] sm:text-xs">
+                      {item.label}
+                    </span>
+                    <span className="text-[#D7E2EA] font-medium text-right text-sm sm:text-base">
+                      {item.value}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={0.2} y={30}>
+              <div
+                className="rounded-[20px] sm:rounded-[28px] md:rounded-[32px] border-2 border-[#D7E2EA]/20 p-5 sm:p-6 md:p-7 flex flex-col gap-3 sm:gap-4"
+                style={{ background: 'rgba(215, 226, 234, 0.03)' }}
+              >
+                <span className="text-[#f1552d] uppercase tracking-widest text-[10px] sm:text-xs mb-1">
+                  {t.events.resultsTitle}
+                </span>
+                <div className="grid grid-cols-3 gap-2 sm:gap-3">
+                  {data.stats.map((stat, i) => (
+                    <motion.div
+                      key={stat.value + stat.label.it}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.3 }}
+                      transition={{ duration: 0.5, delay: i * 0.06 }}
+                      className="rounded-[14px] sm:rounded-[18px] md:rounded-[22px] border border-[#D7E2EA]/15 p-3 sm:p-4 flex flex-col justify-between min-h-[80px] sm:min-h-[110px] transition-colors duration-300 hover:border-[#f1552d]"
+                      style={{ background: 'rgba(215, 226, 234, 0.04)' }}
+                    >
+                      <span
+                        className="text-[#f1552d] font-black leading-none break-words"
+                        style={{ fontSize: 'clamp(1.05rem, 2.6vw, 1.9rem)' }}
+                      >
+                        {stat.value}
+                      </span>
+                      <span className="text-[#D7E2EA]/70 uppercase tracking-wider text-[8px] sm:text-[10px] mt-2 leading-tight">
+                        {stat.label[lang]}
+                      </span>
+                    </motion.div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </FadeIn>
+              </div>
+            </FadeIn>
+          </div>
         </div>
       </section>
 
@@ -170,47 +206,6 @@ export default function EventPage() {
               {data.description[lang]}
             </p>
           </FadeIn>
-        </div>
-      </section>
-
-      {/* Stats / Results */}
-      <section className="px-4 sm:px-8 md:px-10 pb-12 sm:pb-20">
-        <div className="max-w-6xl mx-auto">
-          <FadeIn delay={0} y={20}>
-            <h2
-              className="hero-heading font-black uppercase leading-none mb-6 sm:mb-10"
-              style={{ fontSize: 'clamp(1.8rem, 6vw, 5rem)' }}
-            >
-              {t.events.resultsTitle}
-            </h2>
-          </FadeIn>
-
-          <div
-            className="grid gap-3 sm:gap-4 md:gap-5"
-            style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))' }}
-          >
-            {data.stats.map((stat, i) => (
-              <motion.div
-                key={stat.value + stat.label.it}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.6, delay: i * 0.08 }}
-                className="rounded-[20px] sm:rounded-[32px] md:rounded-[40px] border-2 border-[#D7E2EA]/20 p-5 sm:p-7 md:p-8 flex flex-col justify-between min-h-[140px] sm:min-h-[180px] md:min-h-[220px] transition-colors duration-300 hover:border-[#f1552d]"
-                style={{ background: 'rgba(215, 226, 234, 0.03)' }}
-              >
-                <span
-                  className="text-[#f1552d] font-black leading-none"
-                  style={{ fontSize: 'clamp(2.4rem, 6vw, 4.5rem)' }}
-                >
-                  {stat.value}
-                </span>
-                <span className="text-[#D7E2EA]/70 uppercase tracking-widest text-[10px] sm:text-xs mt-3 sm:mt-5">
-                  {stat.label[lang]}
-                </span>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
