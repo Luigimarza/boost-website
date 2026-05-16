@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p \"/c/Users/luigi/.claude/projects/c--Users-luigi-OneDrive-Desktop-BOOST-WEBSITE/memory\")",
+      "Read(//c/Users/luigi/.claude/projects/c--Users-luigi-OneDrive-Desktop-BOOST-WEBSITE/**)"
+    ]
+  }
+}
