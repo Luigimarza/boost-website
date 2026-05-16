@@ -122,6 +122,8 @@ export default function EventPage() {
             transition={{ duration: 0.7 }}
             src={data.cover}
             alt={meta.name}
+            fetchPriority="high"
+            decoding="async"
             className="w-full object-cover rounded-[20px] sm:rounded-[40px] md:rounded-[60px]"
             style={{ height: 'clamp(220px, 45vw, 680px)' }}
           />
@@ -244,6 +246,7 @@ export default function EventPage() {
                   src={src}
                   alt={`${meta.name} ${i + 1}`}
                   loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                 />
               </motion.button>
@@ -346,6 +349,8 @@ export default function EventPage() {
               transition={{ duration: 0.2 }}
               src={data.gallery[lightboxIndex]}
               alt={`${meta.name} ${lightboxIndex + 1}`}
+              fetchPriority="high"
+              decoding="async"
               onClick={(e) => e.stopPropagation()}
               className="max-w-[92vw] max-h-[88vh] object-contain rounded-xl shadow-2xl select-none"
               draggable={false}
