@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import NavBar from '../components/NavBar';
 import FadeIn from '../components/FadeIn';
 import ContactButton from '../components/ContactButton';
@@ -16,6 +16,35 @@ export default function EventPage() {
   const meta = t.events.list.find((e) => e.slug === slug);
   const data = EVENTS.find((e) => e.slug === slug);
   const [galleryVisible, setGalleryVisible] = useState(GALLERY_INITIAL);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  const galleryLen = data?.gallery.length ?? 0;
+
+  const closeLightbox = useCallback(() => setLightboxIndex(null), []);
+  const prevLightbox = useCallback(
+    () => setLightboxIndex((i) => (i === null ? null : (i - 1 + galleryLen) % galleryLen)),
+    [galleryLen]
+  );
+  const nextLightbox = useCallback(
+    () => setLightboxIndex((i) => (i === null ? null : (i + 1) % galleryLen)),
+    [galleryLen]
+  );
+
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeLightbox();
+      else if (e.key === 'ArrowLeft') prevLightbox();
+      else if (e.key === 'ArrowRight') nextLightbox();
+    };
+    window.addEventListener('keydown', onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [lightboxIndex, closeLightbox, prevLightbox, nextLightbox]);
 
   if (!meta || !data) {
     return (
@@ -199,22 +228,25 @@ export default function EventPage() {
           </FadeIn>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-5">
             {data.gallery.slice(0, galleryVisible).map((src, i) => (
-              <motion.div
+              <motion.button
+                type="button"
                 key={src}
+                onClick={() => setLightboxIndex(i)}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.6, delay: (i % 3) * 0.08 }}
-                className="overflow-hidden rounded-[16px] sm:rounded-[32px] md:rounded-[40px] bg-[#1a1a1a]"
+                className="group relative overflow-hidden rounded-[16px] sm:rounded-[32px] md:rounded-[40px] bg-[#1a1a1a] cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-[#f1552d]"
                 style={{ aspectRatio: '4 / 3' }}
+                aria-label={`${meta.name} ${i + 1}`}
               >
                 <img
                   src={src}
                   alt={`${meta.name} ${i + 1}`}
                   loading="lazy"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                 />
-              </motion.div>
+              </motion.button>
             ))}
           </div>
 
@@ -254,6 +286,77 @@ export default function EventPage() {
           </FadeIn>
         </div>
       </section>
+
+      <AnimatePresence>
+        {lightboxIndex !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-sm flex items-center justify-center"
+            onClick={closeLightbox}
+            role="dialog"
+            aria-modal="true"
+          >
+            <button
+              type="button"
+              onClick={closeLightbox}
+              aria-label="Close"
+              className="absolute top-4 right-4 sm:top-6 sm:right-6 z-10 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-[#f1552d] text-white flex items-center justify-center transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#f1552d]"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
+              </svg>
+            </button>
+
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                prevLightbox();
+              }}
+              aria-label="Previous"
+              className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-10 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-white/10 hover:bg-[#f1552d] text-white flex items-center justify-center transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#f1552d]"
+            >
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M15 6l-6 6 6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                nextLightbox();
+              }}
+              aria-label="Next"
+              className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-10 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-white/10 hover:bg-[#f1552d] text-white flex items-center justify-center transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#f1552d]"
+            >
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+
+            <motion.img
+              key={data.gallery[lightboxIndex]}
+              initial={{ opacity: 0, scale: 0.97 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              src={data.gallery[lightboxIndex]}
+              alt={`${meta.name} ${lightboxIndex + 1}`}
+              onClick={(e) => e.stopPropagation()}
+              className="max-w-[92vw] max-h-[88vh] object-contain rounded-xl shadow-2xl select-none"
+              draggable={false}
+            />
+
+            <span className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 text-white/70 text-xs sm:text-sm uppercase tracking-widest">
+              {lightboxIndex + 1} / {galleryLen}
+            </span>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </main>
   );
 }
