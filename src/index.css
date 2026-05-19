@@ -1,3 +1,5 @@
+@import './styles/tokens.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -13,8 +15,9 @@
 html,
 body,
 #root {
-  background: #0c0c0c;
-  font-family: 'Kanit', sans-serif;
+  background: var(--surface-0);
+  color: var(--fg-1);
+  font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -23,12 +26,22 @@ html {
   scroll-behavior: smooth;
 }
 
+h1, h2, h3, h4, h5, h6,
+.h-display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
 .hero-heading {
-  background: linear-gradient(180deg, #646973 0%, #bbccd7 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 0.92;
+  color: var(--fg-1);
 }
 
 .scrollbar-hide::-webkit-scrollbar {
@@ -53,6 +66,6 @@ html {
 input:-webkit-autofill,
 textarea:-webkit-autofill,
 select:-webkit-autofill {
-  -webkit-text-fill-color: #0c0c0c;
-  -webkit-box-shadow: 0 0 0 1000px #ffffff inset;
+  -webkit-text-fill-color: #111010;
+  -webkit-box-shadow: 0 0 0 1000px #F2EDE8 inset;
 }

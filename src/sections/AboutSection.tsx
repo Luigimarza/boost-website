@@ -44,7 +44,7 @@ export default function AboutSection() {
 
         <AnimatedText
           text={t.about.body}
-          className="text-[#D7E2EA] font-medium text-center leading-relaxed mx-auto"
+          className="text-[#F2EDE8] font-medium text-center leading-relaxed mx-auto"
           style={{ fontSize: 'clamp(1.2rem, 4vw, 1.6rem)' }}
         />
 

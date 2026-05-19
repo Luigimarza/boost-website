@@ -29,27 +29,27 @@ function ProjectCard({
       style={{ top: `calc(5rem + ${index * 20}px)`, height: '85vh' }}
     >
       <motion.div
-        style={{ scale, background: '#0C0C0C' }}
-        className="w-full max-w-[1400px] mx-auto rounded-[24px] sm:rounded-[40px] md:rounded-[60px] border-2 border-[#D7E2EA] p-3 sm:p-6 md:p-8 transition-colors duration-300 hover:border-[#f1552d]"
+        style={{ scale, background: '#111010' }}
+        className="w-full max-w-[1400px] mx-auto rounded-[2px] sm:rounded-[2px] md:rounded-[2px] border border-white/10 p-3 sm:p-6 md:p-8 transition-colors duration-300 hover:border-[#F1552D]"
       >
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4 mb-3 sm:mb-6 md:mb-8 px-1 sm:px-4">
           <div className="flex items-center gap-3 sm:gap-6 md:gap-8 min-w-0">
             <span
               className="font-black flex-shrink-0"
-              style={{ color: '#D7E2EA', fontSize: 'clamp(2rem, 7vw, 110px)', lineHeight: 1 }}
+              style={{ color: '#F2EDE8', fontSize: 'clamp(2rem, 7vw, 110px)', lineHeight: 1 }}
             >
               {project.n}
             </span>
             <div className="flex flex-col gap-1 sm:gap-1.5 min-w-0">
               <span
-                className="text-[#f1552d] font-medium uppercase tracking-widest"
+                className="text-[#F1552D] font-medium uppercase tracking-widest"
                 style={{ fontSize: 'clamp(0.6rem, 1vw, 0.95rem)' }}
               >
                 {categoryLabel}
               </span>
               <h3
-                className="text-[#D7E2EA] font-medium uppercase truncate"
+                className="text-[#F2EDE8] font-medium uppercase truncate"
                 style={{ fontSize: 'clamp(0.85rem, 2.2vw, 2rem)', lineHeight: 1.1 }}
               >
                 {project.name}
@@ -59,7 +59,7 @@ function ProjectCard({
                   {project.service.split('·').map((s) => (
                     <span
                       key={s.trim()}
-                      className="inline-flex items-center rounded-full border border-[#D7E2EA]/40 text-[#D7E2EA] uppercase tracking-widest font-medium px-2.5 py-0.5 sm:px-3 sm:py-1"
+                      className="inline-flex items-center rounded-full border border-white/20 text-[#F2EDE8] uppercase tracking-widest font-medium px-2.5 py-0.5 sm:px-3 sm:py-1"
                       style={{ fontSize: 'clamp(0.55rem, 0.85vw, 0.8rem)' }}
                     >
                       {s.trim()}
@@ -85,14 +85,14 @@ function ProjectCard({
               src={project.col1Top}
               alt={`${project.name} preview 1`}
               loading="lazy"
-              className="w-full object-cover rounded-[16px] sm:rounded-[40px] md:rounded-[60px]"
+              className="w-full object-cover rounded-[2px] sm:rounded-[2px] md:rounded-[2px]"
               style={{ height: 'clamp(100px, 14vw, 230px)' }}
             />
             <img
               src={project.col1Bottom}
               alt={`${project.name} preview 2`}
               loading="lazy"
-              className="w-full object-cover rounded-[16px] sm:rounded-[40px] md:rounded-[60px]"
+              className="w-full object-cover rounded-[2px] sm:rounded-[2px] md:rounded-[2px]"
               style={{ height: 'clamp(120px, 18vw, 340px)' }}
             />
           </div>
@@ -101,7 +101,7 @@ function ProjectCard({
               src={project.col2}
               alt={`${project.name} preview 3`}
               loading="lazy"
-              className="w-full h-full object-cover rounded-[16px] sm:rounded-[40px] md:rounded-[60px]"
+              className="w-full h-full object-cover rounded-[2px] sm:rounded-[2px] md:rounded-[2px]"
               style={{ minHeight: 'clamp(180px, 32vw, 590px)' }}
             />
           </div>
@@ -122,8 +122,8 @@ export default function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="relative z-10 -mt-8 sm:-mt-12 md:-mt-14 rounded-t-[24px] sm:rounded-t-[50px] md:rounded-t-[60px] px-3 sm:px-8 md:px-10 py-10 sm:py-16 md:py-24"
-      style={{ background: '#0C0C0C' }}
+      className="relative z-10 -mt-8 sm:-mt-12 md:-mt-14 rounded-t-[24px] sm:rounded-none md:rounded-none px-3 sm:px-8 md:px-10 py-10 sm:py-16 md:py-24"
+      style={{ background: '#111010' }}
     >
       <FadeIn delay={0} y={40}>
         <h2
@@ -150,7 +150,7 @@ export default function ProjectsSection() {
         <div className="flex justify-center mt-10 sm:mt-14 md:mt-16">
           <Link
             to="/progetti"
-            className="inline-flex items-center gap-3 rounded-full border-2 border-[#D7E2EA] text-[#D7E2EA] font-medium uppercase tracking-widest px-8 py-3.5 sm:px-12 sm:py-4 text-sm sm:text-base hover:bg-[#f1552d] hover:border-[#f1552d] hover:text-white transition-colors duration-200"
+            className="inline-flex items-center gap-3 rounded-full border border-white/10 text-[#F2EDE8] font-medium uppercase tracking-widest px-8 py-3.5 sm:px-12 sm:py-4 text-sm sm:text-base hover:bg-[#F1552D] hover:border-[#F1552D] hover:text-white transition-colors duration-200"
           >
             {t.projects.viewAll}
             <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">

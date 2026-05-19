@@ -8,7 +8,7 @@ type LiveProjectButtonProps = {
 };
 
 const classes = (extra: string) =>
-  `inline-flex items-center justify-center rounded-full border-2 border-[#D7E2EA] text-[#D7E2EA] font-medium uppercase tracking-widest px-8 py-3 sm:px-10 sm:py-3.5 text-sm sm:text-base hover:bg-[#f1552d] hover:border-[#f1552d] hover:text-white transition-colors duration-200 ${extra}`;
+  `inline-flex items-center justify-center rounded-full border border-white/20 text-[#F2EDE8] font-display font-extrabold uppercase tracking-[-0.01em] px-8 py-3 sm:px-10 sm:py-3.5 text-sm sm:text-base hover:text-[#F1552D] hover:border-[#F1552D] transition-colors duration-200 ${extra}`;
 
 export default function LiveProjectButton({
   label = 'Live Project',

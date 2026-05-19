@@ -18,7 +18,7 @@ export default function EventsSection() {
     <section
       id="events"
       className="relative py-10 sm:py-16 md:py-24"
-      style={{ background: '#0C0C0C' }}
+      style={{ background: '#111010' }}
     >
       <FadeIn delay={0} y={40}>
         <h2
@@ -46,9 +46,9 @@ export default function EventsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.7, delay: (i % 4) * 0.08, ease: [0.25, 0.1, 0.25, 1] }}
-              className="relative flex-shrink-0 snap-start rounded-[24px] sm:rounded-[32px] md:rounded-[40px] overflow-hidden border-2 border-[#D7E2EA]/30 hover:border-[#f1552d] transition-colors duration-300 group"
+              className="relative flex-shrink-0 snap-start rounded-[2px] sm:rounded-[2px] md:rounded-[2px] overflow-hidden border border-white/10/30 hover:border-[#F1552D] transition-colors duration-300 group"
               style={{
-                background: '#141414',
+                background: '#1E1C1B',
                 width: 'clamp(280px, 22vw, 360px)',
               }}
             >
@@ -68,28 +68,28 @@ export default function EventsSection() {
                     className="absolute inset-0 pointer-events-none"
                     style={{
                       background:
-                        'linear-gradient(180deg, rgba(12,12,12,0) 50%, rgba(12,12,12,0.85) 100%)',
+                        'linear-gradient(180deg, rgba(17,16,16,0) 50%, rgba(17,16,16,0.85) 100%)',
                     }}
                   />
-                  <span className="absolute top-3 left-3 sm:top-4 sm:left-4 inline-flex items-center rounded-full bg-[#f1552d] text-white text-[10px] sm:text-[11px] font-semibold uppercase tracking-widest px-2.5 py-1 sm:px-3">
+                  <span className="absolute top-3 left-3 sm:top-4 sm:left-4 inline-flex items-center rounded-full bg-[#F1552D] text-white text-[10px] sm:text-[11px] font-semibold uppercase tracking-widest px-2.5 py-1 sm:px-3">
                     {item.category}
                   </span>
                 </div>
                 <div className="p-4 sm:p-5 md:p-6 flex flex-col gap-2 sm:gap-3">
-                  <div className="flex items-center justify-between text-[#D7E2EA]/60 text-[11px] sm:text-sm uppercase tracking-widest">
+                  <div className="flex items-center justify-between text-[#F2EDE8]/60 text-[11px] sm:text-sm uppercase tracking-widest">
                     <span>{item.year}</span>
                     <span>{item.location}</span>
                   </div>
                   <h3
-                    className="text-[#D7E2EA] font-bold uppercase leading-tight transition-colors duration-300 group-hover:text-[#f1552d]"
+                    className="text-[#F2EDE8] font-bold uppercase leading-tight transition-colors duration-300 group-hover:text-[#F1552D]"
                     style={{ fontSize: 'clamp(1.05rem, 2.2vw, 1.6rem)' }}
                   >
                     {item.name}
                   </h3>
-                  <p className="text-[#D7E2EA]/70 text-sm leading-relaxed line-clamp-3">
+                  <p className="text-[#F2EDE8]/70 text-sm leading-relaxed line-clamp-3">
                     {item.desc}
                   </p>
-                  <span className="mt-1 inline-flex items-center gap-2 text-[#f1552d] font-medium uppercase tracking-widest text-xs sm:text-sm">
+                  <span className="mt-1 inline-flex items-center gap-2 text-[#F1552D] font-medium uppercase tracking-widest text-xs sm:text-sm">
                     {t.events.cta}
                     <svg width="14" height="10" viewBox="0 0 16 12" fill="none" aria-hidden="true">
                       <path

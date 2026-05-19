@@ -52,17 +52,17 @@ export default function CareersPage() {
   };
 
   const inputClass =
-    'w-full bg-transparent border-b border-[#D7E2EA]/40 text-[#D7E2EA] placeholder-[#D7E2EA]/40 py-3 px-1 text-base outline-none transition-colors duration-300 focus:border-[#f1552d]';
+    'w-full bg-transparent border-b border-white/20 text-[#F2EDE8] placeholder-[#F2EDE8]/40 py-3 px-1 text-base outline-none transition-colors duration-300 focus:border-[#F1552D]';
 
   return (
-    <main style={{ background: '#0C0C0C', overflowX: 'clip' }}>
+    <main style={{ background: '#111010', overflowX: 'clip' }}>
       <NavBar />
 
       {/* Hero */}
       <section className="px-4 sm:px-8 md:px-10 pt-8 sm:pt-14 md:pt-20 pb-8 sm:pb-12">
         <div className="max-w-5xl mx-auto text-center">
           <FadeIn delay={0.05} y={30}>
-            <span className="text-[#f1552d] uppercase tracking-widest text-xs sm:text-sm">
+            <span className="text-[#F1552D] uppercase tracking-widest text-xs sm:text-sm">
               {t.careers.formTitle}
             </span>
           </FadeIn>
@@ -76,14 +76,14 @@ export default function CareersPage() {
           </FadeIn>
           <FadeIn delay={0.2} y={20}>
             <p
-              className="text-[#D7E2EA]/80 mt-5 sm:mt-7 max-w-3xl mx-auto"
+              className="text-[#F2EDE8]/80 mt-5 sm:mt-7 max-w-3xl mx-auto"
               style={{ fontSize: 'clamp(1rem, 1.7vw, 1.35rem)' }}
             >
               {t.careers.subtitle}
             </p>
           </FadeIn>
           <FadeIn delay={0.25} y={20}>
-            <p className="text-[#D7E2EA]/50 mt-3 sm:mt-4 text-sm sm:text-base max-w-2xl mx-auto">
+            <p className="text-[#F2EDE8]/50 mt-3 sm:mt-4 text-sm sm:text-base max-w-2xl mx-auto">
               {t.careers.intro}
             </p>
           </FadeIn>
@@ -99,11 +99,11 @@ export default function CareersPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-            className="rounded-[24px] sm:rounded-[40px] md:rounded-[48px] border-2 border-[#D7E2EA]/20 p-6 sm:p-10 md:p-14 grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-8"
+            className="rounded-[2px] sm:rounded-[2px] md:rounded-[48px] border border-white/10/20 p-6 sm:p-10 md:p-14 grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-8"
             style={{ background: 'rgba(215, 226, 234, 0.03)' }}
           >
             <div>
-              <label className="text-[#D7E2EA]/60 text-[11px] uppercase tracking-widest">
+              <label className="text-[#F2EDE8]/60 text-[11px] uppercase tracking-widest">
                 {t.careers.firstName} *
               </label>
               <input
@@ -114,7 +114,7 @@ export default function CareersPage() {
               />
             </div>
             <div>
-              <label className="text-[#D7E2EA]/60 text-[11px] uppercase tracking-widest">
+              <label className="text-[#F2EDE8]/60 text-[11px] uppercase tracking-widest">
                 {t.careers.lastName} *
               </label>
               <input
@@ -125,7 +125,7 @@ export default function CareersPage() {
               />
             </div>
             <div>
-              <label className="text-[#D7E2EA]/60 text-[11px] uppercase tracking-widest">
+              <label className="text-[#F2EDE8]/60 text-[11px] uppercase tracking-widest">
                 {t.careers.email} *
               </label>
               <input
@@ -137,7 +137,7 @@ export default function CareersPage() {
               />
             </div>
             <div>
-              <label className="text-[#D7E2EA]/60 text-[11px] uppercase tracking-widest">
+              <label className="text-[#F2EDE8]/60 text-[11px] uppercase tracking-widest">
                 {t.careers.phone} *
               </label>
               <input
@@ -150,7 +150,7 @@ export default function CareersPage() {
             </div>
 
             <div className="sm:col-span-2">
-              <label className="text-[#D7E2EA]/60 text-[11px] uppercase tracking-widest">
+              <label className="text-[#F2EDE8]/60 text-[11px] uppercase tracking-widest">
                 {t.careers.role} *
               </label>
               <select
@@ -160,11 +160,11 @@ export default function CareersPage() {
                 className={`${inputClass} appearance-none cursor-pointer`}
                 style={{ backgroundImage: 'none' }}
               >
-                <option value="" disabled className="bg-[#0C0C0C] text-[#D7E2EA]/50">
+                <option value="" disabled className="bg-[#111010] text-[#F2EDE8]/50">
                   {t.careers.rolePlaceholder}
                 </option>
                 {t.careers.roles.map((r) => (
-                  <option key={r} value={r} className="bg-[#0C0C0C] text-[#D7E2EA]">
+                  <option key={r} value={r} className="bg-[#111010] text-[#F2EDE8]">
                     {r}
                   </option>
                 ))}
@@ -172,7 +172,7 @@ export default function CareersPage() {
             </div>
 
             <div className="sm:col-span-2">
-              <label className="text-[#D7E2EA]/60 text-[11px] uppercase tracking-widest">
+              <label className="text-[#F2EDE8]/60 text-[11px] uppercase tracking-widest">
                 {t.careers.portfolio}
               </label>
               <input
@@ -185,7 +185,7 @@ export default function CareersPage() {
             </div>
 
             <div className="sm:col-span-2">
-              <label className="text-[#D7E2EA]/60 text-[11px] uppercase tracking-widest">
+              <label className="text-[#F2EDE8]/60 text-[11px] uppercase tracking-widest">
                 {t.careers.message} *
               </label>
               <textarea
@@ -201,20 +201,12 @@ export default function CareersPage() {
             <div className="sm:col-span-2 flex flex-col items-center gap-4 mt-2 sm:mt-4">
               <button
                 type="submit"
-                className="inline-flex items-center justify-center rounded-full text-white font-medium uppercase tracking-widest px-8 py-3.5 sm:px-14 sm:py-4 text-sm sm:text-base transition-transform duration-300 hover:scale-[1.04] w-full sm:w-auto max-w-xs sm:max-w-none"
-                style={{
-                  background:
-                    'linear-gradient(123deg, #18011F 5%, #7A1A0A 35%, #f1552d 75%, #FFB199 100%)',
-                  boxShadow:
-                    '0px 4px 18px rgba(241, 85, 45, 0.35), 4px 4px 12px rgba(241, 85, 45, 0.55) inset',
-                  outline: '2px solid #FFFFFF',
-                  outlineOffset: '-3px',
-                }}
+                className="inline-flex items-center justify-center rounded-full text-white font-display font-extrabold uppercase tracking-[-0.01em] px-8 py-3.5 sm:px-14 sm:py-4 text-sm sm:text-base bg-[#F1552D] hover:bg-[#FF6A42] active:bg-[#D8421E] active:translate-y-[1px] transition-colors duration-200 w-full sm:w-auto max-w-xs sm:max-w-none"
               >
                 {t.careers.submit}
               </button>
               {sent && (
-                <p className="text-[#f1552d] text-sm uppercase tracking-widest text-center">
+                <p className="text-[#F1552D] text-sm uppercase tracking-widest text-center">
                   {t.careers.success}
                 </p>
               )}

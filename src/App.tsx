@@ -25,7 +25,7 @@ function ScrollManager() {
 
 export default function App() {
   return (
-    <main style={{ background: '#0C0C0C', overflowX: 'clip' }}>
+    <main style={{ background: '#111010', overflowX: 'clip' }}>
       <ScrollManager />
       <Routes>
         <Route path="/" element={<HomePage />} />

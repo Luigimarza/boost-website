@@ -6,7 +6,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 export default function ContactPage() {
   const { t } = useLanguage();
   return (
-    <main style={{ background: '#0C0C0C', overflowX: 'clip' }}>
+    <main style={{ background: '#111010', overflowX: 'clip' }}>
       <NavBar />
 
       <section className="px-4 sm:px-8 md:px-10 pt-8 sm:pt-14 md:pt-20 pb-8 sm:pb-10">
@@ -21,7 +21,7 @@ export default function ContactPage() {
           </FadeIn>
           <FadeIn delay={0.1} y={20}>
             <p
-              className="text-[#D7E2EA]/80 mt-6"
+              className="text-[#F2EDE8]/80 mt-6"
               style={{ fontSize: 'clamp(1rem, 1.8vw, 1.4rem)' }}
             >
               {t.contactPage.subtitle}
@@ -39,21 +39,21 @@ export default function ContactPage() {
           ].map((c, i) => (
             <FadeIn key={c.label} delay={i * 0.1} y={30}>
               <div
-                className="rounded-[20px] sm:rounded-[28px] md:rounded-[32px] border-2 border-[#D7E2EA]/30 hover:border-[#f1552d] transition-colors duration-300 p-5 sm:p-6 md:p-7 h-full"
-                style={{ background: '#141414' }}
+                className="rounded-[2px] sm:rounded-[2px] md:rounded-[2px] border border-white/10/30 hover:border-[#F1552D] transition-colors duration-300 p-5 sm:p-6 md:p-7 h-full"
+                style={{ background: '#1E1C1B' }}
               >
-                <span className="text-[#f1552d] text-xs uppercase tracking-widest font-semibold">
+                <span className="text-[#F1552D] text-xs uppercase tracking-widest font-semibold">
                   {c.label}
                 </span>
                 {c.href ? (
                   <a
                     href={c.href}
-                    className="block mt-3 text-[#D7E2EA] hover:text-[#f1552d] transition-colors duration-200 text-base sm:text-lg break-words"
+                    className="block mt-3 text-[#F2EDE8] hover:text-[#F1552D] transition-colors duration-200 text-base sm:text-lg break-words"
                   >
                     {c.value}
                   </a>
                 ) : (
-                  <span className="block mt-3 text-[#D7E2EA] text-base sm:text-lg">{c.value}</span>
+                  <span className="block mt-3 text-[#F2EDE8] text-base sm:text-lg">{c.value}</span>
                 )}
               </div>
             </FadeIn>

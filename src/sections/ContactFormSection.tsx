@@ -30,13 +30,13 @@ export default function ContactFormSection() {
   };
 
   const inputClass =
-    'w-full bg-transparent border-b border-[#D7E2EA]/40 text-[#D7E2EA] placeholder-[#D7E2EA]/40 py-3 px-1 text-base outline-none transition-colors duration-300 focus:border-[#f1552d]';
+    'w-full bg-transparent border-b border-white/20 text-[#F2EDE8] placeholder-[#F2EDE8]/40 py-3 px-1 text-base outline-none transition-colors duration-300 focus:border-[#F1552D]';
 
   return (
     <section
       id="contact"
       className="relative px-4 sm:px-8 md:px-10 py-10 sm:py-16 md:py-24"
-      style={{ background: '#0C0C0C' }}
+      style={{ background: '#111010' }}
     >
       <div className="max-w-5xl mx-auto">
         <FadeIn delay={0} y={40}>
@@ -50,7 +50,7 @@ export default function ContactFormSection() {
 
         <FadeIn delay={0.1} y={20}>
           <p
-            className="text-[#D7E2EA]/80 text-center mt-3 mb-8 sm:mb-12 md:mb-16"
+            className="text-[#F2EDE8]/80 text-center mt-3 mb-8 sm:mb-12 md:mb-16"
             style={{ fontSize: 'clamp(0.9rem, 1.8vw, 1.4rem)' }}
           >
             {t.contactForm.subtitle}
@@ -67,40 +67,40 @@ export default function ContactFormSection() {
         >
           {/* Nome */}
           <div>
-            <label className="text-[#D7E2EA]/60 text-[11px] uppercase tracking-widest">{t.contactForm.firstName} *</label>
+            <label className="text-[#F2EDE8]/60 text-[11px] uppercase tracking-widest">{t.contactForm.firstName} *</label>
             <input required value={form.firstName} onChange={onChange('firstName')} className={inputClass} />
           </div>
           {/* Cognome */}
           <div>
-            <label className="text-[#D7E2EA]/60 text-[11px] uppercase tracking-widest">{t.contactForm.lastName} *</label>
+            <label className="text-[#F2EDE8]/60 text-[11px] uppercase tracking-widest">{t.contactForm.lastName} *</label>
             <input required value={form.lastName} onChange={onChange('lastName')} className={inputClass} />
           </div>
           {/* Azienda */}
           <div>
-            <label className="text-[#D7E2EA]/60 text-[11px] uppercase tracking-widest">{t.contactForm.company}</label>
+            <label className="text-[#F2EDE8]/60 text-[11px] uppercase tracking-widest">{t.contactForm.company}</label>
             <input value={form.company} onChange={onChange('company')} className={inputClass} />
           </div>
           {/* Cellulare */}
           <div>
-            <label className="text-[#D7E2EA]/60 text-[11px] uppercase tracking-widest">{t.contactForm.phone} *</label>
+            <label className="text-[#F2EDE8]/60 text-[11px] uppercase tracking-widest">{t.contactForm.phone} *</label>
             <input required type="tel" value={form.phone} onChange={onChange('phone')} className={inputClass} />
           </div>
           {/* Email */}
           <div className="sm:col-span-2">
-            <label className="text-[#D7E2EA]/60 text-[11px] uppercase tracking-widest">{t.contactForm.email} *</label>
+            <label className="text-[#F2EDE8]/60 text-[11px] uppercase tracking-widest">{t.contactForm.email} *</label>
             <input required type="email" value={form.email} onChange={onChange('email')} className={inputClass} />
           </div>
           {/* Necessità */}
           <div className="sm:col-span-2">
-            <label className="text-[#D7E2EA]/60 text-[11px] uppercase tracking-widest">{t.contactForm.need} *</label>
+            <label className="text-[#F2EDE8]/60 text-[11px] uppercase tracking-widest">{t.contactForm.need} *</label>
             <select
               required value={form.need} onChange={onChange('need')}
               className={`${inputClass} appearance-none cursor-pointer`}
               style={{ backgroundImage: 'none' }}
             >
-              <option value="" disabled className="bg-[#0C0C0C] text-[#D7E2EA]/50">{t.contactForm.needPlaceholder}</option>
+              <option value="" disabled className="bg-[#111010] text-[#F2EDE8]/50">{t.contactForm.needPlaceholder}</option>
               {t.services.list.map((s) => (
-                <option key={s.n} value={s.name} className="bg-[#0C0C0C] text-[#D7E2EA]">{s.name}</option>
+                <option key={s.n} value={s.name} className="bg-[#111010] text-[#F2EDE8]">{s.name}</option>
               ))}
             </select>
           </div>
@@ -108,18 +108,12 @@ export default function ContactFormSection() {
           <div className="sm:col-span-2 flex flex-col items-center gap-4 mt-4">
             <button
               type="submit"
-              className="inline-flex items-center justify-center rounded-full text-white font-medium uppercase tracking-widest px-8 py-3.5 sm:px-14 sm:py-4 text-sm sm:text-base transition-transform duration-300 hover:scale-[1.04] w-full sm:w-auto max-w-xs sm:max-w-none"
-              style={{
-                background: 'linear-gradient(123deg, #18011F 5%, #7A1A0A 35%, #f1552d 75%, #FFB199 100%)',
-                boxShadow: '0px 4px 18px rgba(241, 85, 45, 0.35), 4px 4px 12px rgba(241, 85, 45, 0.55) inset',
-                outline: '2px solid #FFFFFF',
-                outlineOffset: '-3px',
-              }}
+              className="inline-flex items-center justify-center rounded-full text-white font-display font-extrabold uppercase tracking-[-0.01em] px-8 py-3.5 sm:px-14 sm:py-4 text-sm sm:text-base bg-[#F1552D] hover:bg-[#FF6A42] active:bg-[#D8421E] active:translate-y-[1px] transition-colors duration-200 w-full sm:w-auto max-w-xs sm:max-w-none"
             >
               {t.contactForm.submit}
             </button>
             {sent && (
-              <p className="text-[#f1552d] text-sm uppercase tracking-widest text-center">{t.contactForm.success}</p>
+              <p className="text-[#F1552D] text-sm uppercase tracking-widest text-center">{t.contactForm.success}</p>
             )}
           </div>
         </motion.form>

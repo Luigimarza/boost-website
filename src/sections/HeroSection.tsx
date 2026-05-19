@@ -99,7 +99,7 @@ export default function HeroSection() {
       <div className="-mt-10 sm:mt-6 md:mt-8 flex flex-col items-center justify-center gap-4 sm:gap-5 md:gap-6 px-6 md:px-10 relative z-20 pb-4 sm:pb-0">
         <AnimatedText
           text={t.hero.tagline}
-          className="text-[#D7E2EA] font-medium leading-relaxed text-center w-full max-w-[88vw] sm:max-w-[560px] md:max-w-[720px]"
+          className="text-[#F2EDE8] font-medium leading-relaxed text-center w-full max-w-[88vw] sm:max-w-[560px] md:max-w-[720px]"
           style={{ fontSize: 'clamp(1.2rem, 4vw, 1.6rem)' }}
         />
         <FadeIn delay={0.5} y={20}>
@@ -113,7 +113,7 @@ export default function HeroSection() {
       <div
         className="hidden md:block relative z-20 overflow-hidden w-full -mt-2 lg:-mt-4"
         style={{
-          background: '#0C0C0C',
+          background: '#111010',
           height: 'clamp(150px, 14vw, 260px)',
           maskImage:
             'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',

@@ -10,7 +10,7 @@ export default function AllProjectsPage() {
   const { t } = useLanguage();
 
   return (
-    <main style={{ background: '#0C0C0C', overflowX: 'clip' }}>
+    <main style={{ background: '#111010', overflowX: 'clip' }}>
       <NavBar />
 
       {/* Hero */}
@@ -19,7 +19,7 @@ export default function AllProjectsPage() {
           <FadeIn delay={0} y={-10}>
             <Link
               to="/#projects"
-              className="inline-flex items-center gap-2 text-[#D7E2EA]/70 hover:text-[#f1552d] transition-colors duration-200 text-xs uppercase tracking-widest mb-4 sm:mb-6"
+              className="inline-flex items-center gap-2 text-[#F2EDE8]/70 hover:text-[#F1552D] transition-colors duration-200 text-xs uppercase tracking-widest mb-4 sm:mb-6"
             >
               <svg width="14" height="11" viewBox="0 0 16 12" fill="none" aria-hidden="true">
                 <path
@@ -43,7 +43,7 @@ export default function AllProjectsPage() {
           </FadeIn>
           <FadeIn delay={0.2} y={20}>
             <p
-              className="text-[#D7E2EA]/80 mt-5 sm:mt-7 max-w-2xl"
+              className="text-[#F2EDE8]/80 mt-5 sm:mt-7 max-w-2xl"
               style={{ fontSize: 'clamp(1rem, 1.7vw, 1.35rem)' }}
             >
               {t.projects.allSubtitle}
@@ -69,8 +69,8 @@ export default function AllProjectsPage() {
                   delay: (i % 3) * 0.08,
                   ease: [0.25, 0.1, 0.25, 1],
                 }}
-                className="rounded-[24px] sm:rounded-[32px] md:rounded-[40px] border-2 border-[#D7E2EA]/30 hover:border-[#f1552d] transition-colors duration-300 overflow-hidden flex flex-col"
-                style={{ background: '#0C0C0C' }}
+                className="rounded-[2px] sm:rounded-[2px] md:rounded-[2px] border border-white/10/30 hover:border-[#F1552D] transition-colors duration-300 overflow-hidden flex flex-col"
+                style={{ background: '#111010' }}
               >
                 <Link to={`/progetti/${p.slug}`} className="block group">
                   <div
@@ -84,19 +84,19 @@ export default function AllProjectsPage() {
                       draggable={false}
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <span className="absolute top-3 left-3 sm:top-4 sm:left-4 inline-flex items-center rounded-full bg-[#f1552d] text-white text-[10px] sm:text-[11px] font-semibold uppercase tracking-widest px-2.5 py-1 sm:px-3">
+                    <span className="absolute top-3 left-3 sm:top-4 sm:left-4 inline-flex items-center rounded-full bg-[#F1552D] text-white text-[10px] sm:text-[11px] font-semibold uppercase tracking-widest px-2.5 py-1 sm:px-3">
                       {categoryLabel}
                     </span>
                   </div>
                 </Link>
 
                 <div className="p-5 sm:p-6 md:p-7 flex flex-col gap-3 sm:gap-4 flex-1">
-                  <div className="flex items-center justify-between text-[#D7E2EA]/60 text-[11px] sm:text-sm uppercase tracking-widest">
+                  <div className="flex items-center justify-between text-[#F2EDE8]/60 text-[11px] sm:text-sm uppercase tracking-widest">
                     <span>{p.year}</span>
                     <span>{p.service}</span>
                   </div>
                   <h3
-                    className="text-[#D7E2EA] font-bold uppercase leading-tight"
+                    className="text-[#F2EDE8] font-bold uppercase leading-tight"
                     style={{ fontSize: 'clamp(1.15rem, 2.4vw, 1.7rem)' }}
                   >
                     {p.name}

@@ -64,7 +64,7 @@ export default function MarqueeSection() {
     <section
       ref={sectionRef}
       className="pt-24 sm:pt-32 md:pt-40 pb-10 overflow-hidden"
-      style={{ background: '#0C0C0C' }}
+      style={{ background: '#111010' }}
     >
       <div className="flex flex-col gap-3">
         <div className="overflow-hidden">
@@ -79,7 +79,7 @@ export default function MarqueeSection() {
                 src={src}
                 alt=""
                 loading="lazy"
-                className="w-[420px] h-[270px] rounded-2xl object-cover flex-shrink-0"
+                className="w-[420px] h-[270px] rounded-[2px] object-cover flex-shrink-0"
               />
             ))}
           </div>
@@ -96,7 +96,7 @@ export default function MarqueeSection() {
                 src={src}
                 alt=""
                 loading="lazy"
-                className="w-[420px] h-[270px] rounded-2xl object-cover flex-shrink-0"
+                className="w-[420px] h-[270px] rounded-[2px] object-cover flex-shrink-0"
               />
             ))}
           </div>

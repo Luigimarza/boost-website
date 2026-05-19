@@ -38,7 +38,7 @@ export default function NavBar({ variant = 'overlay' }: Props) {
       <Link
         to={target}
         onClick={onClick}
-        className="text-[#D7E2EA] font-medium uppercase tracking-wider hover:text-[#f1552d] transition-colors duration-200"
+        className="text-[#F2EDE8] font-medium uppercase tracking-wider hover:text-[#F1552D] transition-colors duration-200"
       >
         {label}
       </Link>
@@ -46,7 +46,7 @@ export default function NavBar({ variant = 'overlay' }: Props) {
       <a
         href={target}
         onClick={onClick}
-        className="text-[#D7E2EA] font-medium uppercase tracking-wider hover:text-[#f1552d] transition-colors duration-200"
+        className="text-[#F2EDE8] font-medium uppercase tracking-wider hover:text-[#F1552D] transition-colors duration-200"
       >
         {label}
       </a>
@@ -63,9 +63,9 @@ export default function NavBar({ variant = 'overlay' }: Props) {
           {/* Logo */}
           <Link to="/" className="flex items-center transition-opacity duration-200 hover:opacity-80" aria-label="Boost Creative home">
             <img
-              src="/LOGO-PNG.svg"
+              src="/boost-logo-dark.svg"
               alt="Boost Creative"
-              className="h-14 sm:h-16 md:h-20 lg:h-24 xl:h-28 w-auto select-none"
+              className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto select-none"
               draggable={false}
             />
           </Link>
@@ -86,18 +86,18 @@ export default function NavBar({ variant = 'overlay' }: Props) {
               aria-label={open ? 'Chiudi menu' : 'Apri menu'}
               aria-expanded={open}
               onClick={() => setOpen((v) => !v)}
-              className="relative z-[60] w-10 h-10 flex flex-col justify-center items-center gap-[6px] rounded-xl border border-[#D7E2EA]/30 hover:border-[#f1552d] transition-colors duration-200"
+              className="relative z-[60] w-10 h-10 flex flex-col justify-center items-center gap-[6px] rounded-[2px] border border-white/15 hover:border-[#F1552D] transition-colors duration-200"
             >
               <span
-                className="block h-[2px] w-5 rounded-full bg-[#D7E2EA] transition-all duration-300 origin-center"
+                className="block h-[2px] w-5 rounded-full bg-[#F2EDE8] transition-all duration-300 origin-center"
                 style={{ transform: open ? 'translateY(8px) rotate(45deg)' : 'none' }}
               />
               <span
-                className="block h-[2px] w-5 rounded-full bg-[#D7E2EA] transition-all duration-300"
+                className="block h-[2px] w-5 rounded-full bg-[#F2EDE8] transition-all duration-300"
                 style={{ opacity: open ? 0 : 1, transform: open ? 'scaleX(0)' : 'none' }}
               />
               <span
-                className="block h-[2px] w-5 rounded-full bg-[#D7E2EA] transition-all duration-300 origin-center"
+                className="block h-[2px] w-5 rounded-full bg-[#F2EDE8] transition-all duration-300 origin-center"
                 style={{ transform: open ? 'translateY(-8px) rotate(-45deg)' : 'none' }}
               />
             </button>
@@ -114,7 +114,7 @@ export default function NavBar({ variant = 'overlay' }: Props) {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
             className="fixed inset-0 z-40 flex flex-col md:hidden"
-            style={{ background: '#0C0C0C' }}
+            style={{ background: '#111010' }}
           >
             {/* top padding so content clears the nav */}
             <div className="flex-1 flex flex-col justify-center items-center gap-8 px-8 pt-24 pb-16">
@@ -144,7 +144,7 @@ export default function NavBar({ variant = 'overlay' }: Props) {
             </div>
 
             <div
-              className="mx-8 mb-10 text-center text-[#D7E2EA]/30 text-xs uppercase tracking-widest border-t border-[#D7E2EA]/10 pt-6"
+              className="mx-8 mb-10 text-center text-[#F2EDE8]/30 text-xs uppercase tracking-widest border-t border-white/[0.08] pt-6"
             >
               © {new Date().getFullYear()} Boost Creative
             </div>

@@ -8,16 +8,7 @@ type ContactButtonProps = {
 };
 
 const baseClass =
-  'inline-flex items-center justify-center rounded-full text-white font-medium uppercase tracking-widest px-10 py-3.5 sm:px-11 sm:py-4 md:px-12 md:py-4 text-sm md:text-base transition-transform duration-300 hover:scale-[1.04]';
-
-const baseStyle: React.CSSProperties = {
-  background:
-    'linear-gradient(123deg, #18011F 5%, #7A1A0A 35%, #f1552d 75%, #FFB199 100%)',
-  boxShadow:
-    '0px 4px 18px rgba(241, 85, 45, 0.35), 4px 4px 12px rgba(241, 85, 45, 0.55) inset',
-  outline: '2px solid #FFFFFF',
-  outlineOffset: '-3px',
-};
+  'inline-flex items-center justify-center rounded-full text-white font-display font-extrabold uppercase tracking-[-0.01em] px-10 py-3.5 sm:px-11 sm:py-4 md:px-12 md:py-4 text-sm md:text-base bg-[#F1552D] hover:bg-[#FF6A42] active:bg-[#D8421E] active:translate-y-[1px] transition-colors duration-200';
 
 export default function ContactButton({
   label,
@@ -28,13 +19,13 @@ export default function ContactButton({
   const text = label ?? 'Contattaci';
   if (href) {
     return (
-      <a href={href} className={`${baseClass} ${className}`} style={baseStyle}>
+      <a href={href} className={`${baseClass} ${className}`}>
         {text}
       </a>
     );
   }
   return (
-    <Link to={to} className={`${baseClass} ${className}`} style={baseStyle}>
+    <Link to={to} className={`${baseClass} ${className}`}>
       {text}
     </Link>
   );
