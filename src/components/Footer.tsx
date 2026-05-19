@@ -72,9 +72,14 @@ export default function Footer() {
       </div>
 
       <div className="max-w-7xl mx-auto mt-10 sm:mt-14 pt-5 sm:pt-6 border-t border-[#D7E2EA]/10 flex flex-col sm:flex-row gap-2 sm:items-center sm:justify-between">
-        <span className="text-[#D7E2EA]/40 text-xs uppercase tracking-widest">
-          © {year} Boost Creative — {t.footer.rights}
-        </span>
+        <div className="flex flex-col gap-1">
+          <span className="text-[#D7E2EA]/40 text-xs uppercase tracking-widest">
+            © {year} Boost Creative — {t.footer.rights}
+          </span>
+          <span className="text-[#D7E2EA]/40 text-xs uppercase tracking-widest">
+            {t.footer.company} — {t.footer.legal}
+          </span>
+        </div>
         <span className="text-[#D7E2EA]/40 text-xs uppercase tracking-widest">Made with care</span>
       </div>
     </footer>

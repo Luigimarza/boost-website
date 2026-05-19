@@ -76,6 +76,8 @@ export type Dict = {
     servicesTitle: string;
     contactTitle: string;
     rights: string;
+    company: string;
+    legal: string;
   };
   common: { backHome: string; gallery: string; details: string };
 };
@@ -204,6 +206,8 @@ export const translations: Record<Lang, Dict> = {
       servicesTitle: 'Servizi',
       contactTitle: 'Contatti',
       rights: 'Tutti i diritti riservati.',
+      company: 'MIX MARK S.R.L.',
+      legal: 'Sede legale: Napoli, Italia',
     },
     common: {
       backHome: 'Torna alla home',
@@ -334,6 +338,8 @@ export const translations: Record<Lang, Dict> = {
       servicesTitle: 'Services',
       contactTitle: 'Contact',
       rights: 'All rights reserved.',
+      company: 'MIX MARK S.R.L.',
+      legal: 'Registered office: Naples, Italy',
     },
     common: {
       backHome: 'Back home',
