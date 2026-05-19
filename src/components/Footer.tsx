@@ -35,7 +35,7 @@ export default function Footer() {
                 href={s.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-[#F2EDE8] text-xs font-semibold hover:bg-[#F1552D] hover:border-[#F1552D] hover:text-white transition-colors duration-200"
+                className="w-9 h-9 rounded-none border border-white/20 flex items-center justify-center text-[#F2EDE8] text-xs font-semibold hover:bg-[#F1552D] hover:border-[#F1552D] hover:text-white transition-colors duration-200"
               >
                 {s.label}
               </a>

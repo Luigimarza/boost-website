@@ -21,27 +21,29 @@ export default function HeroSection() {
       <NavBar />
 
       {/* ── DESKTOP TITLE ─────────────────────────────────── */}
-      <div className="hidden md:block overflow-hidden mt-4 md:-mt-2 px-2">
+      <div className="hidden md:block overflow-hidden mt-4 md:-mt-2 px-2 relative z-0">
         <FadeIn delay={0.15} y={40}>
-          <h1 className="hero-heading font-black uppercase tracking-tight leading-none whitespace-nowrap w-full text-center md:text-[16vw] lg:text-[16.5vw]">
+          <h1 className="hero-heading no-dot font-black uppercase tracking-tight leading-none whitespace-nowrap w-full text-center md:text-[13vw] lg:text-[13.5vw]">
             {t.hero.title}
+            <span className="text-[#F1552D]">.</span>
           </h1>
         </FadeIn>
       </div>
 
       {/* ── MOBILE TITLE + PORTRAITS ─────────────────────── */}
-      <div className="block md:hidden relative mt-2" style={{ height: 'clamp(310px, 95vw, 440px)' }}>
+      <div className="block md:hidden relative mt-2" style={{ height: 'clamp(280px, 88vw, 420px)' }}>
         {/* Title behind portraits */}
         <div className="relative z-0 text-center pt-2">
           <FadeIn delay={0.1} y={40}>
-            <h1>
-              <span className="block hero-heading font-black uppercase tracking-tight leading-none"
-                    style={{ fontSize: 'clamp(3.6rem, 22vw, 7rem)' }}>
+            <h1 className="no-dot">
+              <span className="block hero-heading no-dot font-black uppercase tracking-tight leading-none"
+                    style={{ fontSize: 'clamp(3rem, 18vw, 6rem)' }}>
                 {t.hero.title.split(' ')[0]}
               </span>
-              <span className="block hero-heading font-black uppercase tracking-tight leading-none"
-                    style={{ fontSize: 'clamp(2.3rem, 14vw, 4.5rem)' }}>
+              <span className="block hero-heading no-dot font-black uppercase tracking-tight leading-none"
+                    style={{ fontSize: 'clamp(2rem, 12vw, 4rem)' }}>
                 {t.hero.title.split(' ').slice(1).join(' ')}
+                <span className="text-[#F1552D]">.</span>
               </span>
             </h1>
           </FadeIn>

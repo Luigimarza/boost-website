@@ -124,7 +124,7 @@ export default function EventPage() {
               alt={meta.name}
               fetchPriority="high"
               decoding="async"
-              className="w-full h-full object-cover rounded-[2px] sm:rounded-[2px] md:rounded-[2px]"
+              className="w-full h-full object-cover rounded-none sm:rounded-none md:rounded-none"
               style={{ aspectRatio: '4 / 5' }}
             />
           </FadeIn>
@@ -132,7 +132,7 @@ export default function EventPage() {
           <div className="flex flex-col gap-4 sm:gap-5 md:gap-6 h-full">
             <FadeIn delay={0.1} y={30}>
               <div
-                className="rounded-[2px] sm:rounded-[2px] md:rounded-[2px] border border-white/10/20 p-5 sm:p-6 md:p-7 flex flex-col gap-3 sm:gap-4"
+                className="rounded-none sm:rounded-none md:rounded-none border border-white/20 p-5 sm:p-6 md:p-7 flex flex-col gap-3 sm:gap-4"
                 style={{ background: 'rgba(215, 226, 234, 0.03)' }}
               >
                 {metaItems.map((item, i) => (
@@ -155,7 +155,7 @@ export default function EventPage() {
 
             <FadeIn delay={0.2} y={30}>
               <div
-                className="rounded-[2px] sm:rounded-[2px] md:rounded-[2px] border border-white/10/20 p-5 sm:p-6 md:p-7 flex flex-col gap-3 sm:gap-4"
+                className="rounded-none sm:rounded-none md:rounded-none border border-white/20 p-5 sm:p-6 md:p-7 flex flex-col gap-3 sm:gap-4"
                 style={{ background: 'rgba(215, 226, 234, 0.03)' }}
               >
                 <span className="text-[#F1552D] uppercase tracking-widest text-[10px] sm:text-xs mb-1">
@@ -169,16 +169,16 @@ export default function EventPage() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true, amount: 0.3 }}
                       transition={{ duration: 0.5, delay: i * 0.06 }}
-                      className="rounded-full sm:rounded-full md:rounded-full border border-[#F2EDE8]/15 p-3 sm:p-4 flex flex-col justify-between min-h-[80px] sm:min-h-[110px] transition-colors duration-300 hover:border-[#F1552D]"
+                      className="rounded-none border border-[#F2EDE8]/15 px-2 py-4 sm:px-3 sm:py-5 md:px-4 md:py-6 flex flex-col items-center justify-center text-center gap-1.5 sm:gap-2 transition-colors duration-300 hover:border-[#F1552D]"
                       style={{ background: 'rgba(215, 226, 234, 0.04)' }}
                     >
                       <span
-                        className="text-[#F1552D] font-black leading-none break-words"
-                        style={{ fontSize: 'clamp(1.05rem, 2.6vw, 1.9rem)' }}
+                        className="text-[#F1552D] font-display font-extrabold leading-none break-words tracking-[-0.02em]"
+                        style={{ fontSize: 'clamp(1.25rem, 4.8vw, 2.2rem)' }}
                       >
                         {stat.value}
                       </span>
-                      <span className="text-[#F2EDE8]/70 uppercase tracking-wider text-[8px] sm:text-[10px] mt-2 leading-tight">
+                      <span className="text-[#F2EDE8]/70 uppercase tracking-widest text-[8px] sm:text-[9px] md:text-[10px] leading-tight">
                         {stat.label[lang]}
                       </span>
                     </motion.div>
@@ -230,7 +230,7 @@ export default function EventPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.6, delay: (i % 3) * 0.08 }}
-                className="group relative overflow-hidden rounded-[2px] sm:rounded-[2px] md:rounded-[2px] bg-[#1E1C1B] cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F1552D]"
+                className="group relative overflow-hidden rounded-none sm:rounded-none md:rounded-none bg-[#1E1C1B] cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F1552D]"
                 style={{ aspectRatio: '4 / 3' }}
                 aria-label={`${meta.name} ${i + 1}`}
               >
@@ -254,7 +254,7 @@ export default function EventPage() {
                     v >= data.gallery.length ? GALLERY_INITIAL : v + GALLERY_STEP
                   )
                 }
-                className="inline-flex items-center gap-2 border border-white/10/30 hover:border-[#F1552D] hover:text-[#F1552D] text-[#F2EDE8] uppercase tracking-widest text-xs sm:text-sm font-medium px-6 sm:px-8 py-3 sm:py-4 rounded-full transition-colors duration-200"
+                className="inline-flex items-center gap-2 border border-white/30 hover:border-[#F1552D] hover:text-[#F1552D] text-[#F2EDE8] uppercase tracking-widest text-xs sm:text-sm font-medium px-6 sm:px-8 py-3 sm:py-4 rounded-none transition-colors duration-200"
               >
                 {galleryVisible >= data.gallery.length
                   ? t.events.galleryShowLess
@@ -298,7 +298,7 @@ export default function EventPage() {
               type="button"
               onClick={closeLightbox}
               aria-label="Close"
-              className="absolute top-4 right-4 sm:top-6 sm:right-6 z-10 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-[#F1552D] text-white flex items-center justify-center transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F1552D]"
+              className="absolute top-4 right-4 sm:top-6 sm:right-6 z-10 w-11 h-11 sm:w-12 sm:h-12 rounded-none bg-white/10 hover:bg-[#F1552D] text-white flex items-center justify-center transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F1552D]"
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
@@ -312,7 +312,7 @@ export default function EventPage() {
                 prevLightbox();
               }}
               aria-label="Previous"
-              className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-10 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-white/10 hover:bg-[#F1552D] text-white flex items-center justify-center transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F1552D]"
+              className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-10 w-11 h-11 sm:w-14 sm:h-14 rounded-none bg-white/10 hover:bg-[#F1552D] text-white flex items-center justify-center transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F1552D]"
             >
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M15 6l-6 6 6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
@@ -326,7 +326,7 @@ export default function EventPage() {
                 nextLightbox();
               }}
               aria-label="Next"
-              className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-10 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-white/10 hover:bg-[#F1552D] text-white flex items-center justify-center transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F1552D]"
+              className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-10 w-11 h-11 sm:w-14 sm:h-14 rounded-none bg-white/10 hover:bg-[#F1552D] text-white flex items-center justify-center transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F1552D]"
             >
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
@@ -344,7 +344,7 @@ export default function EventPage() {
               fetchPriority="high"
               decoding="async"
               onClick={(e) => e.stopPropagation()}
-              className="max-w-[92vw] max-h-[88vh] object-contain rounded-[2px] shadow-2xl select-none"
+              className="max-w-[92vw] max-h-[88vh] object-contain rounded-none shadow-2xl select-none"
               draggable={false}
             />
 

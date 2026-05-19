@@ -30,7 +30,7 @@ function ProjectCard({
     >
       <motion.div
         style={{ scale, background: '#111010' }}
-        className="w-full max-w-[1400px] mx-auto rounded-[2px] sm:rounded-[2px] md:rounded-[2px] border border-white/10 p-3 sm:p-6 md:p-8 transition-colors duration-300 hover:border-[#F1552D]"
+        className="w-full max-w-[1400px] mx-auto rounded-none sm:rounded-none md:rounded-none border border-white/10 p-3 sm:p-6 md:p-8 transition-colors duration-300 hover:border-[#F1552D]"
       >
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4 mb-3 sm:mb-6 md:mb-8 px-1 sm:px-4">
@@ -59,7 +59,7 @@ function ProjectCard({
                   {project.service.split('·').map((s) => (
                     <span
                       key={s.trim()}
-                      className="inline-flex items-center rounded-full border border-white/20 text-[#F2EDE8] uppercase tracking-widest font-medium px-2.5 py-0.5 sm:px-3 sm:py-1"
+                      className="inline-flex items-center rounded-none border border-white/20 text-[#F2EDE8] uppercase tracking-widest font-medium px-2.5 py-0.5 sm:px-3 sm:py-1"
                       style={{ fontSize: 'clamp(0.55rem, 0.85vw, 0.8rem)' }}
                     >
                       {s.trim()}
@@ -85,14 +85,14 @@ function ProjectCard({
               src={project.col1Top}
               alt={`${project.name} preview 1`}
               loading="lazy"
-              className="w-full object-cover rounded-[2px] sm:rounded-[2px] md:rounded-[2px]"
+              className="w-full object-cover rounded-none sm:rounded-none md:rounded-none"
               style={{ height: 'clamp(100px, 14vw, 230px)' }}
             />
             <img
               src={project.col1Bottom}
               alt={`${project.name} preview 2`}
               loading="lazy"
-              className="w-full object-cover rounded-[2px] sm:rounded-[2px] md:rounded-[2px]"
+              className="w-full object-cover rounded-none sm:rounded-none md:rounded-none"
               style={{ height: 'clamp(120px, 18vw, 340px)' }}
             />
           </div>
@@ -101,7 +101,7 @@ function ProjectCard({
               src={project.col2}
               alt={`${project.name} preview 3`}
               loading="lazy"
-              className="w-full h-full object-cover rounded-[2px] sm:rounded-[2px] md:rounded-[2px]"
+              className="w-full h-full object-cover rounded-none sm:rounded-none md:rounded-none"
               style={{ minHeight: 'clamp(180px, 32vw, 590px)' }}
             />
           </div>
@@ -150,7 +150,7 @@ export default function ProjectsSection() {
         <div className="flex justify-center mt-10 sm:mt-14 md:mt-16">
           <Link
             to="/progetti"
-            className="inline-flex items-center gap-3 rounded-full border border-white/10 text-[#F2EDE8] font-medium uppercase tracking-widest px-8 py-3.5 sm:px-12 sm:py-4 text-sm sm:text-base hover:bg-[#F1552D] hover:border-[#F1552D] hover:text-white transition-colors duration-200"
+            className="inline-flex items-center gap-3 rounded-none border border-white/10 text-[#F2EDE8] font-medium uppercase tracking-widest px-8 py-3.5 sm:px-12 sm:py-4 text-sm sm:text-base hover:bg-[#F1552D] hover:border-[#F1552D] hover:text-white transition-colors duration-200"
           >
             {t.projects.viewAll}
             <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">

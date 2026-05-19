@@ -46,7 +46,7 @@ export default function EventsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.7, delay: (i % 4) * 0.08, ease: [0.25, 0.1, 0.25, 1] }}
-              className="relative flex-shrink-0 snap-start rounded-[2px] sm:rounded-[2px] md:rounded-[2px] overflow-hidden border border-white/10/30 hover:border-[#F1552D] transition-colors duration-300 group"
+              className="relative flex-shrink-0 snap-start rounded-none sm:rounded-none md:rounded-none overflow-hidden border border-white/30 hover:border-[#F1552D] transition-colors duration-300 group"
               style={{
                 background: '#1E1C1B',
                 width: 'clamp(280px, 22vw, 360px)',
@@ -71,7 +71,7 @@ export default function EventsSection() {
                         'linear-gradient(180deg, rgba(17,16,16,0) 50%, rgba(17,16,16,0.85) 100%)',
                     }}
                   />
-                  <span className="absolute top-3 left-3 sm:top-4 sm:left-4 inline-flex items-center rounded-full bg-[#F1552D] text-white text-[10px] sm:text-[11px] font-semibold uppercase tracking-widest px-2.5 py-1 sm:px-3">
+                  <span className="absolute top-3 left-3 sm:top-4 sm:left-4 inline-flex items-center rounded-none bg-[#F1552D] text-white text-[10px] sm:text-[11px] font-semibold uppercase tracking-widest px-2.5 py-1 sm:px-3">
                     {item.category}
                   </span>
                 </div>

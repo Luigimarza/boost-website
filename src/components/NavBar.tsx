@@ -65,7 +65,7 @@ export default function NavBar({ variant = 'overlay' }: Props) {
             <img
               src="/boost-logo-dark.svg"
               alt="Boost Creative"
-              className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto select-none"
+              className="h-7 sm:h-8 md:h-9 lg:h-10 w-auto select-none"
               draggable={false}
             />
           </Link>
@@ -86,18 +86,18 @@ export default function NavBar({ variant = 'overlay' }: Props) {
               aria-label={open ? 'Chiudi menu' : 'Apri menu'}
               aria-expanded={open}
               onClick={() => setOpen((v) => !v)}
-              className="relative z-[60] w-10 h-10 flex flex-col justify-center items-center gap-[6px] rounded-[2px] border border-white/15 hover:border-[#F1552D] transition-colors duration-200"
+              className="relative z-[60] w-10 h-10 flex flex-col justify-center items-center gap-[6px] rounded-none border border-white/15 hover:border-[#F1552D] transition-colors duration-200"
             >
               <span
-                className="block h-[2px] w-5 rounded-full bg-[#F2EDE8] transition-all duration-300 origin-center"
+                className="block h-[2px] w-5 rounded-none bg-[#F2EDE8] transition-all duration-300 origin-center"
                 style={{ transform: open ? 'translateY(8px) rotate(45deg)' : 'none' }}
               />
               <span
-                className="block h-[2px] w-5 rounded-full bg-[#F2EDE8] transition-all duration-300"
+                className="block h-[2px] w-5 rounded-none bg-[#F2EDE8] transition-all duration-300"
                 style={{ opacity: open ? 0 : 1, transform: open ? 'scaleX(0)' : 'none' }}
               />
               <span
-                className="block h-[2px] w-5 rounded-full bg-[#F2EDE8] transition-all duration-300 origin-center"
+                className="block h-[2px] w-5 rounded-none bg-[#F2EDE8] transition-all duration-300 origin-center"
                 style={{ transform: open ? 'translateY(-8px) rotate(-45deg)' : 'none' }}
               />
             </button>

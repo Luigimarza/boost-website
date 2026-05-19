@@ -79,7 +79,7 @@ export default function ProjectPage() {
             initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }} transition={{ duration: 0.7 }}
             src={project.col2} alt={project.name}
-            className="w-full object-cover rounded-[2px] sm:rounded-[2px] md:rounded-[2px]"
+            className="w-full object-cover rounded-none sm:rounded-none md:rounded-none"
             style={{ height: 'clamp(200px, 45vw, 640px)' }}
           />
           <div className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-5">
@@ -87,14 +87,14 @@ export default function ProjectPage() {
               initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.1 }}
               src={project.col1Top} alt={`${project.name} preview`}
-              className="w-full object-cover rounded-[2px] sm:rounded-[2px] md:rounded-[2px]"
+              className="w-full object-cover rounded-none sm:rounded-none md:rounded-none"
               style={{ height: 'clamp(130px, 22vw, 420px)' }}
             />
             <motion.img
               initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.2 }}
               src={project.col1Bottom} alt={`${project.name} preview`}
-              className="w-full object-cover rounded-[2px] sm:rounded-[2px] md:rounded-[2px]"
+              className="w-full object-cover rounded-none sm:rounded-none md:rounded-none"
               style={{ height: 'clamp(130px, 22vw, 420px)' }}
             />
           </div>

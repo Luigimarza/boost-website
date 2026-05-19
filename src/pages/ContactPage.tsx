@@ -39,7 +39,7 @@ export default function ContactPage() {
           ].map((c, i) => (
             <FadeIn key={c.label} delay={i * 0.1} y={30}>
               <div
-                className="rounded-[2px] sm:rounded-[2px] md:rounded-[2px] border border-white/10/30 hover:border-[#F1552D] transition-colors duration-300 p-5 sm:p-6 md:p-7 h-full"
+                className="rounded-none sm:rounded-none md:rounded-none border border-white/30 hover:border-[#F1552D] transition-colors duration-300 p-5 sm:p-6 md:p-7 h-full"
                 style={{ background: '#1E1C1B' }}
               >
                 <span className="text-[#F1552D] text-xs uppercase tracking-widest font-semibold">

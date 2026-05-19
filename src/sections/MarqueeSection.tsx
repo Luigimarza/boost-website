@@ -79,7 +79,7 @@ export default function MarqueeSection() {
                 src={src}
                 alt=""
                 loading="lazy"
-                className="w-[420px] h-[270px] rounded-[2px] object-cover flex-shrink-0"
+                className="w-[420px] h-[270px] rounded-none object-cover flex-shrink-0"
               />
             ))}
           </div>
@@ -96,7 +96,7 @@ export default function MarqueeSection() {
                 src={src}
                 alt=""
                 loading="lazy"
-                className="w-[420px] h-[270px] rounded-[2px] object-cover flex-shrink-0"
+                className="w-[420px] h-[270px] rounded-none object-cover flex-shrink-0"
               />
             ))}
           </div>

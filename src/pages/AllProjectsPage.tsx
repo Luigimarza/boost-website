@@ -69,7 +69,7 @@ export default function AllProjectsPage() {
                   delay: (i % 3) * 0.08,
                   ease: [0.25, 0.1, 0.25, 1],
                 }}
-                className="rounded-[2px] sm:rounded-[2px] md:rounded-[2px] border border-white/10/30 hover:border-[#F1552D] transition-colors duration-300 overflow-hidden flex flex-col"
+                className="rounded-none sm:rounded-none md:rounded-none border border-white/30 hover:border-[#F1552D] transition-colors duration-300 overflow-hidden flex flex-col"
                 style={{ background: '#111010' }}
               >
                 <Link to={`/progetti/${p.slug}`} className="block group">
@@ -84,7 +84,7 @@ export default function AllProjectsPage() {
                       draggable={false}
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <span className="absolute top-3 left-3 sm:top-4 sm:left-4 inline-flex items-center rounded-full bg-[#F1552D] text-white text-[10px] sm:text-[11px] font-semibold uppercase tracking-widest px-2.5 py-1 sm:px-3">
+                    <span className="absolute top-3 left-3 sm:top-4 sm:left-4 inline-flex items-center rounded-none bg-[#F1552D] text-white text-[10px] sm:text-[11px] font-semibold uppercase tracking-widest px-2.5 py-1 sm:px-3">
                       {categoryLabel}
                     </span>
                   </div>

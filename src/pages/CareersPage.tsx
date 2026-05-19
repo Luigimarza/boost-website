@@ -99,7 +99,7 @@ export default function CareersPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-            className="rounded-[2px] sm:rounded-[2px] md:rounded-[48px] border border-white/10/20 p-6 sm:p-10 md:p-14 grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-8"
+            className="rounded-none sm:rounded-none md:rounded-none border border-white/20 p-6 sm:p-10 md:p-14 grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-8"
             style={{ background: 'rgba(215, 226, 234, 0.03)' }}
           >
             <div>
@@ -201,7 +201,7 @@ export default function CareersPage() {
             <div className="sm:col-span-2 flex flex-col items-center gap-4 mt-2 sm:mt-4">
               <button
                 type="submit"
-                className="inline-flex items-center justify-center rounded-full text-white font-display font-extrabold uppercase tracking-[-0.01em] px-8 py-3.5 sm:px-14 sm:py-4 text-sm sm:text-base bg-[#F1552D] hover:bg-[#FF6A42] active:bg-[#D8421E] active:translate-y-[1px] transition-colors duration-200 w-full sm:w-auto max-w-xs sm:max-w-none"
+                className="inline-flex items-center justify-center rounded-none text-white font-display font-extrabold uppercase tracking-[-0.01em] px-8 py-3.5 sm:px-14 sm:py-4 text-sm sm:text-base bg-[#F1552D] hover:bg-[#FF6A42] active:bg-[#D8421E] active:translate-y-[1px] transition-colors duration-200 w-full sm:w-auto max-w-xs sm:max-w-none"
               >
                 {t.careers.submit}
               </button>
