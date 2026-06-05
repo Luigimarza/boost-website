@@ -31,33 +31,73 @@ export default function ContactPage() {
       </section>
 
       <section className="px-4 sm:px-8 md:px-10 pb-10 sm:pb-12">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-5 md:gap-6">
-          {[
-            { label: t.contactPage.emailLabel, value: 'boostcreativeai@gmail.com', href: 'mailto:boostcreativeai@gmail.com' },
-            { label: t.contactPage.phoneLabel, value: '+39 000 000 0000', href: 'tel:+390000000000' },
-            { label: t.contactPage.addressLabel, value: t.contactPage.address, href: undefined as string | undefined },
-          ].map((c, i) => (
-            <FadeIn key={c.label} delay={i * 0.1} y={30}>
+        <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-5 md:gap-6">
+
+          {/* Email */}
+          <FadeIn delay={0} y={30}>
+            <div
+              className="border border-white/30 hover:border-[#F1552D] transition-colors duration-300 p-5 sm:p-6 md:p-7 h-full"
+              style={{ background: '#1E1C1B' }}
+            >
+              <span className="text-[#F1552D] text-xs uppercase tracking-widest font-semibold">{t.contactPage.emailLabel}</span>
+              <a
+                href="mailto:ciao@boostcreativestudio.com"
+                className="block mt-3 text-[#F2EDE8] hover:text-[#F1552D] transition-colors duration-200 text-base sm:text-lg break-all"
+              >
+                ciao@boostcreativestudio.com
+              </a>
+            </div>
+          </FadeIn>
+
+          {/* Indirizzo */}
+          <FadeIn delay={0.1} y={30}>
+            <div
+              className="border border-white/30 hover:border-[#F1552D] transition-colors duration-300 p-5 sm:p-6 md:p-7 h-full"
+              style={{ background: '#1E1C1B' }}
+            >
+              <span className="text-[#F1552D] text-xs uppercase tracking-widest font-semibold">{t.contactPage.addressLabel}</span>
+              <span className="block mt-3 text-[#F2EDE8] text-base sm:text-lg">
+                Via Augusto Righi 31, Napoli
+              </span>
+            </div>
+          </FadeIn>
+
+          {/* Telefono — full width */}
+          <div className="sm:col-span-2">
+            <FadeIn delay={0.2} y={30}>
               <div
-                className="rounded-none sm:rounded-none md:rounded-none border border-white/30 hover:border-[#F1552D] transition-colors duration-300 p-5 sm:p-6 md:p-7 h-full"
+                className="border border-white/30 hover:border-[#F1552D] transition-colors duration-300 p-5 sm:p-6 md:p-7"
                 style={{ background: '#1E1C1B' }}
               >
-                <span className="text-[#F1552D] text-xs uppercase tracking-widest font-semibold">
-                  {c.label}
-                </span>
-                {c.href ? (
-                  <a
-                    href={c.href}
-                    className="block mt-3 text-[#F2EDE8] hover:text-[#F1552D] transition-colors duration-200 text-base sm:text-lg break-words"
-                  >
-                    {c.value}
-                  </a>
-                ) : (
-                  <span className="block mt-3 text-[#F2EDE8] text-base sm:text-lg">{c.value}</span>
-                )}
+                <span className="text-[#F1552D] text-xs uppercase tracking-widest font-semibold">{t.contactPage.phoneLabel}</span>
+                <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-8">
+                  <div>
+                    <span className="block text-[#F2EDE8]/50 text-[11px] uppercase tracking-widest mb-2">
+                      Luigi Marzatico — CEO &amp; Founder
+                    </span>
+                    <a
+                      href="tel:+393393069064"
+                      className="text-[#F2EDE8] hover:text-[#F1552D] transition-colors duration-200 text-base sm:text-lg font-medium"
+                    >
+                      +39 339 306 9064
+                    </a>
+                  </div>
+                  <div>
+                    <span className="block text-[#F2EDE8]/50 text-[11px] uppercase tracking-widest mb-2">
+                      Umberto Ciaramella — CEO &amp; Founder
+                    </span>
+                    <a
+                      href="tel:+393384163087"
+                      className="text-[#F2EDE8] hover:text-[#F1552D] transition-colors duration-200 text-base sm:text-lg font-medium"
+                    >
+                      +39 338 416 3087
+                    </a>
+                  </div>
+                </div>
               </div>
             </FadeIn>
-          ))}
+          </div>
+
         </div>
       </section>
 

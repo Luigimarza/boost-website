@@ -25,7 +25,7 @@ export default function ContactFormSection() {
     const body = encodeURIComponent(
       `Nome: ${form.firstName} ${form.lastName}\nAzienda: ${form.company}\nCellulare: ${form.phone}\nEmail: ${form.email}\nNecessità: ${form.need}`,
     );
-    window.location.href = `mailto:boostcreativeai@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:ciao@boostcreativestudio.com?subject=${subject}&body=${body}`;
     setSent(true);
   };
 

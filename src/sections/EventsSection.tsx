@@ -107,6 +107,18 @@ export default function EventsSection() {
           ))}
         </div>
       </FadeIn>
+
+      <FadeIn delay={0.2} y={20} className="flex justify-center mt-8 sm:mt-10 md:mt-12 px-4">
+        <a
+          href="/eventi"
+          className="inline-flex items-center gap-3 text-[#F2EDE8] border border-white/30 hover:border-[#F1552D] hover:text-[#F1552D] transition-colors duration-200 font-medium uppercase tracking-widest text-sm px-8 py-3.5"
+        >
+          {t.events.viewAll}
+          <svg width="14" height="10" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+            <path d="M1 6h13M9 1l5 5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </a>
+      </FadeIn>
     </section>
   );
 }

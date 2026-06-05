@@ -3,6 +3,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import ProjectPage from './pages/ProjectPage';
 import AllProjectsPage from './pages/AllProjectsPage';
+import AllEventsPage from './pages/AllEventsPage';
 import EventPage from './pages/EventPage';
 import ContactPage from './pages/ContactPage';
 import CareersPage from './pages/CareersPage';
@@ -31,6 +32,7 @@ export default function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/progetti" element={<AllProjectsPage />} />
         <Route path="/progetti/:slug" element={<ProjectPage />} />
+        <Route path="/eventi" element={<AllEventsPage />} />
         <Route path="/eventi/:slug" element={<EventPage />} />
         <Route path="/contatti" element={<ContactPage />} />
         <Route path="/lavora-con-noi" element={<CareersPage />} />

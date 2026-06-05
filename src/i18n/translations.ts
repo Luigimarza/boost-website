@@ -9,6 +9,9 @@ export type Dict = {
     title: string;
     cta: string;
     backTo: string;
+    viewAll: string;
+    allTitle: string;
+    allSubtitle: string;
     aboutTitle: string;
     resultsTitle: string;
     galleryTitle: string;
@@ -117,6 +120,9 @@ export const translations: Record<Lang, Dict> = {
       title: 'EVENTI',
       cta: 'Scopri di più',
       backTo: 'Torna agli eventi',
+      viewAll: 'Scopri tutti',
+      allTitle: 'TUTTI GLI EVENTI',
+      allSubtitle: 'Una raccolta di tutti gli eventi ideati e prodotti da BOOST Creative Studio.',
       aboutTitle: "L'evento",
       resultsTitle: 'Numeri raggiunti',
       galleryTitle: 'Galleria',
@@ -198,7 +204,7 @@ export const translations: Record<Lang, Dict> = {
       emailLabel: 'Email',
       phoneLabel: 'Telefono',
       addressLabel: 'Sede',
-      address: 'Napoli, Italia',
+      address: 'Via Augusto Righi 31, Napoli',
     },
     footer: {
       tagline: 'Studio creativo che progetta esperienze ed eventi indimenticabili.',
@@ -249,6 +255,9 @@ export const translations: Record<Lang, Dict> = {
       title: 'EVENTS',
       cta: 'Discover more',
       backTo: 'Back to events',
+      viewAll: 'Discover all',
+      allTitle: 'ALL EVENTS',
+      allSubtitle: 'A full collection of events designed and produced by BOOST Creative Studio.',
       aboutTitle: 'About the event',
       resultsTitle: 'Results achieved',
       galleryTitle: 'Gallery',
@@ -330,7 +339,7 @@ export const translations: Record<Lang, Dict> = {
       emailLabel: 'Email',
       phoneLabel: 'Phone',
       addressLabel: 'Office',
-      address: 'Naples, Italy',
+      address: 'Via Augusto Righi 31, Naples',
     },
     footer: {
       tagline: 'Creative studio crafting unforgettable experiences and events.',
