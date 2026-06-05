@@ -1,217 +1,185 @@
-import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import NavBar from '../components/NavBar';
 import FadeIn from '../components/FadeIn';
 import { useLanguage } from '../i18n/LanguageContext';
 
-type CareerForm = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-  role: string;
-  portfolio: string;
-  message: string;
-};
-
-const initial: CareerForm = {
-  firstName: '',
-  lastName: '',
-  email: '',
-  phone: '',
-  role: '',
-  portfolio: '',
-  message: '',
-};
+const STEPS = [
+  {
+    n: '01',
+    title: 'Ascoltiamo',
+    desc: 'Partiamo da quello che hai in mente. Obiettivi, mercato, budget, timing. Nessun brief standard — ogni progetto è diverso e lo trattiamo come tale.',
+  },
+  {
+    n: '02',
+    title: 'Progettiamo',
+    desc: 'Costruiamo la strategia visiva e creativa. Ogni decisione ha una ragione: il design non è estetica, è comunicazione. Niente elementi casuali.',
+  },
+  {
+    n: '03',
+    title: 'Costruiamo',
+    desc: 'Eseguiamo con precisione. Dal brand book alla piattaforma, dall\'evento al lancio. Tutto nelle nostre mani, dal primo giorno all\'ultimo dettaglio.',
+  },
+];
 
 export default function CareersPage() {
   const { t } = useLanguage();
-  const [form, setForm] = useState<CareerForm>(initial);
-  const [sent, setSent] = useState(false);
-
-  const onChange =
-    (k: keyof CareerForm) =>
-    (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
-      setForm({ ...form, [k]: e.target.value });
-
-  const onSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const subject = encodeURIComponent(
-      `Candidatura — ${form.firstName} ${form.lastName} (${form.role})`,
-    );
-    const body = encodeURIComponent(
-      `Nome: ${form.firstName} ${form.lastName}\n` +
-        `Email: ${form.email}\n` +
-        `Cellulare: ${form.phone}\n` +
-        `Ruolo: ${form.role}\n` +
-        `Portfolio: ${form.portfolio}\n\n` +
-        `Messaggio:\n${form.message}`,
-    );
-    window.location.href = `mailto:boostcreativeai@gmail.com?subject=${subject}&body=${body}`;
-    setSent(true);
-  };
-
-  const inputClass =
-    'w-full bg-transparent border-b border-white/20 text-[#F2EDE8] placeholder-[#F2EDE8]/40 py-3 px-1 text-base outline-none transition-colors duration-300 focus:border-[#F1552D]';
 
   return (
     <main style={{ background: '#111010', overflowX: 'clip' }}>
       <NavBar />
 
       {/* Hero */}
-      <section className="px-4 sm:px-8 md:px-10 pt-8 sm:pt-14 md:pt-20 pb-8 sm:pb-12">
-        <div className="max-w-5xl mx-auto text-center">
-          <FadeIn delay={0.05} y={30}>
-            <span className="text-[#F1552D] uppercase tracking-widest text-xs sm:text-sm">
-              {t.careers.formTitle}
+      <section className="px-4 sm:px-8 md:px-10 pt-8 sm:pt-14 md:pt-20 pb-12 sm:pb-16 md:pb-20">
+        <div className="max-w-6xl mx-auto">
+          <FadeIn delay={0.05} y={20}>
+            <span className="text-[#F1552D] uppercase tracking-widest text-xs sm:text-sm font-semibold">
+              BOOST Creative Studio
             </span>
           </FadeIn>
           <FadeIn delay={0.1} y={40}>
             <h1
-              className="hero-heading font-black uppercase leading-[0.95] tracking-tight mt-3 sm:mt-4"
-              style={{ fontSize: 'clamp(2.6rem, 11vw, 160px)' }}
+              className="hero-heading font-black uppercase leading-[0.92] tracking-tight mt-3 sm:mt-4"
+              style={{ fontSize: 'clamp(2.8rem, 10vw, 130px)' }}
             >
-              {t.careers.title}
+              Lavoriamo al<br />tuo progetto.
             </h1>
           </FadeIn>
           <FadeIn delay={0.2} y={20}>
             <p
-              className="text-[#F2EDE8]/80 mt-5 sm:mt-7 max-w-3xl mx-auto"
-              style={{ fontSize: 'clamp(1rem, 1.7vw, 1.35rem)' }}
+              className="text-[#F2EDE8]/80 mt-6 sm:mt-8 max-w-2xl"
+              style={{ fontSize: 'clamp(1rem, 1.8vw, 1.35rem)' }}
             >
-              {t.careers.subtitle}
+              Costruiamo brand, eventi e prodotti digitali che lasciano il segno.
+              Hai un'idea? Un brand da costruire? Un progetto da lanciare? Iniziamo.
             </p>
           </FadeIn>
-          <FadeIn delay={0.25} y={20}>
-            <p className="text-[#F2EDE8]/50 mt-3 sm:mt-4 text-sm sm:text-base max-w-2xl mx-auto">
-              {t.careers.intro}
-            </p>
+          <FadeIn delay={0.3} y={20}>
+            <div className="mt-8 sm:mt-10">
+              <Link
+                to="/contatti"
+                className="inline-flex items-center gap-3 bg-[#F1552D] hover:bg-[#FF6A42] active:bg-[#D8421E] text-white font-display font-extrabold uppercase tracking-[-0.01em] px-10 py-4 sm:px-14 sm:py-5 text-sm sm:text-base transition-colors duration-200"
+              >
+                Inizia il progetto
+                <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+                  <path d="M1 6h13M9 1l5 5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </Link>
+            </div>
           </FadeIn>
         </div>
       </section>
 
-      {/* Form */}
-      <section className="px-4 sm:px-8 md:px-10 pb-16 sm:pb-24 md:pb-32">
-        <div className="max-w-3xl mx-auto">
-          <motion.form
-            onSubmit={onSubmit}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-            className="rounded-none sm:rounded-none md:rounded-none border border-white/20 p-6 sm:p-10 md:p-14 grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-8"
-            style={{ background: 'rgba(215, 226, 234, 0.03)' }}
-          >
-            <div>
-              <label className="text-[#F2EDE8]/60 text-[11px] uppercase tracking-widest">
-                {t.careers.firstName} *
-              </label>
-              <input
-                required
-                value={form.firstName}
-                onChange={onChange('firstName')}
-                className={inputClass}
-              />
-            </div>
-            <div>
-              <label className="text-[#F2EDE8]/60 text-[11px] uppercase tracking-widest">
-                {t.careers.lastName} *
-              </label>
-              <input
-                required
-                value={form.lastName}
-                onChange={onChange('lastName')}
-                className={inputClass}
-              />
-            </div>
-            <div>
-              <label className="text-[#F2EDE8]/60 text-[11px] uppercase tracking-widest">
-                {t.careers.email} *
-              </label>
-              <input
-                required
-                type="email"
-                value={form.email}
-                onChange={onChange('email')}
-                className={inputClass}
-              />
-            </div>
-            <div>
-              <label className="text-[#F2EDE8]/60 text-[11px] uppercase tracking-widest">
-                {t.careers.phone} *
-              </label>
-              <input
-                required
-                type="tel"
-                value={form.phone}
-                onChange={onChange('phone')}
-                className={inputClass}
-              />
-            </div>
-
-            <div className="sm:col-span-2">
-              <label className="text-[#F2EDE8]/60 text-[11px] uppercase tracking-widest">
-                {t.careers.role} *
-              </label>
-              <select
-                required
-                value={form.role}
-                onChange={onChange('role')}
-                className={`${inputClass} appearance-none cursor-pointer`}
-                style={{ backgroundImage: 'none' }}
+      {/* Services */}
+      <section
+        className="px-4 sm:px-8 md:px-10 py-12 sm:py-16 md:py-20"
+        style={{ background: '#F2EDE8' }}
+      >
+        <div className="max-w-6xl mx-auto">
+          <FadeIn delay={0} y={30}>
+            <h2
+              className="font-black uppercase leading-none tracking-tight mb-10 sm:mb-14"
+              style={{ color: '#111010', fontSize: 'clamp(1.8rem, 8vw, 100px)' }}
+            >
+              Cosa facciamo.
+            </h2>
+          </FadeIn>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            {t.services.list.map((s, i) => (
+              <motion.div
+                key={s.n}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-30px' }}
+                transition={{ duration: 0.6, delay: (i % 3) * 0.08, ease: [0.25, 0.1, 0.25, 1] }}
+                className="border-b border-black/10 p-6 sm:p-8 md:p-9 sm:border-r last:border-r-0 sm:[&:nth-child(2n)]:border-r-0 lg:[&:nth-child(2n)]:border-r lg:[&:nth-child(3n)]:border-r-0"
               >
-                <option value="" disabled className="bg-[#111010] text-[#F2EDE8]/50">
-                  {t.careers.rolePlaceholder}
-                </option>
-                {t.careers.roles.map((r) => (
-                  <option key={r} value={r} className="bg-[#111010] text-[#F2EDE8]">
-                    {r}
-                  </option>
-                ))}
-              </select>
-            </div>
+                <span className="block text-[#F1552D] text-xs uppercase tracking-widest font-semibold mb-3">{s.n}</span>
+                <h3
+                  className="font-bold uppercase text-[#111010] mb-2"
+                  style={{ fontSize: 'clamp(0.95rem, 1.8vw, 1.25rem)' }}
+                >
+                  {s.name}
+                </h3>
+                <p className="text-[#111010]/60 text-sm leading-relaxed">{s.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            <div className="sm:col-span-2">
-              <label className="text-[#F2EDE8]/60 text-[11px] uppercase tracking-widest">
-                {t.careers.portfolio}
-              </label>
-              <input
-                type="url"
-                placeholder={t.careers.portfolioPlaceholder}
-                value={form.portfolio}
-                onChange={onChange('portfolio')}
-                className={inputClass}
-              />
-            </div>
-
-            <div className="sm:col-span-2">
-              <label className="text-[#F2EDE8]/60 text-[11px] uppercase tracking-widest">
-                {t.careers.message} *
-              </label>
-              <textarea
-                required
-                rows={5}
-                placeholder={t.careers.messagePlaceholder}
-                value={form.message}
-                onChange={onChange('message')}
-                className={`${inputClass} resize-none`}
-              />
-            </div>
-
-            <div className="sm:col-span-2 flex flex-col items-center gap-4 mt-2 sm:mt-4">
-              <button
-                type="submit"
-                className="inline-flex items-center justify-center rounded-none text-white font-display font-extrabold uppercase tracking-[-0.01em] px-8 py-3.5 sm:px-14 sm:py-4 text-sm sm:text-base bg-[#F1552D] hover:bg-[#FF6A42] active:bg-[#D8421E] active:translate-y-[1px] transition-colors duration-200 w-full sm:w-auto max-w-xs sm:max-w-none"
+      {/* Process */}
+      <section className="px-4 sm:px-8 md:px-10 py-12 sm:py-16 md:py-24 border-t border-white/[0.06]">
+        <div className="max-w-6xl mx-auto">
+          <FadeIn delay={0} y={30}>
+            <h2
+              className="hero-heading font-black uppercase leading-none tracking-tight mb-10 sm:mb-14 md:mb-16"
+              style={{ fontSize: 'clamp(1.8rem, 8vw, 100px)' }}
+            >
+              Come lavoriamo.
+            </h2>
+          </FadeIn>
+          <div>
+            {STEPS.map((step, i) => (
+              <motion.div
+                key={step.n}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.6, delay: i * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+                className="grid grid-cols-[auto_1fr] sm:grid-cols-[80px_1fr] gap-6 sm:gap-12 md:gap-16 py-7 sm:py-9 md:py-10 border-b border-white/[0.08] last:border-0"
               >
-                {t.careers.submit}
-              </button>
-              {sent && (
-                <p className="text-[#F1552D] text-sm uppercase tracking-widest text-center">
-                  {t.careers.success}
-                </p>
-              )}
-            </div>
-          </motion.form>
+                <span className="text-[#F1552D] font-black text-xs uppercase tracking-widest pt-1">{step.n}</span>
+                <div>
+                  <h3
+                    className="text-[#F2EDE8] font-bold uppercase mb-2 sm:mb-3"
+                    style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.8rem)' }}
+                  >
+                    {step.title}
+                  </h3>
+                  <p
+                    className="text-[#F2EDE8]/60 leading-relaxed"
+                    style={{ fontSize: 'clamp(0.9rem, 1.4vw, 1.1rem)' }}
+                  >
+                    {step.desc}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="px-4 sm:px-8 md:px-10 py-16 sm:py-20 md:py-28 border-t border-white/[0.06]">
+        <div className="max-w-4xl mx-auto text-center">
+          <FadeIn delay={0} y={40}>
+            <h2
+              className="hero-heading font-black uppercase leading-none tracking-tight mb-6 sm:mb-8"
+              style={{ fontSize: 'clamp(2rem, 9vw, 120px)' }}
+            >
+              Pronti<br />quando lo sei tu.
+            </h2>
+          </FadeIn>
+          <FadeIn delay={0.15} y={20}>
+            <p
+              className="text-[#F2EDE8]/70 mb-8 sm:mb-10 max-w-xl mx-auto"
+              style={{ fontSize: 'clamp(1rem, 1.8vw, 1.3rem)' }}
+            >
+              Scrivici. Un brief, un'idea, anche solo una direzione.<br />Da lì partiamo.
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.25} y={20}>
+            <Link
+              to="/contatti"
+              className="inline-flex items-center gap-3 bg-[#F1552D] hover:bg-[#FF6A42] active:bg-[#D8421E] text-white font-display font-extrabold uppercase tracking-[-0.01em] px-10 py-4 sm:px-14 sm:py-5 text-sm sm:text-base transition-colors duration-200"
+            >
+              Scrivici ora
+              <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+                <path d="M1 6h13M9 1l5 5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </Link>
+          </FadeIn>
         </div>
       </section>
     </main>

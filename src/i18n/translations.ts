@@ -57,11 +57,14 @@ export type Dict = {
     subtitle: string;
     firstName: string;
     lastName: string;
-    company: string;
-    phone: string;
     email: string;
-    need: string;
-    needPlaceholder: string;
+    phone: string;
+    role: string;
+    rolePlaceholder: string;
+    portfolio: string;
+    portfolioPlaceholder: string;
+    message: string;
+    messagePlaceholder: string;
     submit: string;
     success: string;
   };
@@ -96,7 +99,7 @@ export const translations: Record<Lang, Dict> = {
     },
     hero: {
       title: 'CREATIVE STUDIO',
-      tagline: 'Diamo un’accellerata ai tuoi obiettivi e al tuo brand con tecnologie e innovazione.',
+      tagline: "Diamo un'accellerata ai tuoi obiettivi e al tuo brand con tecnologie e innovazione.",
       cta: 'Iniziamo',
     },
     about: {
@@ -186,17 +189,20 @@ export const translations: Record<Lang, Dict> = {
       success: 'Grazie! Abbiamo ricevuto la tua candidatura.',
     },
     contactForm: {
-      title: 'LAVORIAMO INSIEME?',
-      subtitle: 'Lascia i tuoi contatti e parliamone!',
+      title: 'ENTRA NEL TEAM',
+      subtitle: 'Candidati e unisciti a BOOST Creative Studio. Ti ricontatteremo se il tuo profilo corrisponde alle nostre esigenze.',
       firstName: 'Nome',
       lastName: 'Cognome',
-      company: 'Nome azienda',
-      phone: 'Cellulare',
       email: 'Email',
-      need: 'Necessità',
-      needPlaceholder: 'Seleziona un servizio',
-      submit: 'Invia richiesta',
-      success: 'Grazie! Ti contatteremo a breve.',
+      phone: 'Cellulare',
+      role: 'Ruolo professionale',
+      rolePlaceholder: 'Seleziona il tuo ruolo',
+      portfolio: 'Portfolio / LinkedIn',
+      portfolioPlaceholder: 'URL al tuo portfolio o profilo',
+      message: 'Raccontaci di te',
+      messagePlaceholder: 'Esperienze, progetti rilevanti, perché vuoi unirti a noi…',
+      submit: 'Invia candidatura',
+      success: 'Grazie! Abbiamo ricevuto la tua candidatura.',
     },
     contactPage: {
       title: 'CONTATTI',
@@ -232,12 +238,12 @@ export const translations: Record<Lang, Dict> = {
     hero: {
       title: 'CREATIVE STUDIO',
       tagline: 'We accelerate your goals and your brand with technology and innovation.',
-      cta: 'Let’s start',
+      cta: "Let's start",
     },
     about: {
       title: 'ABOUT US',
       body:
-        'With more than five years of experience in design, we focus on branding, web design and user experience. We work with businesses that aim to stand out and show their best image. Let’s build something incredible together.',
+        "With more than five years of experience in design, we focus on branding, web design and user experience. We work with businesses that aim to stand out and show their best image. Let's build something incredible together.",
       cta: 'Contact us',
     },
     services: {
@@ -321,17 +327,20 @@ export const translations: Record<Lang, Dict> = {
       success: 'Thanks! We received your application.',
     },
     contactForm: {
-      title: 'LET’S WORK TOGETHER?',
-      subtitle: 'Leave your details and let’s talk!',
+      title: 'JOIN THE TEAM',
+      subtitle: 'Apply and join BOOST Creative Studio. We will reach out if your profile matches our needs.',
       firstName: 'First name',
       lastName: 'Last name',
-      company: 'Company name',
-      phone: 'Phone',
       email: 'Email',
-      need: 'I need',
-      needPlaceholder: 'Select a service',
-      submit: 'Send request',
-      success: 'Thanks! We’ll be in touch soon.',
+      phone: 'Phone',
+      role: 'Professional role',
+      rolePlaceholder: 'Select your role',
+      portfolio: 'Portfolio / LinkedIn',
+      portfolioPlaceholder: 'URL to your portfolio or profile',
+      message: 'Tell us about you',
+      messagePlaceholder: 'Experience, relevant projects, why you want to join us…',
+      submit: 'Send application',
+      success: "Thanks! We received your application.",
     },
     contactPage: {
       title: 'CONTACT',

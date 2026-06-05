@@ -4,11 +4,18 @@ import FadeIn from '../components/FadeIn';
 import { useLanguage } from '../i18n/LanguageContext';
 
 type FormState = {
-  firstName: string; lastName: string;
-  company: string;   phone: string;
-  email: string;     need: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  role: string;
+  portfolio: string;
+  message: string;
 };
-const initial: FormState = { firstName: '', lastName: '', company: '', phone: '', email: '', need: '' };
+
+const initial: FormState = {
+  firstName: '', lastName: '', email: '', phone: '', role: '', portfolio: '', message: '',
+};
 
 export default function ContactFormSection() {
   const { t } = useLanguage();
@@ -16,14 +23,16 @@ export default function ContactFormSection() {
   const [sent, setSent] = useState(false);
 
   const onChange = (k: keyof FormState) =>
-    (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
+    (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
       setForm({ ...form, [k]: e.target.value });
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Richiesta da ${form.firstName} ${form.lastName}`);
+    const subject = encodeURIComponent(
+      `Candidatura — ${form.firstName} ${form.lastName} (${form.role})`,
+    );
     const body = encodeURIComponent(
-      `Nome: ${form.firstName} ${form.lastName}\nAzienda: ${form.company}\nCellulare: ${form.phone}\nEmail: ${form.email}\nNecessità: ${form.need}`,
+      `Nome: ${form.firstName} ${form.lastName}\nEmail: ${form.email}\nCellulare: ${form.phone}\nRuolo: ${form.role}\nPortfolio: ${form.portfolio}\n\nMessaggio:\n${form.message}`,
     );
     window.location.href = `mailto:ciao@boostcreativestudio.com?subject=${subject}&body=${body}`;
     setSent(true);
@@ -50,7 +59,7 @@ export default function ContactFormSection() {
 
         <FadeIn delay={0.1} y={20}>
           <p
-            className="text-[#F2EDE8]/80 text-center mt-3 mb-8 sm:mb-12 md:mb-16"
+            className="text-[#F2EDE8]/80 text-center mt-3 mb-8 sm:mb-12 md:mb-16 max-w-2xl mx-auto"
             style={{ fontSize: 'clamp(0.9rem, 1.8vw, 1.4rem)' }}
           >
             {t.contactForm.subtitle}
@@ -65,44 +74,62 @@ export default function ContactFormSection() {
           transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
           className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-8"
         >
-          {/* Nome */}
           <div>
             <label className="text-[#F2EDE8]/60 text-[11px] uppercase tracking-widest">{t.contactForm.firstName} *</label>
             <input required value={form.firstName} onChange={onChange('firstName')} className={inputClass} />
           </div>
-          {/* Cognome */}
           <div>
             <label className="text-[#F2EDE8]/60 text-[11px] uppercase tracking-widest">{t.contactForm.lastName} *</label>
             <input required value={form.lastName} onChange={onChange('lastName')} className={inputClass} />
           </div>
-          {/* Azienda */}
           <div>
-            <label className="text-[#F2EDE8]/60 text-[11px] uppercase tracking-widest">{t.contactForm.company}</label>
-            <input value={form.company} onChange={onChange('company')} className={inputClass} />
+            <label className="text-[#F2EDE8]/60 text-[11px] uppercase tracking-widest">{t.contactForm.email} *</label>
+            <input required type="email" value={form.email} onChange={onChange('email')} className={inputClass} />
           </div>
-          {/* Cellulare */}
           <div>
             <label className="text-[#F2EDE8]/60 text-[11px] uppercase tracking-widest">{t.contactForm.phone} *</label>
             <input required type="tel" value={form.phone} onChange={onChange('phone')} className={inputClass} />
           </div>
-          {/* Email */}
+
           <div className="sm:col-span-2">
-            <label className="text-[#F2EDE8]/60 text-[11px] uppercase tracking-widest">{t.contactForm.email} *</label>
-            <input required type="email" value={form.email} onChange={onChange('email')} className={inputClass} />
-          </div>
-          {/* Necessità */}
-          <div className="sm:col-span-2">
-            <label className="text-[#F2EDE8]/60 text-[11px] uppercase tracking-widest">{t.contactForm.need} *</label>
+            <label className="text-[#F2EDE8]/60 text-[11px] uppercase tracking-widest">{t.contactForm.role} *</label>
             <select
-              required value={form.need} onChange={onChange('need')}
+              required
+              value={form.role}
+              onChange={onChange('role')}
               className={`${inputClass} appearance-none cursor-pointer`}
               style={{ backgroundImage: 'none' }}
             >
-              <option value="" disabled className="bg-[#111010] text-[#F2EDE8]/50">{t.contactForm.needPlaceholder}</option>
-              {t.services.list.map((s) => (
-                <option key={s.n} value={s.name} className="bg-[#111010] text-[#F2EDE8]">{s.name}</option>
+              <option value="" disabled className="bg-[#111010] text-[#F2EDE8]/50">
+                {t.contactForm.rolePlaceholder}
+              </option>
+              {t.careers.roles.map((r) => (
+                <option key={r} value={r} className="bg-[#111010] text-[#F2EDE8]">{r}</option>
               ))}
             </select>
+          </div>
+
+          <div className="sm:col-span-2">
+            <label className="text-[#F2EDE8]/60 text-[11px] uppercase tracking-widest">{t.contactForm.portfolio}</label>
+            <input
+              type="url"
+              placeholder={t.contactForm.portfolioPlaceholder}
+              value={form.portfolio}
+              onChange={onChange('portfolio')}
+              className={inputClass}
+            />
+          </div>
+
+          <div className="sm:col-span-2">
+            <label className="text-[#F2EDE8]/60 text-[11px] uppercase tracking-widest">{t.contactForm.message} *</label>
+            <textarea
+              required
+              rows={5}
+              placeholder={t.contactForm.messagePlaceholder}
+              value={form.message}
+              onChange={onChange('message')}
+              className={`${inputClass} resize-none`}
+            />
           </div>
 
           <div className="sm:col-span-2 flex flex-col items-center gap-4 mt-4">
@@ -113,7 +140,9 @@ export default function ContactFormSection() {
               {t.contactForm.submit}
             </button>
             {sent && (
-              <p className="text-[#F1552D] text-sm uppercase tracking-widest text-center">{t.contactForm.success}</p>
+              <p className="text-[#F1552D] text-sm uppercase tracking-widest text-center">
+                {t.contactForm.success}
+              </p>
             )}
           </div>
         </motion.form>
