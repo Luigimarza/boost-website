@@ -1,0 +1,306 @@
+- main [ref=e3]:
+  - generic [ref=e4]:
+    - navigation [ref=e6]:
+      - link "Boost Creative home" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - img "Boost Creative" [ref=e8]
+      - generic [ref=e9]:
+        - link "CHI SIAMO" [ref=e10] [cursor=pointer]:
+          - /url: "#about"
+        - link "EVENTI" [ref=e11] [cursor=pointer]:
+          - /url: "#events"
+        - link "PROGETTI" [ref=e12] [cursor=pointer]:
+          - /url: /progetti
+        - link "LAVORA CON NOI" [ref=e13] [cursor=pointer]:
+          - /url: /lavora-con-noi
+        - link "CONTATTI" [ref=e14] [cursor=pointer]:
+          - /url: /contatti
+        - group "Language switcher" [ref=e15]:
+          - button "Switch to IT" [pressed] [ref=e16] [cursor=pointer]: it
+          - button "Switch to EN" [ref=e17] [cursor=pointer]: en
+    - heading "CREATIVE STUDIO." [level=1] [ref=e20]
+    - generic [ref=e25]:
+      - paragraph [ref=e26]: Diamo un’accellerata ai tuoi obiettivi e al tuo brand con tecnologie e innovazione.
+      - link "Iniziamo" [ref=e28] [cursor=pointer]:
+        - /url: "#contact"
+  - generic [ref=e38]:
+    - heading "CHI SIAMO." [level=2] [ref=e40]
+    - paragraph [ref=e41]: Con oltre cinque anni di esperienza nel design, ci occupiamo di branding, web design e user experience. Lavoriamo con aziende che vogliono distinguersi e mostrare la propria immagine migliore. Costruiamo insieme qualcosa di straordinario.
+    - link "Contattaci" [ref=e43] [cursor=pointer]:
+      - /url: /contatti
+  - generic [ref=e44]:
+    - heading "SERVIZI." [level=2] [ref=e46]
+    - generic [ref=e47]:
+      - generic [ref=e48]:
+        - generic [ref=e49]: "01"
+        - generic [ref=e50]:
+          - heading "Branding." [level=3] [ref=e51]
+          - paragraph [ref=e52]: Creiamo identità visive coerenti — dal logo al sistema brand completo — per comunicare una presenza chiara e memorabile.
+      - generic [ref=e53]:
+        - generic [ref=e54]: "02"
+        - generic [ref=e55]:
+          - heading "Event Planning." [level=3] [ref=e56]
+          - paragraph [ref=e57]: Progettiamo e produciamo eventi su misura, dalla strategia alla regia, per esperienze indimenticabili.
+      - generic [ref=e58]:
+        - generic [ref=e59]: "03"
+        - generic [ref=e60]:
+          - heading "Marketing." [level=3] [ref=e61]
+          - paragraph [ref=e62]: Strategie di marketing su misura per far crescere il tuo brand e raggiungere il pubblico giusto.
+      - generic [ref=e63]:
+        - generic [ref=e64]: "04"
+        - generic [ref=e65]:
+          - heading "Web & Software Development." [level=3] [ref=e66]
+          - paragraph [ref=e67]: Sviluppiamo siti, web app e software performanti, scalabili e dal design moderno.
+      - generic [ref=e68]:
+        - generic [ref=e69]: "05"
+        - generic [ref=e70]:
+          - heading "AI Solution." [level=3] [ref=e71]
+          - paragraph [ref=e72]: Soluzioni di intelligenza artificiale custom per automatizzare processi e potenziare il business.
+      - generic [ref=e73]:
+        - generic [ref=e74]: "06"
+        - generic [ref=e75]:
+          - heading "Paid Advertising." [level=3] [ref=e76]
+          - paragraph [ref=e77]: Campagne pubblicitarie ad alta conversione su Meta, Google e TikTok per massimizzare il ROI.
+  - generic [ref=e78]:
+    - heading "EVENTI." [level=2] [ref=e80]
+    - generic [ref=e82]:
+      - 'link "Babbi in Moto Motorshow 2024 Hype Club Babbi in Moto. Format natalizio su moto: parata da Napoli al Motorshow di Castel Volturno con cultura biker e charity. Scopri di più" [ref=e84] [cursor=pointer]':
+        - /url: /eventi/babbi-in-moto
+        - generic [ref=e85]:
+          - img "Babbi in Moto" [ref=e86]
+          - generic [ref=e87]: Motorshow
+        - generic [ref=e88]:
+          - generic [ref=e89]:
+            - generic [ref=e90]: "2024"
+            - generic [ref=e91]: Hype Club
+          - heading "Babbi in Moto." [level=3] [ref=e92]
+          - paragraph [ref=e93]: "Format natalizio su moto: parata da Napoli al Motorshow di Castel Volturno con cultura biker e charity."
+          - generic [ref=e94]:
+            - text: Scopri di più
+            - img [ref=e95]
+      - 'link "Oktoberland Festival 2025 Edenlandia Oktoberland. Il festival bavarese di Napoli a Edenlandia: birra Erdinger, cucina tipica, musica live e food partner d''eccellenza. Scopri di più" [ref=e98] [cursor=pointer]':
+        - /url: /eventi/oktoberland
+        - generic [ref=e99]:
+          - img "Oktoberland" [ref=e100]
+          - generic [ref=e101]: Festival
+        - generic [ref=e102]:
+          - generic [ref=e103]:
+            - generic [ref=e104]: "2025"
+            - generic [ref=e105]: Edenlandia
+          - heading "Oktoberland." [level=3] [ref=e106]
+          - paragraph [ref=e107]: "Il festival bavarese di Napoli a Edenlandia: birra Erdinger, cucina tipica, musica live e food partner d'eccellenza."
+          - generic [ref=e108]:
+            - text: Scopri di più
+            - img [ref=e109]
+      - 'link "HorrorWorld Horror Fest 2025 Edenlandia HorrorWorld. 9 notti di terrore a Edenlandia: tre attrazioni tematizzate, figuranti horror, parate e Halloween Parade finale. Scopri di più" [ref=e112] [cursor=pointer]':
+        - /url: /eventi/horrorworld
+        - generic [ref=e113]:
+          - img "HorrorWorld" [ref=e114]
+          - generic [ref=e115]: Horror Fest
+        - generic [ref=e116]:
+          - generic [ref=e117]:
+            - generic [ref=e118]: "2025"
+            - generic [ref=e119]: Edenlandia
+          - heading "HorrorWorld." [level=3] [ref=e120]
+          - paragraph [ref=e121]: "9 notti di terrore a Edenlandia: tre attrazioni tematizzate, figuranti horror, parate e Halloween Parade finale."
+          - generic [ref=e122]:
+            - text: Scopri di più
+            - img [ref=e123]
+      - 'link "ChristmasLand Christmas 2025 Edenlandia ChristmasLand. Il villaggio di Natale ufficiale di Napoli: percorso in 5 tappe, pista di pattinaggio, mercatini e cast live. Scopri di più" [ref=e126] [cursor=pointer]':
+        - /url: /eventi/christmasland
+        - generic [ref=e127]:
+          - img "ChristmasLand" [ref=e128]
+          - generic [ref=e129]: Christmas
+        - generic [ref=e130]:
+          - generic [ref=e131]:
+            - generic [ref=e132]: "2025"
+            - generic [ref=e133]: Edenlandia
+          - heading "ChristmasLand." [level=3] [ref=e134]
+          - paragraph [ref=e135]: "Il villaggio di Natale ufficiale di Napoli: percorso in 5 tappe, pista di pattinaggio, mercatini e cast live."
+          - generic [ref=e136]:
+            - text: Scopri di più
+            - img [ref=e137]
+      - 'link "Fight4Naples Combat Sport 2026 Edenlandia Fight4Naples. La promotion di sport da combattimento del Sud Italia: Pugilato, K-1 e Muay Thai con titolo italiano WAKO Pro. Scopri di più" [ref=e140] [cursor=pointer]':
+        - /url: /eventi/fight4naples
+        - generic [ref=e141]:
+          - img "Fight4Naples" [ref=e142]
+          - generic [ref=e143]: Combat Sport
+        - generic [ref=e144]:
+          - generic [ref=e145]:
+            - generic [ref=e146]: "2026"
+            - generic [ref=e147]: Edenlandia
+          - heading "Fight4Naples." [level=3] [ref=e148]
+          - paragraph [ref=e149]: "La promotion di sport da combattimento del Sud Italia: Pugilato, K-1 e Muay Thai con titolo italiano WAKO Pro."
+          - generic [ref=e150]:
+            - text: Scopri di più
+            - img [ref=e151]
+      - 'link "K-Pop Fest K-Pop 2026 Edenlandia K-Pop Fest. Il primo festival K-Pop strutturato del Sud Italia: show, contest, dance battle, meet & greet e community. Scopri di più" [ref=e154] [cursor=pointer]':
+        - /url: /eventi/kpop-fest
+        - generic [ref=e155]:
+          - img "K-Pop Fest" [ref=e156]
+          - generic [ref=e157]: K-Pop
+        - generic [ref=e158]:
+          - generic [ref=e159]:
+            - generic [ref=e160]: "2026"
+            - generic [ref=e161]: Edenlandia
+          - heading "K-Pop Fest." [level=3] [ref=e162]
+          - paragraph [ref=e163]: "Il primo festival K-Pop strutturato del Sud Italia: show, contest, dance battle, meet & greet e community."
+          - generic [ref=e164]:
+            - text: Scopri di più
+            - img [ref=e165]
+      - 'link "Mascotte Village Carnevale 2026 Edenlandia Mascotte Village. Il Carnevale più grande mai ospitato da Edenlandia: mappa del villaggio, mascotte, attrazioni speciali e Magic Pass. Scopri di più" [ref=e168] [cursor=pointer]':
+        - /url: /eventi/mascotte-village
+        - generic [ref=e169]:
+          - img "Mascotte Village" [ref=e170]
+          - generic [ref=e171]: Carnevale
+        - generic [ref=e172]:
+          - generic [ref=e173]:
+            - generic [ref=e174]: "2026"
+            - generic [ref=e175]: Edenlandia
+          - heading "Mascotte Village." [level=3] [ref=e176]
+          - paragraph [ref=e177]: "Il Carnevale più grande mai ospitato da Edenlandia: mappa del villaggio, mascotte, attrazioni speciali e Magic Pass."
+          - generic [ref=e178]:
+            - text: Scopri di più
+            - img [ref=e179]
+      - 'link "Wonka vs Cappellaio Matto Pasqua 2026 Edenlandia Wonka vs Cappellaio Matto. Il primo Gioco-Festival Immersivo di Napoli: 16 attori, 4 attrazioni tematizzate e plot narrativo originale. Scopri di più" [ref=e182] [cursor=pointer]':
+        - /url: /eventi/wonka-vs-cappellaio
+        - generic [ref=e183]:
+          - img "Wonka vs Cappellaio Matto" [ref=e184]
+          - generic [ref=e185]: Pasqua
+        - generic [ref=e186]:
+          - generic [ref=e187]:
+            - generic [ref=e188]: "2026"
+            - generic [ref=e189]: Edenlandia
+          - heading "Wonka vs Cappellaio Matto." [level=3] [ref=e190]
+          - paragraph [ref=e191]: "Il primo Gioco-Festival Immersivo di Napoli: 16 attori, 4 attrazioni tematizzate e plot narrativo originale."
+          - generic [ref=e192]:
+            - text: Scopri di più
+            - img [ref=e193]
+  - generic [ref=e195]:
+    - heading "PROGETTI." [level=2] [ref=e197]
+    - generic [ref=e198]:
+      - generic [ref=e200]:
+        - generic [ref=e201]:
+          - generic [ref=e202]:
+            - generic [ref=e203]: "01"
+            - generic [ref=e204]:
+              - generic [ref=e205]: Cliente
+              - heading "Nocte Brand." [level=3] [ref=e206]
+              - generic [ref=e208]: Branding
+          - link "Vedi progetto" [ref=e210] [cursor=pointer]:
+            - /url: /progetti/nextlevel-studio
+        - generic [ref=e211]:
+          - generic [ref=e212]:
+            - img "Nocte Brand preview 1" [ref=e213]
+            - img "Nocte Brand preview 2" [ref=e214]
+          - img "Nocte Brand preview 3" [ref=e216]
+      - generic [ref=e218]:
+        - generic [ref=e219]:
+          - generic [ref=e220]:
+            - generic [ref=e221]: "02"
+            - generic [ref=e222]:
+              - generic [ref=e223]: Personale
+              - heading "Aura Brand Identity." [level=3] [ref=e224]
+              - generic [ref=e226]: Branding
+          - link "Vedi progetto" [ref=e228] [cursor=pointer]:
+            - /url: /progetti/aura-brand-identity
+        - generic [ref=e229]:
+          - generic [ref=e230]:
+            - img "Aura Brand Identity preview 1" [ref=e231]
+            - img "Aura Brand Identity preview 2" [ref=e232]
+          - img "Aura Brand Identity preview 3" [ref=e234]
+      - generic [ref=e236]:
+        - generic [ref=e237]:
+          - generic [ref=e238]:
+            - generic [ref=e239]: "03"
+            - generic [ref=e240]:
+              - generic [ref=e241]: Cliente
+              - heading "Solaris Digital." [level=3] [ref=e242]
+              - generic [ref=e243]:
+                - generic [ref=e244]: Web
+                - generic [ref=e245]: AI
+          - link "Vedi progetto" [ref=e247] [cursor=pointer]:
+            - /url: /progetti/solaris-digital
+        - generic [ref=e248]:
+          - generic [ref=e249]:
+            - img "Solaris Digital preview 1" [ref=e250]
+            - img "Solaris Digital preview 2" [ref=e251]
+          - img "Solaris Digital preview 3" [ref=e253]
+    - link "Vedi tutti i progetti" [ref=e256] [cursor=pointer]:
+      - /url: /progetti
+      - text: Vedi tutti i progetti
+      - img [ref=e257]
+  - generic [ref=e260]:
+    - heading "LAVORIAMO INSIEME?." [level=2] [ref=e262]
+    - paragraph [ref=e264]: Lascia i tuoi contatti e parliamone!
+    - generic [ref=e265]:
+      - generic [ref=e266]:
+        - generic [ref=e267]: Nome *
+        - textbox [ref=e268]
+      - generic [ref=e269]:
+        - generic [ref=e270]: Cognome *
+        - textbox [ref=e271]
+      - generic [ref=e272]:
+        - text: Nome azienda
+        - textbox [ref=e273]
+      - generic [ref=e274]:
+        - generic [ref=e275]: Cellulare *
+        - textbox [ref=e276]
+      - generic [ref=e277]:
+        - generic [ref=e278]: Email *
+        - textbox [ref=e279]
+      - generic [ref=e280]:
+        - generic [ref=e281]: Necessità *
+        - combobox [ref=e282] [cursor=pointer]:
+          - option "Seleziona un servizio" [disabled] [selected]
+          - option "Branding"
+          - option "Event Planning"
+          - option "Marketing"
+          - option "Web & Software Development"
+          - option "AI Solution"
+          - option "Paid Advertising"
+      - button "Invia richiesta" [ref=e284] [cursor=pointer]
+  - generic [ref=e285]:
+    - generic [ref=e286]:
+      - generic [ref=e287]:
+        - link "Boost Creative" [ref=e288] [cursor=pointer]:
+          - /url: /
+          - img "Boost Creative" [ref=e289]
+        - paragraph [ref=e290]: Studio creativo che progetta esperienze ed eventi indimenticabili.
+        - generic [ref=e291]:
+          - link "IG" [ref=e292] [cursor=pointer]:
+            - /url: https://instagram.com
+          - link "FB" [ref=e293] [cursor=pointer]:
+            - /url: https://facebook.com
+          - link "IN" [ref=e294] [cursor=pointer]:
+            - /url: https://linkedin.com
+      - generic [ref=e295]:
+        - heading "Menu" [level=4] [ref=e296]
+        - link "CHI SIAMO" [ref=e297] [cursor=pointer]:
+          - /url: /#about
+        - link "EVENTI" [ref=e298] [cursor=pointer]:
+          - /url: /#events
+        - link "PROGETTI" [ref=e299] [cursor=pointer]:
+          - /url: /progetti
+        - link "LAVORA CON NOI" [ref=e300] [cursor=pointer]:
+          - /url: /lavora-con-noi
+        - link "CONTATTI" [ref=e301] [cursor=pointer]:
+          - /url: /contatti
+      - generic [ref=e302]:
+        - heading "Servizi" [level=4] [ref=e303]
+        - generic [ref=e304]: Branding
+        - generic [ref=e305]: Event Planning
+        - generic [ref=e306]: Marketing
+        - generic [ref=e307]: Web & Software Development
+        - generic [ref=e308]: AI Solution
+        - generic [ref=e309]: Paid Advertising
+      - generic [ref=e310]:
+        - heading "Contatti" [level=4] [ref=e311]
+        - link "boostcreativeai@gmail.com" [ref=e312] [cursor=pointer]:
+          - /url: mailto:boostcreativeai@gmail.com
+        - generic [ref=e313]: Napoli, Italia
+    - generic [ref=e314]:
+      - generic [ref=e315]:
+        - generic [ref=e316]: © 2026 Boost Creative — Tutti i diritti riservati.
+        - generic [ref=e317]: "MIX MARK S.R.L. — Sede legale: Napoli, Italia"
+      - generic [ref=e318]: Made with care
