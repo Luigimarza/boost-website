@@ -65,7 +65,7 @@ export default function NavBar({ variant = 'overlay' }: Props) {
             <img
               src="/boost-logo-dark.svg"
               alt="Boost Creative"
-              className="h-7 sm:h-8 md:h-9 lg:h-10 w-auto select-none"
+              className="h-5 sm:h-6 md:h-7 w-auto select-none"
               draggable={false}
             />
           </Link>

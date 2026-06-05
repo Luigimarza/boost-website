@@ -92,7 +92,7 @@ export const translations: Record<Lang, Dict> = {
       contact: 'CONTATTI',
     },
     hero: {
-      title: 'BOOST CREATIVE',
+      title: 'CREATIVE STUDIO',
       tagline: 'Diamo un’accellerata ai tuoi obiettivi e al tuo brand con tecnologie e innovazione.',
       cta: 'Iniziamo',
     },
@@ -224,7 +224,7 @@ export const translations: Record<Lang, Dict> = {
       contact: 'CONTACT',
     },
     hero: {
-      title: 'BOOST CREATIVE',
+      title: 'CREATIVE STUDIO',
       tagline: 'We accelerate your goals and your brand with technology and innovation.',
       cta: 'Let’s start',
     },

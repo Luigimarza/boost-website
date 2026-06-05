@@ -21,7 +21,7 @@ export default function HeroSection() {
       <NavBar />
 
       {/* ── DESKTOP TITLE ─────────────────────────────────── */}
-      <div className="hidden md:block overflow-hidden mt-4 md:-mt-2 px-2 relative z-0">
+      <div className="hidden md:block overflow-hidden absolute left-0 right-0 px-2 z-0 opacity-[0.15]" style={{ top: '42%' }}>
         <FadeIn delay={0.15} y={40}>
           <h1 className="hero-heading no-dot font-black uppercase tracking-tight leading-none whitespace-nowrap w-full text-center md:text-[13vw] lg:text-[13.5vw]">
             {t.hero.title}
@@ -98,7 +98,7 @@ export default function HeroSection() {
       </Magnet>
 
       {/* Tagline + CTA */}
-      <div className="-mt-10 sm:mt-6 md:mt-8 flex flex-col items-center justify-center gap-4 sm:gap-5 md:gap-6 px-6 md:px-10 relative z-20 pb-4 sm:pb-0">
+      <div className="mt-6 sm:mt-10 md:mt-16 flex flex-col items-center justify-center gap-4 sm:gap-5 md:gap-6 px-6 md:px-10 relative z-20 pb-4 sm:pb-0">
         <AnimatedText
           text={t.hero.tagline}
           className="text-[#F2EDE8] font-medium leading-relaxed text-center w-full max-w-[88vw] sm:max-w-[560px] md:max-w-[720px]"
