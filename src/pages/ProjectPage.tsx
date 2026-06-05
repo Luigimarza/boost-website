@@ -34,7 +34,7 @@ export default function ProjectPage() {
         <div className="max-w-6xl mx-auto">
           <FadeIn delay={0} y={-10}>
             <Link
-              to="/#projects"
+              to="/progetti"
               className="inline-flex items-center gap-2 text-[#F2EDE8]/70 hover:text-[#F1552D] transition-colors duration-200 text-xs uppercase tracking-widest mb-4 sm:mb-6"
             >
               <svg width="14" height="11" viewBox="0 0 16 12" fill="none" aria-hidden="true">
@@ -73,13 +73,14 @@ export default function ProjectPage() {
       </section>
 
       {/* Gallery */}
-      <section className="px-4 sm:px-8 md:px-10 pb-12 sm:pb-20">
+      <section className="px-4 sm:px-8 md:px-10 pb-10 sm:pb-14">
         <div className="max-w-6xl mx-auto flex flex-col gap-3 sm:gap-4 md:gap-5">
+          {/* Main image — slightly shorter than 4:3 */}
           <motion.div
             initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }} transition={{ duration: 0.7 }}
             className="relative w-full overflow-hidden"
-            style={{ aspectRatio: '4/3' }}
+            style={{ aspectRatio: '3/2' }}
           >
             <img src={project.col2} alt={project.name} className="absolute inset-0 w-full h-full object-cover" draggable={false} />
           </motion.div>
@@ -104,8 +105,47 @@ export default function ProjectPage() {
         </div>
       </section>
 
+      {/* Description */}
+      {project.description && (
+        <section className="px-4 sm:px-8 md:px-10 py-10 sm:py-14 md:py-20 border-t border-white/[0.06]">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_auto] gap-10 md:gap-20 items-start">
+            <FadeIn delay={0} y={30}>
+              <div className="max-w-2xl">
+                {project.description.body.split('\n').map((para, i) => (
+                  <p
+                    key={i}
+                    className="text-[#F2EDE8]/75 leading-relaxed mb-5 last:mb-0"
+                    style={{ fontSize: 'clamp(0.95rem, 1.5vw, 1.15rem)' }}
+                  >
+                    {para}
+                  </p>
+                ))}
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={0.15} y={30}>
+              <div className="md:min-w-[220px]">
+                <span className="block text-[#F1552D] text-[11px] uppercase tracking-widest font-semibold mb-4">
+                  Cosa abbiamo fatto
+                </span>
+                <ul className="flex flex-col gap-2">
+                  {project.description.services.map((s) => (
+                    <li
+                      key={s}
+                      className="text-[#F2EDE8]/80 text-sm border-b border-white/[0.08] pb-2 last:border-0 last:pb-0"
+                    >
+                      {s}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </FadeIn>
+          </div>
+        </section>
+      )}
+
       {/* CTA */}
-      <section className="px-4 sm:px-8 md:px-10 pb-16 sm:pb-24 md:pb-32">
+      <section className="px-4 sm:px-8 md:px-10 pb-16 sm:pb-24 md:pb-32 pt-10 sm:pt-14 border-t border-white/[0.06]">
         <div className="max-w-3xl mx-auto text-center flex flex-col items-center gap-6 sm:gap-8">
           <FadeIn delay={0} y={20}>
             <p className="text-[#F2EDE8] font-medium leading-relaxed" style={{ fontSize: 'clamp(0.95rem, 2vw, 1.6rem)' }}>
