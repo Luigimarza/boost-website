@@ -96,13 +96,12 @@ function ProjectCard({
               style={{ height: 'clamp(120px, 18vw, 340px)' }}
             />
           </div>
-          <div className="md:col-span-3">
+          <div className="md:col-span-3 flex flex-col" style={{ minHeight: 'clamp(180px, 32vw, 590px)' }}>
             <img
               src={project.col2}
               alt={`${project.name} preview 3`}
               loading="lazy"
-              className="w-full h-full object-cover rounded-none sm:rounded-none md:rounded-none"
-              style={{ minHeight: 'clamp(180px, 32vw, 590px)' }}
+              className="w-full flex-1 object-cover rounded-none sm:rounded-none md:rounded-none min-h-0"
             />
           </div>
         </div>
