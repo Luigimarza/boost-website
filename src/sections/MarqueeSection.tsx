@@ -3,8 +3,8 @@ import { useEffect, useRef } from 'react';
 const GIFS = [
   '/test-card.gif',
   '/marquee/cose-fighe.gif',
-  'https://motionsites.ai/assets/hero-vex-ventures-preview-BczMFIiw.gif',
-  'https://motionsites.ai/assets/hero-stellar-ai-v2-preview-DjvxjG3C.gif',
+  '/marquee/proposal-kiss-kiss.png',
+  '/marquee/narte.gif',
   'https://motionsites.ai/assets/hero-asme-preview-B_nGDnTP.gif',
   'https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif',
   'https://motionsites.ai/assets/hero-vitara-preview-Cjz2QYyU.gif',
