@@ -31,9 +31,9 @@ export default function HeroSection() {
       </div>
 
       {/* ── MOBILE TITLE + PORTRAITS ─────────────────────── */}
-      <div className="block md:hidden relative mt-2" style={{ height: 'clamp(280px, 88vw, 420px)' }}>
+      <div className="block md:hidden relative mt-2" style={{ height: 'clamp(300px, 92vw, 440px)' }}>
         {/* Title behind portraits */}
-        <div className="relative z-0 text-center pt-2">
+        <div className="relative z-0 text-center pt-8 opacity-[0.15]">
           <FadeIn delay={0.1} y={40}>
             <h1 className="no-dot">
               <span className="block hero-heading no-dot font-black uppercase tracking-tight leading-none"
@@ -50,7 +50,7 @@ export default function HeroSection() {
         </div>
 
         {/* Left portrait — overlaps title */}
-        <div className="absolute left-0 top-0 z-10" style={{ width: 'clamp(150px, 44vw, 255px)' }}>
+        <div className="absolute left-0 z-10" style={{ top: '1.5rem', width: 'clamp(150px, 44vw, 255px)' }}>
           <FadeIn delay={0.45} y={30} x={-20}>
             <img
               src={PORTRAIT_LEFT}
@@ -62,7 +62,7 @@ export default function HeroSection() {
         </div>
 
         {/* Right portrait — overlaps title, slightly lower */}
-        <div className="absolute right-0 z-10" style={{ top: '18%', width: 'clamp(150px, 44vw, 255px)' }}>
+        <div className="absolute right-0 z-10" style={{ top: 'calc(18% + 1.5rem)', width: 'clamp(150px, 44vw, 255px)' }}>
           <FadeIn delay={0.55} y={30} x={20}>
             <img
               src={PORTRAIT_RIGHT}
