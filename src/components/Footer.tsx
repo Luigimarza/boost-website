@@ -96,10 +96,18 @@ export default function Footer() {
             © {year} Boost Creative — {t.footer.rights}
           </span>
           <span className="text-[#F2EDE8]/40 text-xs uppercase tracking-widest">
-            {t.footer.company} — {t.footer.legal}
+            {t.footer.company} — {t.footer.legal} — P.IVA 10937531217
           </span>
         </div>
-        <span className="text-[#F2EDE8]/40 text-xs uppercase tracking-widest">Made with care</span>
+        <div className="flex items-center gap-4">
+          <Link to="/privacy" className="text-[#F2EDE8]/40 hover:text-[#F1552D] text-xs uppercase tracking-widest transition-colors duration-200">
+            Privacy Policy
+          </Link>
+          <Link to="/termini" className="text-[#F2EDE8]/40 hover:text-[#F1552D] text-xs uppercase tracking-widest transition-colors duration-200">
+            Termini
+          </Link>
+          <span className="text-[#F2EDE8]/40 text-xs uppercase tracking-widest">Made with care</span>
+        </div>
       </div>
     </footer>
   );

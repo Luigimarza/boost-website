@@ -7,6 +7,8 @@ import AllEventsPage from './pages/AllEventsPage';
 import EventPage from './pages/EventPage';
 import ContactPage from './pages/ContactPage';
 import CareersPage from './pages/CareersPage';
+import PrivacyPage from './pages/PrivacyPage';
+import TermsPage from './pages/TermsPage';
 import Footer from './components/Footer';
 
 function ScrollManager() {
@@ -36,6 +38,8 @@ export default function App() {
         <Route path="/eventi/:slug" element={<EventPage />} />
         <Route path="/contatti" element={<ContactPage />} />
         <Route path="/lavora-con-noi" element={<CareersPage />} />
+        <Route path="/privacy" element={<PrivacyPage />} />
+        <Route path="/termini" element={<TermsPage />} />
         <Route path="*" element={<HomePage />} />
       </Routes>
       <Footer />

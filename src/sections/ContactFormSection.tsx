@@ -23,6 +23,7 @@ export default function ContactFormSection() {
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [privacy, setPrivacy] = useState(false);
 
   const onChange = (k: keyof FormState) =>
     (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
@@ -142,10 +143,34 @@ export default function ContactFormSection() {
             />
           </div>
 
-          <div className="sm:col-span-2 flex flex-col items-center gap-4 mt-4">
+          <div className="sm:col-span-2 flex flex-col gap-3 mt-2">
+            <label className="flex items-start gap-3 cursor-pointer group">
+              <input
+                type="checkbox"
+                required
+                checked={privacy}
+                onChange={(e) => setPrivacy(e.target.checked)}
+                className="mt-0.5 w-4 h-4 flex-shrink-0 accent-[#F1552D] cursor-pointer"
+              />
+              <span className="text-[#F2EDE8]/60 text-xs leading-relaxed">
+                Ho letto e accetto la{' '}
+                <a
+                  href="/privacy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#F1552D] hover:underline"
+                >
+                  Privacy Policy
+                </a>
+                {' '}e acconsento al trattamento dei dati personali ai sensi del GDPR. *
+              </span>
+            </label>
+          </div>
+
+          <div className="sm:col-span-2 flex flex-col items-center gap-4 mt-2">
             <button
               type="submit"
-              disabled={loading}
+              disabled={loading || !privacy}
               className="inline-flex items-center justify-center rounded-none text-white font-display font-extrabold uppercase tracking-[-0.01em] px-8 py-3.5 sm:px-14 sm:py-4 text-sm sm:text-base bg-[#F1552D] hover:bg-[#FF6A42] active:bg-[#D8421E] active:translate-y-[1px] transition-colors duration-200 w-full sm:w-auto max-w-xs sm:max-w-none disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {loading ? '...' : t.contactForm.submit}
