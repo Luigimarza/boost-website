@@ -21,21 +21,31 @@ export default function ContactFormSection() {
   const { t } = useLanguage();
   const [form, setForm] = useState<FormState>(initial);
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const onChange = (k: keyof FormState) =>
     (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
       setForm({ ...form, [k]: e.target.value });
 
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(
-      `Candidatura — ${form.firstName} ${form.lastName} (${form.role})`,
-    );
-    const body = encodeURIComponent(
-      `Nome: ${form.firstName} ${form.lastName}\nEmail: ${form.email}\nCellulare: ${form.phone}\nRuolo: ${form.role}\nPortfolio: ${form.portfolio}\n\nMessaggio:\n${form.message}`,
-    );
-    window.location.href = `mailto:ciao@boostcreativestudio.com?subject=${subject}&body=${body}`;
-    setSent(true);
+    setLoading(true);
+    setError(false);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error('send failed');
+      setSent(true);
+      setForm(initial);
+    } catch {
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const inputClass =
@@ -135,13 +145,19 @@ export default function ContactFormSection() {
           <div className="sm:col-span-2 flex flex-col items-center gap-4 mt-4">
             <button
               type="submit"
-              className="inline-flex items-center justify-center rounded-none text-white font-display font-extrabold uppercase tracking-[-0.01em] px-8 py-3.5 sm:px-14 sm:py-4 text-sm sm:text-base bg-[#F1552D] hover:bg-[#FF6A42] active:bg-[#D8421E] active:translate-y-[1px] transition-colors duration-200 w-full sm:w-auto max-w-xs sm:max-w-none"
+              disabled={loading}
+              className="inline-flex items-center justify-center rounded-none text-white font-display font-extrabold uppercase tracking-[-0.01em] px-8 py-3.5 sm:px-14 sm:py-4 text-sm sm:text-base bg-[#F1552D] hover:bg-[#FF6A42] active:bg-[#D8421E] active:translate-y-[1px] transition-colors duration-200 w-full sm:w-auto max-w-xs sm:max-w-none disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              {t.contactForm.submit}
+              {loading ? '...' : t.contactForm.submit}
             </button>
             {sent && (
               <p className="text-[#F1552D] text-sm uppercase tracking-widest text-center">
                 {t.contactForm.success}
+              </p>
+            )}
+            {error && (
+              <p className="text-red-400 text-sm uppercase tracking-widest text-center">
+                Errore nell'invio. Riprova o scrivici direttamente a ciao@boostcreativestudio.com
               </p>
             )}
           </div>
