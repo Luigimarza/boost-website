@@ -63,16 +63,16 @@ export default function MarqueeSection() {
     };
   }, [isMobile]);
 
-  // Mobile: continuous auto-scroll that the user can also swipe by hand.
+  // Mobile: page-scroll drives the rows (parallax-like) via scrollLeft, so the
+  // user can also swipe left/right by touch — both add up without conflict.
   useEffect(() => {
     if (!isMobile) return;
     const c1 = scroll1Ref.current;
     const c2 = scroll2Ref.current;
     if (!c1 || !c2) return;
 
-    let paused = 0;
-    let resumeTimer: ReturnType<typeof setTimeout> | null = null;
-    const speed = 0.45; // px per frame
+    const factor = 0.4;
+    let last = window.scrollY;
 
     const wrap = (el: HTMLDivElement) => {
       const third = el.scrollWidth / 3;
@@ -81,43 +81,28 @@ export default function MarqueeSection() {
       else if (el.scrollLeft <= 0) el.scrollLeft += third;
     };
 
-    let raf = 0;
-    const tick = () => {
-      if (!paused) {
-        c1.scrollLeft += speed;
-        wrap(c1);
-        c2.scrollLeft -= speed;
-        wrap(c2);
-      }
-      raf = requestAnimationFrame(tick);
+    // Start in the middle copy so there's headroom scrolling either way.
+    const init = () => {
+      if (c1.scrollWidth > 0) c1.scrollLeft = c1.scrollWidth / 3;
+      if (c2.scrollWidth > 0) c2.scrollLeft = c2.scrollWidth / 3;
     };
-    raf = requestAnimationFrame(tick);
+    init();
+    const initRaf = requestAnimationFrame(init);
 
-    // Pause auto-scroll while the user is dragging, resume shortly after.
-    const pause = () => {
-      paused++;
-      if (resumeTimer) { clearTimeout(resumeTimer); resumeTimer = null; }
+    const onScroll = () => {
+      const y = window.scrollY;
+      const dy = y - last;
+      last = y;
+      c1.scrollLeft += dy * factor;
+      wrap(c1);
+      c2.scrollLeft -= dy * factor;
+      wrap(c2);
     };
-    const resume = () => {
-      if (resumeTimer) clearTimeout(resumeTimer);
-      resumeTimer = setTimeout(() => { paused = Math.max(0, paused - 1); }, 1200);
-    };
-
-    const targets = [c1, c2];
-    targets.forEach((el) => {
-      el.addEventListener('touchstart', pause, { passive: true });
-      el.addEventListener('touchend', resume, { passive: true });
-      el.addEventListener('touchcancel', resume, { passive: true });
-    });
+    window.addEventListener('scroll', onScroll, { passive: true });
 
     return () => {
-      cancelAnimationFrame(raf);
-      if (resumeTimer) clearTimeout(resumeTimer);
-      targets.forEach((el) => {
-        el.removeEventListener('touchstart', pause);
-        el.removeEventListener('touchend', resume);
-        el.removeEventListener('touchcancel', resume);
-      });
+      cancelAnimationFrame(initRaf);
+      window.removeEventListener('scroll', onScroll);
     };
   }, [isMobile]);
 
