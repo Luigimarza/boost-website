@@ -1,31 +1,17 @@
 import { useEffect, useRef, useState } from 'react';
 
 const GIFS = [
-  '/test-card.gif',
   '/marquee/cose-fighe.gif',
   '/marquee/proposal-kiss-kiss.png',
   '/marquee/narte.gif',
-  'https://motionsites.ai/assets/hero-asme-preview-B_nGDnTP.gif',
-  'https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif',
-  'https://motionsites.ai/assets/hero-vitara-preview-Cjz2QYyU.gif',
-  'https://motionsites.ai/assets/hero-terra-preview-BFjrCr7T.gif',
-  'https://motionsites.ai/assets/hero-skyelite-preview-DHaZIgUv.gif',
-  'https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif',
-  'https://motionsites.ai/assets/hero-designpro-preview-D8c5_een.gif',
   '/marquee/be-visible.jpg',
   '/marquee/fap-invest.gif',
   '/marquee/cisternino.gif',
   '/marquee/pet-bistr.gif',
-  'https://motionsites.ai/assets/hero-evr-ventures-preview-DZxeVFEX.gif',
-  'https://motionsites.ai/assets/hero-planet-orbit-preview-DWAP8Z1P.gif',
-  'https://motionsites.ai/assets/hero-new-era-preview-CocuDUm9.gif',
-  'https://motionsites.ai/assets/hero-wealth-preview-B70idl_u.gif',
-  'https://motionsites.ai/assets/hero-luminex-preview-CxOP7ce6.gif',
-  'https://motionsites.ai/assets/hero-celestia-preview-0yO3jXO8.gif',
 ];
 
-const ROW_1 = GIFS.slice(0, 11);
-const ROW_2 = GIFS.slice(11);
+const ROW_1 = GIFS.slice(0, 3);
+const ROW_2 = GIFS.slice(3);
 
 function tripled<T>(arr: T[]): T[] {
   return [...arr, ...arr, ...arr];
@@ -35,6 +21,8 @@ export default function MarqueeSection() {
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const row1Ref = useRef<HTMLDivElement | null>(null);
   const row2Ref = useRef<HTMLDivElement | null>(null);
+  const scroll1Ref = useRef<HTMLDivElement | null>(null);
+  const scroll2Ref = useRef<HTMLDivElement | null>(null);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -45,8 +33,8 @@ export default function MarqueeSection() {
     return () => mq.removeEventListener('change', onChange);
   }, []);
 
+  // Desktop: scroll-driven parallax on the inner rows.
   useEffect(() => {
-    // Mobile: rows are swiped manually (native overflow scroll), no parallax.
     if (isMobile) {
       if (row1Ref.current) row1Ref.current.style.transform = '';
       if (row2Ref.current) row2Ref.current.style.transform = '';
@@ -75,6 +63,69 @@ export default function MarqueeSection() {
     };
   }, [isMobile]);
 
+  // Mobile: continuous auto-scroll that the user can also swipe by hand.
+  useEffect(() => {
+    if (!isMobile) return;
+    const c1 = scroll1Ref.current;
+    const c2 = scroll2Ref.current;
+    if (!c1 || !c2) return;
+
+    let paused = 0;
+    let resumeTimer: ReturnType<typeof setTimeout> | null = null;
+    const speed = 0.45; // px per frame
+
+    const wrap = (el: HTMLDivElement) => {
+      const third = el.scrollWidth / 3;
+      if (third <= 0) return;
+      if (el.scrollLeft >= third * 2) el.scrollLeft -= third;
+      else if (el.scrollLeft <= 0) el.scrollLeft += third;
+    };
+
+    let raf = 0;
+    const tick = () => {
+      if (!paused) {
+        c1.scrollLeft += speed;
+        wrap(c1);
+        c2.scrollLeft -= speed;
+        wrap(c2);
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+
+    // Pause auto-scroll while the user is dragging, resume shortly after.
+    const pause = () => {
+      paused++;
+      if (resumeTimer) { clearTimeout(resumeTimer); resumeTimer = null; }
+    };
+    const resume = () => {
+      if (resumeTimer) clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(() => { paused = Math.max(0, paused - 1); }, 1200);
+    };
+
+    const targets = [c1, c2];
+    targets.forEach((el) => {
+      el.addEventListener('touchstart', pause, { passive: true });
+      el.addEventListener('touchend', resume, { passive: true });
+      el.addEventListener('touchcancel', resume, { passive: true });
+    });
+
+    return () => {
+      cancelAnimationFrame(raf);
+      if (resumeTimer) clearTimeout(resumeTimer);
+      targets.forEach((el) => {
+        el.removeEventListener('touchstart', pause);
+        el.removeEventListener('touchend', resume);
+        el.removeEventListener('touchcancel', resume);
+      });
+    };
+  }, [isMobile]);
+
+  const scrollWrapClass = isMobile ? 'overflow-x-auto scrollbar-hide' : 'overflow-hidden';
+  const scrollWrapStyle = isMobile
+    ? { touchAction: 'pan-x' as const, WebkitOverflowScrolling: 'touch' as const }
+    : undefined;
+
   return (
     <section
       ref={sectionRef}
@@ -82,10 +133,7 @@ export default function MarqueeSection() {
       style={{ background: '#111010' }}
     >
       <div className="flex flex-col gap-3">
-        <div
-          className={isMobile ? 'overflow-x-auto scrollbar-hide' : 'overflow-hidden'}
-          style={isMobile ? { touchAction: 'pan-x', WebkitOverflowScrolling: 'touch', scrollSnapType: 'x proximity' } : undefined}
-        >
+        <div ref={scroll1Ref} className={scrollWrapClass} style={scrollWrapStyle}>
           <div
             ref={row1Ref}
             className="flex gap-3 w-max"
@@ -98,16 +146,12 @@ export default function MarqueeSection() {
                 alt=""
                 loading="lazy"
                 draggable={false}
-                style={{ scrollSnapAlign: 'start' }}
                 className="w-[300px] h-[195px] sm:w-[420px] sm:h-[270px] rounded-none object-cover flex-shrink-0"
               />
             ))}
           </div>
         </div>
-        <div
-          className={isMobile ? 'overflow-x-auto scrollbar-hide' : 'overflow-hidden'}
-          style={isMobile ? { touchAction: 'pan-x', WebkitOverflowScrolling: 'touch', scrollSnapType: 'x proximity' } : undefined}
-        >
+        <div ref={scroll2Ref} className={scrollWrapClass} style={scrollWrapStyle}>
           <div
             ref={row2Ref}
             className="flex gap-3 w-max"
@@ -120,7 +164,6 @@ export default function MarqueeSection() {
                 alt=""
                 loading="lazy"
                 draggable={false}
-                style={{ scrollSnapAlign: 'start' }}
                 className="w-[300px] h-[195px] sm:w-[420px] sm:h-[270px] rounded-none object-cover flex-shrink-0"
               />
             ))}
