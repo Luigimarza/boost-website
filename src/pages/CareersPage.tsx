@@ -2,13 +2,14 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import NavBar from '../components/NavBar';
 import FadeIn from '../components/FadeIn';
+import ClientFormSection from '../sections/ClientFormSection';
 import { useLanguage } from '../i18n/LanguageContext';
 
 const STEPS = [
   {
     n: '01',
     title: 'Ascoltiamo',
-    desc: 'Partiamo da quello che hai in mente. Obiettivi, mercato, budget, timing. Nessun brief standard — ogni progetto è diverso e lo trattiamo come tale.',
+    desc: 'Partiamo da quello che hai in mente. Obiettivi, mercato, budget, timing. Nessun brief standard. Ogni progetto è diverso e lo trattiamo come tale.',
   },
   {
     n: '02',
@@ -150,36 +151,28 @@ export default function CareersPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="px-4 sm:px-8 md:px-10 py-16 sm:py-20 md:py-28 border-t border-white/[0.06]">
-        <div className="max-w-4xl mx-auto text-center">
-          <FadeIn delay={0} y={40}>
-            <h2
-              className="hero-heading font-black uppercase leading-none tracking-tight mb-6 sm:mb-8"
-              style={{ fontSize: 'clamp(2rem, 9vw, 120px)' }}
-            >
-              Pronti<br />quando lo sei tu.
-            </h2>
-          </FadeIn>
-          <FadeIn delay={0.15} y={20}>
-            <p
-              className="text-[#F2EDE8]/70 mb-8 sm:mb-10 max-w-xl mx-auto"
-              style={{ fontSize: 'clamp(1rem, 1.8vw, 1.3rem)' }}
-            >
-              Scrivici. Un brief, un'idea, anche solo una direzione.<br />Da lì partiamo.
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.25} y={20}>
-            <Link
-              to="/contatti"
-              className="inline-flex items-center gap-3 bg-[#F1552D] hover:bg-[#FF6A42] active:bg-[#D8421E] text-white font-display font-extrabold uppercase tracking-[-0.01em] px-10 py-4 sm:px-14 sm:py-5 text-sm sm:text-base transition-colors duration-200"
-            >
-              Scrivici ora
-              <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
-                <path d="M1 6h13M9 1l5 5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </Link>
-          </FadeIn>
+      {/* CTA + Form */}
+      <section id="lavora-form" className="px-4 sm:px-8 md:px-10 py-16 sm:py-20 md:py-28 border-t border-white/[0.06]">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center">
+            <FadeIn delay={0} y={40}>
+              <h2
+                className="hero-heading font-black uppercase leading-none tracking-tight mb-6 sm:mb-8"
+                style={{ fontSize: 'clamp(2rem, 9vw, 120px)' }}
+              >
+                Pronti<br />quando lo sei tu
+              </h2>
+            </FadeIn>
+            <FadeIn delay={0.15} y={20}>
+              <p
+                className="text-[#F2EDE8]/70 max-w-xl mx-auto"
+                style={{ fontSize: 'clamp(1rem, 1.8vw, 1.3rem)' }}
+              >
+                Scrivici. Un brief, un'idea, anche solo una direzione.<br />Da lì partiamo.
+              </p>
+            </FadeIn>
+          </div>
+          <ClientFormSection />
         </div>
       </section>
     </main>

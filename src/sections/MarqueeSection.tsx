@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const GIFS = [
   '/test-card.gif',
@@ -35,8 +35,23 @@ export default function MarqueeSection() {
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const row1Ref = useRef<HTMLDivElement | null>(null);
   const row2Ref = useRef<HTMLDivElement | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    const mq = window.matchMedia('(max-width: 767px)');
+    const onChange = () => setIsMobile(mq.matches);
+    onChange();
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
+
+  useEffect(() => {
+    // Mobile: rows are swiped manually (native overflow scroll), no parallax.
+    if (isMobile) {
+      if (row1Ref.current) row1Ref.current.style.transform = '';
+      if (row2Ref.current) row2Ref.current.style.transform = '';
+      return;
+    }
     const onScroll = () => {
       const section = sectionRef.current;
       if (!section) return;
@@ -58,7 +73,7 @@ export default function MarqueeSection() {
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onScroll);
     };
-  }, []);
+  }, [isMobile]);
 
   return (
     <section
@@ -67,10 +82,13 @@ export default function MarqueeSection() {
       style={{ background: '#111010' }}
     >
       <div className="flex flex-col gap-3">
-        <div className="overflow-hidden">
+        <div
+          className={isMobile ? 'overflow-x-auto scrollbar-hide' : 'overflow-hidden'}
+          style={isMobile ? { touchAction: 'pan-x', WebkitOverflowScrolling: 'touch', scrollSnapType: 'x proximity' } : undefined}
+        >
           <div
             ref={row1Ref}
-            className="flex gap-3"
+            className="flex gap-3 w-max"
             style={{ willChange: 'transform' }}
           >
             {tripled(ROW_1).map((src, i) => (
@@ -79,15 +97,20 @@ export default function MarqueeSection() {
                 src={src}
                 alt=""
                 loading="lazy"
-                className="w-[420px] h-[270px] rounded-none object-cover flex-shrink-0"
+                draggable={false}
+                style={{ scrollSnapAlign: 'start' }}
+                className="w-[300px] h-[195px] sm:w-[420px] sm:h-[270px] rounded-none object-cover flex-shrink-0"
               />
             ))}
           </div>
         </div>
-        <div className="overflow-hidden">
+        <div
+          className={isMobile ? 'overflow-x-auto scrollbar-hide' : 'overflow-hidden'}
+          style={isMobile ? { touchAction: 'pan-x', WebkitOverflowScrolling: 'touch', scrollSnapType: 'x proximity' } : undefined}
+        >
           <div
             ref={row2Ref}
-            className="flex gap-3"
+            className="flex gap-3 w-max"
             style={{ willChange: 'transform' }}
           >
             {tripled(ROW_2).map((src, i) => (
@@ -96,7 +119,9 @@ export default function MarqueeSection() {
                 src={src}
                 alt=""
                 loading="lazy"
-                className="w-[420px] h-[270px] rounded-none object-cover flex-shrink-0"
+                draggable={false}
+                style={{ scrollSnapAlign: 'start' }}
+                className="w-[300px] h-[195px] sm:w-[420px] sm:h-[270px] rounded-none object-cover flex-shrink-0"
               />
             ))}
           </div>

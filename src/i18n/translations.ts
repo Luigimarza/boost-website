@@ -68,6 +68,22 @@ export type Dict = {
     submit: string;
     success: string;
   };
+  clientForm: {
+    title: string;
+    subtitle: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
+    company: string;
+    projectType: string;
+    projectTypePlaceholder: string;
+    projectTypes: string[];
+    message: string;
+    messagePlaceholder: string;
+    submit: string;
+    success: string;
+  };
   contactPage: {
     title: string;
     subtitle: string;
@@ -111,7 +127,7 @@ export const translations: Record<Lang, Dict> = {
     services: {
       title: 'SERVIZI',
       list: [
-        { n: '01', name: 'Branding', desc: 'Creiamo identità visive coerenti — dal logo al sistema brand completo — per comunicare una presenza chiara e memorabile.' },
+        { n: '01', name: 'Branding', desc: 'Creiamo identità visive coerenti, dal logo al sistema brand completo, per comunicare una presenza chiara e memorabile.' },
         { n: '02', name: 'Event Planning', desc: 'Progettiamo e produciamo eventi su misura, dalla strategia alla regia, per esperienze indimenticabili.' },
         { n: '03', name: 'Marketing', desc: 'Strategie di marketing su misura per far crescere il tuo brand e raggiungere il pubblico giusto.' },
         { n: '04', name: 'Web & Software Development', desc: 'Sviluppiamo siti, web app e software performanti, scalabili e dal design moderno.' },
@@ -204,6 +220,29 @@ export const translations: Record<Lang, Dict> = {
       submit: 'Invia candidatura',
       success: 'Grazie! Abbiamo ricevuto la tua candidatura.',
     },
+    clientForm: {
+      title: 'INIZIAMO',
+      subtitle: 'Raccontaci il tuo progetto. Ti rispondiamo entro 24 ore con i prossimi passi.',
+      firstName: 'Nome',
+      lastName: 'Cognome',
+      email: 'Email',
+      phone: 'Telefono',
+      company: 'Azienda / Brand',
+      projectType: 'Tipo di progetto',
+      projectTypePlaceholder: 'Seleziona il servizio',
+      projectTypes: [
+        'Branding',
+        'Sito web',
+        'Evento',
+        'Social & Marketing',
+        'Video / Motion',
+        'Altro',
+      ],
+      message: 'Il tuo progetto',
+      messagePlaceholder: 'Obiettivi, tempistiche, budget indicativo, cosa hai in mente…',
+      submit: 'Invia richiesta',
+      success: 'Grazie! Ti ricontattiamo al più presto.',
+    },
     contactPage: {
       title: 'CONTATTI',
       subtitle: 'Pronti a far decollare il tuo prossimo progetto? Scrivici.',
@@ -249,7 +288,7 @@ export const translations: Record<Lang, Dict> = {
     services: {
       title: 'SERVICES',
       list: [
-        { n: '01', name: 'Branding', desc: 'We craft cohesive visual identities — from logos to full brand systems — that communicate a clear and memorable presence.' },
+        { n: '01', name: 'Branding', desc: 'We craft cohesive visual identities, from logos to full brand systems, that communicate a clear and memorable presence.' },
         { n: '02', name: 'Event Planning', desc: 'We design and produce tailor-made events, from strategy to direction, for unforgettable experiences.' },
         { n: '03', name: 'Marketing', desc: 'Tailored marketing strategies to grow your brand and reach the right audience.' },
         { n: '04', name: 'Web & Software Development', desc: 'We develop fast, scalable, modern websites, web apps and software.' },
@@ -341,6 +380,29 @@ export const translations: Record<Lang, Dict> = {
       messagePlaceholder: 'Experience, relevant projects, why you want to join us…',
       submit: 'Send application',
       success: "Thanks! We received your application.",
+    },
+    clientForm: {
+      title: "LET'S START",
+      subtitle: 'Tell us about your project. We reply within 24 hours with the next steps.',
+      firstName: 'First name',
+      lastName: 'Last name',
+      email: 'Email',
+      phone: 'Phone',
+      company: 'Company / Brand',
+      projectType: 'Project type',
+      projectTypePlaceholder: 'Select a service',
+      projectTypes: [
+        'Branding',
+        'Website',
+        'Event',
+        'Social & Marketing',
+        'Video / Motion',
+        'Other',
+      ],
+      message: 'Your project',
+      messagePlaceholder: 'Goals, timing, rough budget, what you have in mind…',
+      submit: 'Send request',
+      success: "Thanks! We'll get back to you shortly.",
     },
     contactPage: {
       title: 'CONTACT',
