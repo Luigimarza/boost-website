@@ -1,8 +1,6 @@
 import { useEffect } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import HomePage from './pages/HomePage';
-import ProjectPage from './pages/ProjectPage';
-import AllProjectsPage from './pages/AllProjectsPage';
 import AllEventsPage from './pages/AllEventsPage';
 import EventPage from './pages/EventPage';
 import ContactPage from './pages/ContactPage';
@@ -32,8 +30,8 @@ export default function App() {
       <ScrollManager />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/progetti" element={<AllProjectsPage />} />
-        <Route path="/progetti/:slug" element={<ProjectPage />} />
+        <Route path="/progetti" element={<Navigate to="/eventi" replace />} />
+        <Route path="/progetti/:slug" element={<Navigate to="/eventi" replace />} />
         <Route path="/eventi" element={<AllEventsPage />} />
         <Route path="/eventi/:slug" element={<EventPage />} />
         <Route path="/contatti" element={<ContactPage />} />

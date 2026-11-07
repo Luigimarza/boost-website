@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import NavBar from '../components/NavBar';
 import FadeIn from '../components/FadeIn';
@@ -8,18 +7,23 @@ import { useLanguage } from '../i18n/LanguageContext';
 const STEPS = [
   {
     n: '01',
-    title: 'Ascoltiamo',
-    desc: 'Partiamo da quello che hai in mente. Obiettivi, mercato, budget, timing. Nessun brief standard. Ogni progetto è diverso e lo trattiamo come tale.',
+    title: 'Concept',
+    desc: 'Partiamo dal tuo pubblico, dal tuo spazio e dal periodo. Costruiamo il format: idea, nome, meccanica, storia. Ogni evento ha una ragione per cui le persone dovrebbero esserci.',
   },
   {
     n: '02',
-    title: 'Progettiamo',
-    desc: 'Costruiamo la strategia visiva e creativa. Ogni decisione ha una ragione: il design non è estetica, è comunicazione. Niente elementi casuali.',
+    title: 'Produzione',
+    desc: "Scenografie, attrazioni, cast, fornitori, permessi. Trasformiamo il concept in un'esperienza vera, dove il pubblico non guarda ma entra nella storia.",
   },
   {
     n: '03',
-    title: 'Costruiamo',
-    desc: 'Eseguiamo con precisione. Dal brand book alla piattaforma, dall\'evento al lancio. Tutto nelle nostre mani, dal primo giorno all\'ultimo dettaglio.',
+    title: 'Lancio & Sold out',
+    desc: "Strategia di lancio, social, contenuti, ADV, influencer, PR e ticketing. Il marketing dell'evento è nelle nostre mani, fino all'ultimo biglietto.",
+  },
+  {
+    n: '04',
+    title: 'Live & Numeri',
+    desc: "Regia in campo durante l'evento e report finale con affluenza e risultati. Così la prossima edizione parte già più forte.",
   },
 ];
 
@@ -43,7 +47,7 @@ export default function CareersPage() {
               className="hero-heading font-black uppercase leading-[0.92] tracking-tight mt-3 sm:mt-4"
               style={{ fontSize: 'clamp(2.8rem, 10vw, 130px)' }}
             >
-              Lavoriamo al<br />tuo progetto.
+              Diamo vita<br />al tuo format.
             </h1>
           </FadeIn>
           <FadeIn delay={0.2} y={20}>
@@ -51,21 +55,21 @@ export default function CareersPage() {
               className="text-[#F2EDE8]/80 mt-6 sm:mt-8 max-w-2xl"
               style={{ fontSize: 'clamp(1rem, 1.8vw, 1.35rem)' }}
             >
-              Costruiamo brand, eventi e prodotti digitali che lasciano il segno.
-              Hai un'idea? Un brand da costruire? Un progetto da lanciare? Iniziamo.
+              Un'idea, uno spazio, un pubblico da far tornare.
+              Noi costruiamo il format, lo produciamo e lo riempiamo.
             </p>
           </FadeIn>
           <FadeIn delay={0.3} y={20}>
             <div className="mt-8 sm:mt-10">
-              <Link
-                to="/contatti"
+              <a
+                href="#lavora-form"
                 className="inline-flex items-center gap-3 bg-[#F1552D] hover:bg-[#FF6A42] active:bg-[#D8421E] text-white font-display font-extrabold uppercase tracking-[-0.01em] px-10 py-4 sm:px-14 sm:py-5 text-sm sm:text-base transition-colors duration-200"
               >
-                Inizia il progetto
+                Crea il tuo format
                 <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
                   <path d="M1 6h13M9 1l5 5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-              </Link>
+              </a>
             </div>
           </FadeIn>
         </div>
@@ -168,7 +172,7 @@ export default function CareersPage() {
                 className="text-[#F2EDE8]/70 max-w-xl mx-auto"
                 style={{ fontSize: 'clamp(1rem, 1.8vw, 1.3rem)' }}
               >
-                Scrivici. Un brief, un'idea, anche solo una direzione.<br />Da lì partiamo.
+                Scrivici. Un evento da creare, uno da rilanciare, o anche solo una data sul calendario.<br />Da lì partiamo.
               </p>
             </FadeIn>
           </div>

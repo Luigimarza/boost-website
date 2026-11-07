@@ -4,6 +4,7 @@ import NavBar from '../components/NavBar';
 import FadeIn from '../components/FadeIn';
 import { useLanguage } from '../i18n/LanguageContext';
 import { EVENTS } from '../data/events';
+import ModelBadge from '../components/ModelBadge';
 
 export default function AllEventsPage() {
   const { t } = useLanguage();
@@ -85,6 +86,7 @@ export default function AllEventsPage() {
                   <span className="absolute top-3 left-3 sm:top-4 sm:left-4 inline-flex items-center bg-[#F1552D] text-white text-[10px] sm:text-[11px] font-semibold uppercase tracking-widest px-2.5 py-1 sm:px-3">
                     {item.category}
                   </span>
+                  <ModelBadge model={item.model} className="absolute top-3 right-3 sm:top-4 sm:right-4" />
                 </div>
                 <div className="p-4 sm:p-5 md:p-6 flex flex-col gap-2 sm:gap-3">
                   <div className="flex items-center justify-between text-[#F2EDE8]/60 text-[11px] sm:text-sm uppercase tracking-widest">

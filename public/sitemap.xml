@@ -54,27 +54,6 @@
   </url>
 
   <url>
-    <loc>https://www.boostcreativestudio.com/progetti</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.boostcreativestudio.com/progetti/nextlevel-studio</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.boostcreativestudio.com/progetti/trovauto-net</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.boostcreativestudio.com/progetti/riserva-natural</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
     <loc>https://www.boostcreativestudio.com/contatti</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>

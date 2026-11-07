@@ -67,7 +67,6 @@ export default function Footer() {
           <h4 className="text-[#F1552D] uppercase tracking-widest text-xs font-semibold">{t.footer.navTitle}</h4>
           <a href="/#about"    className="text-[#F2EDE8] hover:text-[#F1552D] transition-colors duration-200 text-sm uppercase tracking-wide">{t.nav.about}</a>
           <Link to="/eventi"   className="text-[#F2EDE8] hover:text-[#F1552D] transition-colors duration-200 text-sm uppercase tracking-wide">{t.nav.events}</Link>
-          <Link to="/progetti" className="text-[#F2EDE8] hover:text-[#F1552D] transition-colors duration-200 text-sm uppercase tracking-wide">{t.nav.projects}</Link>
           <Link to="/lavora-con-noi" className="text-[#F2EDE8] hover:text-[#F1552D] transition-colors duration-200 text-sm uppercase tracking-wide">{t.nav.careers}</Link>
           <Link to="/contatti" className="text-[#F2EDE8] hover:text-[#F1552D] transition-colors duration-200 text-sm uppercase tracking-wide">{t.nav.contact}</Link>
         </div>

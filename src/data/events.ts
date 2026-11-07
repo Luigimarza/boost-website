@@ -11,6 +11,7 @@ export type EventItem = {
   date: { it: string; en: string };
   location: string;
   category: string;
+  model: 'proprietary' | 'commissioned';
   attendance: string;
   description: { it: string; en: string };
   stats: EventStat[];
@@ -83,6 +84,7 @@ export const EVENTS: EventItem[] = [
     date: { it: 'Domenica 18 Dicembre 2024', en: 'Sunday, December 18, 2024' },
     location: 'Hype Club',
     category: 'Motorshow',
+    model: 'commissioned',
     attendance: '2.000+',
     description: {
       it: "Babbi in Moto è un format natalizio su moto ideato e prodotto per il Sud Italia: centinaia di motociclisti vestiti da Babbo Natale sfilano per le strade di Napoli in una parata che parte dallo Stadio Diego Armando Maradona, per poi confluire in un Motorshow di oltre 10.000 mq a Castel Volturno. L'evento unisce la cultura motociclistica a un'esperienza collettiva di comunità, con area espositiva moto, stand brand, area food, entertainment e talk show con influencer del settore. Il format è costruito da motociclisti per motociclisti, con una componente solidale attiva a supporto di due fondazioni benefiche.",
@@ -426,6 +428,7 @@ export const EVENTS: EventItem[] = [
     date: { it: '9 — 12 Ottobre 2025', en: 'October 9 — 12, 2025' },
     location: 'Edenlandia',
     category: 'Festival',
+    model: 'proprietary',
     attendance: '5.000+',
     description: {
       it: "Oktoberland è stato il festival bavarese di Napoli: quattro giorni in cui Edenlandia si è trasformata in un villaggio Oktoberfest a cielo aperto, con birra Erdinger, cucina tipica e musica live. Tre aree distinte pensate per pubblici diversi: il PalaErdinger per pranzi e cene con spettacoli e brindisi collettivi, il KulturPlatz per intrattenimento interattivo con quiz, caccia al tesoro e djset, e il Biergarten come spazio chill con Beer Pong e giochi da tavolo. Un parterre di food partner d'eccellenza (Nennella, Puok, Porzio, Scaturchio e altri) ha trasformato l'offerta gastronomica in un elemento centrale dell'esperienza, portando a Napoli l'energia dell'Oktoberfest con un'identità locale riconoscibile.",
@@ -578,6 +581,7 @@ export const EVENTS: EventItem[] = [
     date: { it: '17 Ottobre — 2 Novembre 2025', en: 'October 17 — November 2, 2025' },
     location: 'Edenlandia',
     category: 'Horror Fest',
+    model: 'commissioned',
     attendance: '40.000+',
     description: {
       it: "HorrorWorld è stato il festival dell'orrore di Napoli: per 9 notti distribuite su tre weekend, Edenlandia si è trasformata in un incubo vivente con mostri, effetti speciali, scenografie immersive e figuranti horror professionisti. Tre attrazioni tematizzate (Il Trenino Maledetto, Il Castello dei Morti, La Tana dei Clown) accessibili con Horror Pass, affiancate da spettacoli dal vivo, photo point, cene con delitto e un'Halloween Parade finale con in palio un viaggio a Disneyland. Un evento capace di ridefinire il calendario autunnale napoletano, trasformando il parco più iconico della città in un'esperienza che ha mescolato terrore, intrattenimento e spettacolo su larga scala.",
@@ -597,6 +601,7 @@ export const EVENTS: EventItem[] = [
     date: { it: '6 Dicembre 2025 — 7 Gennaio 2026', en: 'December 6, 2025 — January 7, 2026' },
     location: 'Edenlandia',
     category: 'Christmas',
+    model: 'commissioned',
     attendance: '22.000+',
     description: {
       it: "ChristmasLand ha trasformato Edenlandia nel villaggio di Natale ufficiale di Napoli per oltre un mese, dal 6 dicembre al 7 gennaio. Un percorso immersivo in 5 tappe (Polar Express, Christmas Castle, Christmas Circus, La Tana dei Grinch, A Casa di Babbo Natale) ha guidato famiglie e bambini attraverso un'esperienza narrativa completa, accessibile con il ChristmasLand Passport. Ad arricchire il festival: la pista di pattinaggio sul ghiaccio nella piazza centrale, i mercatini con artigianato e street food, spettacoli e parate quotidiane gratuiti, e un cast di figuranti professionisti che ha animato il parco dall'apertura alla chiusura. ChristmasLand ha ridefinito il Natale napoletano, portando per la prima volta in città un format di villaggio natalizio strutturato, immersivo e su larga scala.",
@@ -708,6 +713,7 @@ export const EVENTS: EventItem[] = [
     date: { it: 'Sabato 24 Gennaio 2026', en: 'Saturday, January 24, 2026' },
     location: 'Edenlandia',
     category: 'Combat Sport',
+    model: 'commissioned',
     attendance: '1.500+',
     description: {
       it: "Fight4Naples è stata la promotion di sport da combattimento di riferimento del Sud Italia: una serie di eventi che ha portato sul ring il meglio del circuito F4N con una produzione professionale, un'atmosfera da grande show e match di altissimo livello tecnico. Ogni edizione ha messo in scena fino a 25-30 incontri in una sola serata, coinvolgendo oltre 60 atleti tra dilettanti, semi-professionisti e professionisti nelle discipline di Pugilato, K-1 Rules e Muay Thai. Il main event dell'edizione 2026 ha assegnato il Titolo Italiano WAKO Pro K-1, con la partecipazione di campioni nazionali e talenti del territorio campano. Un format costruito per valorizzare lo sport da combattimento a Napoli, trasformandolo in uno spettacolo capace di riempire il PalaEden e attrarre società e coach da tutta Italia.",
@@ -856,6 +862,7 @@ export const EVENTS: EventItem[] = [
     date: { it: '21 — 22 Marzo 2026', en: 'March 21 — 22, 2026' },
     location: 'Edenlandia',
     category: 'K-Pop',
+    model: 'commissioned',
     attendance: '5.000+',
     description: {
       it: "K-Pop Fest è stato il primo festival K-Pop strutturato del Sud Italia: due giorni in cui Edenlandia si è trasformata in un universo dedicato alla cultura coreana, con accesso libero all'intero parco e un'arena ufficiale al PalaEden per le performance principali. Il festival ha ospitato show, contest e battle K-Pop, showcase delle scuole di danza, meet & greet con ospiti speciali e un grande raduno community con random dance, cosplayer, stand tematici e food asiatico. Un evento che non si è limitato all'intrattenimento, ma ha dato per la prima volta una casa fisica alla scena K-Pop del Sud Italia, riunendo in un unico spazio musica, danza, cultura e community.",
@@ -875,6 +882,7 @@ export const EVENTS: EventItem[] = [
     date: { it: '7 — 28 Febbraio 2026', en: 'February 7 — 28, 2026' },
     location: 'Edenlandia',
     category: 'Carnevale',
+    model: 'commissioned',
     attendance: '12.000+',
     description: {
       it: "Mascotte Village è stato il Carnevale più grande mai ospitato da Edenlandia: un'esperienza strutturata intorno alla Mappa del Villaggio, che ha trasformato il parco in un percorso da esplorare e completare. Oltre 20 mascotte distribuite tra i viali e le attrazioni, 4 attrazioni speciali dedicate, spettacoli al palco centrale, sfilate e attività per bambini hanno dato vita a un format interattivo con una meccanica di fidelizzazione integrata: ogni 3 mappe completate, un Magic Pass omaggio. Un evento pensato per le famiglie che ha ridefinito il Carnevale napoletano, trasformando una giornata al parco in un'avventura da vivere e ricordare.",
@@ -894,6 +902,7 @@ export const EVENTS: EventItem[] = [
     date: { it: '3 — 26 Aprile 2026', en: 'April 3 — 26, 2026' },
     location: 'Edenlandia',
     category: 'Pasqua',
+    model: 'commissioned',
     attendance: '6.000+',
     description: {
       it: "Wonka incontra il Cappellaio è stato il primo Gioco-Festival Immersivo di Napoli: un format narrativo inedito in cui due universi distinti, quello della cioccolata di Willy Wonka e la follia del Cappellaio Matto, hanno preso vita all'interno di Edenlandia. Sedici attori professionisti e figuranti itineranti hanno animato 4 attrazioni storiche del parco completamente tematizzate, trascinando il pubblico in un'avventura con un plot originale, personaggi iconici e una scenografia diffusa su tutta la location. Un evento che ha ridefinito il concetto di intrattenimento al parco, portando per la prima volta in Italia un festival immersivo costruito attorno a una storia da vivere, non solo da guardare.",

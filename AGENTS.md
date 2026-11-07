@@ -13,7 +13,10 @@ Non-discoverable landmines and intentional choices. Keep short.
 
 - Studio voice is **plural ("we're Boost", "we focus on")**. The original visual spec used solo voice ("Hi, i'm jack", "i focus on"). Do not revert to solo voice when re-reading the spec.
 - About heading stays **"About me"** verbatim per spec — not "About us". Leave it alone.
-- Project names `Nextlevel Studio` / `Aura Brand Identity` / `Solaris Digital` are placeholders until the user supplies real Boost portfolio entries.
+- **Positioning (Nov 2026): Boost works ONLY on immersive formats and experiences.** Two models: proprietary formats (only `oktoberland`) and commissioned formats (all other events), with 360° marketing limited to the event. No generic branding/web/AI/ads services; do not reintroduce them in copy.
+- Branding portfolio (Nocte, Trovauto, Riserva) was removed on purpose: `/progetti*` redirects to `/eventi`. Images remain in `public/projects/`; code is in git history.
+- `EventItem.model` (`src/data/events.ts`) drives the "Format proprietario / Su commissione" badge (`src/components/ModelBadge.tsx`).
+- Homepage `#contact` is the **client** lead form (`ClientFormSection`). The job-application form (`ContactFormSection`) lives only on `/contatti`.
 - Contact action is `mailto:boostcreativeai@gmail.com`. No form, no API route.
 
 ## Non-discoverable commands

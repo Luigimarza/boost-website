@@ -65,6 +65,7 @@ export default function EventPage() {
     { label: t.events.locationLabel, value: data.location },
     { label: t.events.attendanceLabel, value: data.attendance },
     { label: t.events.categoryLabel, value: data.category },
+    { label: t.events.modelLabel, value: data.model === 'proprietary' ? t.events.modelProprietary : t.events.modelCommissioned },
   ];
 
   return (

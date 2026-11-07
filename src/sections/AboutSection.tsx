@@ -49,7 +49,7 @@ export default function AboutSection() {
         />
 
         <FadeIn delay={0} y={20}>
-          <ContactButton label={t.about.cta} />
+          <ContactButton label={t.about.cta} href="#contact" />
         </FadeIn>
       </div>
     </section>

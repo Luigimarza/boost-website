@@ -26,7 +26,6 @@ export default function NavBar({ variant = 'overlay' }: Props) {
   const links = [
     { label: t.nav.about,    target: isHome ? '#about'    : '/#about'    },
     { label: t.nav.events,   target: '/eventi' },
-    { label: t.nav.projects, target: '/progetti' },
     { label: t.nav.contact,  target: '/contatti' },
   ];
 
