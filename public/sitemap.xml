@@ -13,6 +13,16 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.boostcreativestudio.com/eventi/horror-drive-in</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.boostcreativestudio.com/eventi/oktoberdays</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.boostcreativestudio.com/eventi/babbi-in-moto</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>

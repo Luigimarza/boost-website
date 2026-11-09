@@ -23,9 +23,16 @@ export default function HeroSection() {
       {/* ── DESKTOP TITLE ─────────────────────────────────── */}
       <div className="hidden md:block overflow-hidden absolute left-0 right-0 px-2 z-0 opacity-[0.15]" style={{ top: '56px' }}>
         <FadeIn delay={0.15} y={40}>
-          <h1 className="hero-heading no-dot font-black uppercase tracking-tight leading-none whitespace-nowrap w-full text-center md:text-[13vw] lg:text-[13.5vw]">
-            {t.hero.title}
-            <span className="text-[#F1552D]">.</span>
+          <h1
+            className="hero-heading no-dot font-black uppercase tracking-tight whitespace-nowrap w-full text-center"
+            style={{ fontSize: 'min(11.5vw, 16vh)', lineHeight: 0.84 }}
+          >
+            {t.hero.titleLines.map((line, i) => (
+              <span key={line} className="block">
+                {line}
+                {i === t.hero.titleLines.length - 1 && <span className="text-[#F1552D]">.</span>}
+              </span>
+            ))}
           </h1>
         </FadeIn>
       </div>
@@ -35,16 +42,17 @@ export default function HeroSection() {
         {/* Title behind portraits */}
         <div className="relative z-0 text-center pt-8 opacity-[0.15]">
           <FadeIn delay={0.1} y={40}>
-            <h1 className="no-dot">
-              <span className="block hero-heading no-dot font-black uppercase tracking-tight leading-none"
-                    style={{ fontSize: 'clamp(3rem, 18vw, 6rem)' }}>
-                {t.hero.title.split(' ')[0]}
-              </span>
-              <span className="block hero-heading no-dot font-black uppercase tracking-tight leading-none"
-                    style={{ fontSize: 'clamp(2rem, 12vw, 4rem)' }}>
-                {t.hero.title.split(' ').slice(1).join(' ')}
-                <span className="text-[#F1552D]">.</span>
-              </span>
+            <h1 className="no-dot" style={{ lineHeight: 0.84 }}>
+              {t.hero.titleLines.map((line, i) => (
+                <span
+                  key={line}
+                  className="block hero-heading no-dot font-black uppercase tracking-tight"
+                  style={{ fontSize: 'clamp(2.6rem, 16vw, 5.5rem)', lineHeight: 0.84 }}
+                >
+                  {line}
+                  {i === t.hero.titleLines.length - 1 && <span className="text-[#F1552D]">.</span>}
+                </span>
+              ))}
             </h1>
           </FadeIn>
         </div>

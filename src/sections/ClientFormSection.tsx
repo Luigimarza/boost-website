@@ -9,11 +9,14 @@ type FormState = {
   phone: string;
   company: string;
   projectType: string;
+  location: string;
+  attendees: string;
   message: string;
 };
 
 const initial: FormState = {
-  firstName: '', lastName: '', email: '', phone: '', company: '', projectType: '', message: '',
+  firstName: '', lastName: '', email: '', phone: '', company: '', projectType: '',
+  location: '', attendees: '', message: '',
 };
 
 export default function ClientFormSection() {
@@ -34,7 +37,13 @@ export default function ClientFormSection() {
     setError(false);
     try {
       // Map to the existing /api/contact payload (no backend change):
-      // projectType -> role, company prepended to message, portfolio unused.
+      // projectType -> role; company, location and expected attendance are
+      // prepended to the event idea in `message`; portfolio unused.
+      const details = [
+        form.company && `${t.clientForm.company}: ${form.company}`,
+        `${t.clientForm.location}: ${form.location}`,
+        `${t.clientForm.attendees}: ${form.attendees}`,
+      ].filter(Boolean).join('\n');
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -45,7 +54,7 @@ export default function ClientFormSection() {
           phone: form.phone,
           role: form.projectType,
           portfolio: '',
-          message: `${t.clientForm.company}: ${form.company}\n\n${form.message}`,
+          message: `${details}\n\n${t.clientForm.message}:\n${form.message}`,
         }),
       });
       if (!res.ok) throw new Error('send failed');
@@ -89,10 +98,6 @@ export default function ClientFormSection() {
       </div>
 
       <div>
-        <label className="text-[#F2EDE8]/60 text-[11px] uppercase tracking-widest">{t.clientForm.company} *</label>
-        <input required value={form.company} onChange={onChange('company')} className={inputClass} />
-      </div>
-      <div>
         <label className="text-[#F2EDE8]/60 text-[11px] uppercase tracking-widest">{t.clientForm.projectType} *</label>
         <select
           required
@@ -105,6 +110,40 @@ export default function ClientFormSection() {
             {t.clientForm.projectTypePlaceholder}
           </option>
           {t.clientForm.projectTypes.map((p) => (
+            <option key={p} value={p} className="bg-[#111010] text-[#F2EDE8]">{p}</option>
+          ))}
+        </select>
+      </div>
+      <div>
+        <label className="text-[#F2EDE8]/60 text-[11px] uppercase tracking-widest">
+          {t.clientForm.company} <span className="normal-case tracking-normal">({t.clientForm.optional})</span>
+        </label>
+        <input value={form.company} onChange={onChange('company')} className={inputClass} />
+      </div>
+
+      <div>
+        <label className="text-[#F2EDE8]/60 text-[11px] uppercase tracking-widest">{t.clientForm.location} *</label>
+        <input
+          required
+          placeholder={t.clientForm.locationPlaceholder}
+          value={form.location}
+          onChange={onChange('location')}
+          className={inputClass}
+        />
+      </div>
+      <div>
+        <label className="text-[#F2EDE8]/60 text-[11px] uppercase tracking-widest">{t.clientForm.attendees} *</label>
+        <select
+          required
+          value={form.attendees}
+          onChange={onChange('attendees')}
+          className={`${inputClass} appearance-none cursor-pointer`}
+          style={{ backgroundImage: 'none' }}
+        >
+          <option value="" disabled className="bg-[#111010] text-[#F2EDE8]/50">
+            {t.clientForm.attendeesPlaceholder}
+          </option>
+          {t.clientForm.attendeesOptions.map((p) => (
             <option key={p} value={p} className="bg-[#111010] text-[#F2EDE8]">{p}</option>
           ))}
         </select>

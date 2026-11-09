@@ -13,7 +13,10 @@ Non-discoverable landmines and intentional choices. Keep short.
 
 - Studio voice is **plural ("we're Boost", "we focus on")**. The original visual spec used solo voice ("Hi, i'm jack", "i focus on"). Do not revert to solo voice when re-reading the spec.
 - About heading stays **"About me"** verbatim per spec — not "About us". Leave it alone.
-- **Positioning (Nov 2026): Boost works ONLY on immersive formats and experiences.** Two models: proprietary formats (only `oktoberland`) and commissioned formats (all other events), with 360° marketing limited to the event. No generic branding/web/AI/ads services; do not reintroduce them in copy.
+- **Positioning (Nov 2026): Boost works ONLY on immersive formats and experiences.** Two models: proprietary formats (`horror-drive-in` under the Horror Days brand, and `oktoberdays`) and commissioned formats (all other events, **including `oktoberland`**), with 360° marketing limited to the event. No generic branding/web/AI/ads services; do not reintroduce them in copy.
+- Posters for `horror-drive-in` / `oktoberdays` (`public/events/*.webp`) were composed from the official horrordays.it / oktoberdays.it photos and logos; there was no original vertical poster. Replace them if the owner supplies real ones.
+- Homepage "I NUMERI" totals are derived from `EVENT_TOTALS` in `src/data/events.ts` and rounded **down** so claims stay true. Only the "28 sold-out shows" stat is hardcoded.
+- The marquee under the hero (`src/sections/MarqueeSection.tsx`) is now a poster belt built from every event `cover`; the old `public/marquee/*` gifs are unused.
 - Branding portfolio (Nocte, Trovauto, Riserva) was removed on purpose: `/progetti*` redirects to `/eventi`. Images remain in `public/projects/`; code is in git history.
 - `EventItem.model` (`src/data/events.ts`) drives the "Format proprietario / Su commissione" badge (`src/components/ModelBadge.tsx`).
 - Homepage `#contact` is the **client** lead form (`ClientFormSection`). The job-application form (`ContactFormSection`) lives only on `/contatti`.

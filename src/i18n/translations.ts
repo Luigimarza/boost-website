@@ -2,8 +2,36 @@ export type Lang = 'it' | 'en';
 
 export type Dict = {
   nav: { about: string; events: string; careers: string; contact: string };
-  hero: { title: string; tagline: string; cta: string };
+  hero: { titleLines: string[]; tagline: string; cta: string };
+  posters: { label: string; cta: string };
   about: { title: string; body: string; cta: string };
+  results: {
+    kicker: string;
+    title: string;
+    subtitle: string;
+    formats: string;
+    people: string;
+    reach: string;
+    soldOut: string;
+    cta: string;
+  };
+  spotlight: {
+    kicker: string;
+    title: string;
+    subtitle: string;
+    items: {
+      slug: string;
+      brand: string;
+      name: string;
+      headline: string;
+      body: string;
+      image: string;
+      stats: { value: string; label: string }[];
+    }[];
+    view: string;
+    cta: string;
+  };
+  wall: { title: string; subtitle: string; cta: string };
   models: {
     title: string;
     subtitle: string;
@@ -77,8 +105,14 @@ export type Dict = {
     projectType: string;
     projectTypePlaceholder: string;
     projectTypes: string[];
+    location: string;
+    locationPlaceholder: string;
+    attendees: string;
+    attendeesPlaceholder: string;
+    attendeesOptions: string[];
     message: string;
     messagePlaceholder: string;
+    optional: string;
     submit: string;
     success: string;
   };
@@ -111,15 +145,66 @@ export const translations: Record<Lang, Dict> = {
       contact: 'CONTATTI',
     },
     hero: {
-      title: 'CREATIVE STUDIO',
+      titleLines: ['CREIAMO', 'EVENTI', 'IMMERSIVI'],
       tagline: 'Ideiamo, produciamo e portiamo al sold out format ed esperienze immersive. I nostri e i tuoi.',
       cta: 'Crea il tuo format',
     },
+    posters: { label: 'Le locandine dei nostri eventi', cta: 'Scopri' },
     about: {
       title: 'CHI SIAMO',
       body:
-        'Siamo Boost e facciamo una cosa sola: format ed esperienze immersive. Li inventiamo e li produciamo in proprio, come Oktoberland, oppure li costruiamo su misura per parchi, brand e location che vogliono un evento capace di riempirsi. Dal concept alla regia, dalla scenografia al marketing che porta le persone dentro: ce ne occupiamo noi, a 360°.',
+        'Siamo Boost e facciamo una cosa sola: format ed esperienze immersive. Li inventiamo e li produciamo in proprio, come Horror Drive-In e Oktoberdays, oppure li costruiamo su misura per parchi, brand e location che vogliono un evento capace di riempirsi. Dal concept alla regia, dalla scenografia al marketing che porta le persone dentro: ce ne occupiamo noi, a 360°.',
       cta: 'Parliamo del tuo evento',
+    },
+    results: {
+      kicker: 'I nostri traguardi',
+      title: 'I NUMERI',
+      subtitle: 'Ogni evento che firmiamo deve riempirsi. Questi sono i risultati, sommati evento per evento.',
+      formats: 'Format prodotti',
+      people: 'Persone coinvolte',
+      reach: 'Copertura social',
+      soldOut: 'Repliche sold out con Horror Drive-In',
+      cta: 'Voglio questi numeri',
+    },
+    spotlight: {
+      kicker: 'Format proprietari',
+      title: 'NATI DA NOI',
+      subtitle: 'Li abbiamo inventati, prodotti e portati al sold out. Sono la prova di quello che possiamo costruire per te.',
+      items: [
+        {
+          slug: 'horror-drive-in',
+          brand: 'Horror Days',
+          name: 'Horror Drive-In',
+          headline: "Il primo horror drive-in d'Europa.",
+          body: 'Trenta minuti dal vivo, chiusi in auto, a motore spento. Avevamo previsto 7 notti: il pubblico ne ha volute 8.',
+          image: '/events/horror-drive-in/hdi-008.webp',
+          stats: [
+            { value: '9.700+', label: 'Spettatori' },
+            { value: '28', label: 'Repliche sold out' },
+            { value: '99,7%', label: 'Posti occupati' },
+          ],
+        },
+        {
+          slug: 'oktoberdays',
+          brand: 'Oktoberdays',
+          name: 'Oktoberdays',
+          headline: 'Tradizione bavarese, calore napoletano.',
+          body: 'Sei giornate, quattro mondi e un tendone sempre pieno al Palapartenope di Napoli, con Erdinger come Main Partner.',
+          image: '/events/oktoberdays/okd-002.webp',
+          stats: [
+            { value: '20.000+', label: 'Presenze' },
+            { value: '15.000 L', label: 'Birra versata' },
+            { value: '10.000+', label: 'Ordini food' },
+          ],
+        },
+      ],
+      view: 'Guarda il format',
+      cta: 'Voglio un evento così',
+    },
+    wall: {
+      title: 'LA PROSSIMA FOLLA PUÒ ESSERE LA TUA',
+      subtitle: 'Dietro ogni numero ci sono persone che hanno riso, urlato, brindato e ballato. Costruiamo il tuo evento e riempiamolo.',
+      cta: 'Creiamo un evento',
     },
     models: {
       title: 'DUE MODI',
@@ -129,15 +214,15 @@ export const translations: Record<Lang, Dict> = {
           n: '01',
           name: 'Format proprietari',
           desc: 'Format Boost, ideati, prodotti e promossi da noi. Cerchiamo location, partner e sponsor per portarli in nuove città.',
-          proof: 'Oktoberland, il festival bavarese di Napoli',
-          cta: 'Scopri Oktoberland',
-          href: '/eventi/oktoberland',
+          proof: 'Horror Drive-In (Horror Days) e Oktoberdays',
+          cta: 'Scopri Horror Drive-In',
+          href: '/eventi/horror-drive-in',
         },
         {
           n: '02',
           name: 'Format su commissione',
           desc: "Hai un pubblico, uno spazio o una ricorrenza? Costruiamo il tuo format da zero e gestiamo tutto il marketing dell'evento, fino all'ultimo biglietto.",
-          proof: '7 format realizzati per Edenlandia e altri partner',
+          proof: '8 format realizzati per Edenlandia e altri partner',
           cta: 'Commissiona un format',
           href: '#contact',
         },
@@ -174,6 +259,8 @@ export const translations: Record<Lang, Dict> = {
       modelProprietary: 'Format proprietario',
       modelCommissioned: 'Su commissione',
       list: [
+        { slug: 'horror-drive-in', name: 'Horror Drive-In', desc: "Il primo horror drive-in d'Europa, firmato Horror Days: 8 notti, 28 repliche sold out e oltre 9.700 spettatori chiusi in auto." },
+        { slug: 'oktoberdays', name: 'Oktoberdays', desc: 'Il villaggio bavarese di Napoli al Palapartenope: 6 giornate, 4 mondi, oltre 20.000 presenze e 15.000 litri di birra.' },
         { slug: 'oktoberland', name: 'Oktoberland', desc: 'Il festival bavarese di Napoli a Edenlandia: birra Erdinger, cucina tipica, musica live e food partner d\'eccellenza.' },
         { slug: 'wonka-vs-cappellaio', name: 'Wonka vs Cappellaio Matto', desc: "Il primo Gioco-Festival Immersivo di Napoli: 16 attori, 4 attrazioni tematizzate e plot narrativo originale." },
         { slug: 'horrorworld', name: 'HorrorWorld', desc: '9 notti di terrore a Edenlandia: tre attrazioni tematizzate, figuranti horror, parate e Halloween Parade finale.' },
@@ -232,25 +319,31 @@ export const translations: Record<Lang, Dict> = {
       success: 'Grazie! Abbiamo ricevuto la tua candidatura.',
     },
     clientForm: {
-      title: 'INIZIAMO',
-      subtitle: 'Raccontaci il tuo evento. Ti rispondiamo entro 24 ore con i prossimi passi.',
+      title: 'CREIAMO UN EVENTO?',
+      subtitle: 'Raccontaci la tua idea: ti rispondiamo entro 24 ore con i prossimi passi.',
       firstName: 'Nome',
       lastName: 'Cognome',
       email: 'Email',
       phone: 'Telefono',
-      company: 'Azienda / Location',
+      company: 'Azienda / Brand',
       projectType: 'Tipo di richiesta',
       projectTypePlaceholder: 'Seleziona il tipo di richiesta',
       projectTypes: [
-        'Nuovo format su commissione',
+        'Nuovo evento su commissione',
+        'Portare un format Boost nella mia città',
         'Marketing per un evento esistente',
-        'Portare Oktoberland nella mia location',
         'Sponsorizzazione / Partnership',
         'Altro',
       ],
-      message: 'Il tuo evento',
-      messagePlaceholder: 'Tipo di evento, pubblico atteso, location, periodo, budget indicativo…',
-      submit: 'Invia richiesta',
+      location: 'Location',
+      locationPlaceholder: 'Città o spazio dove vorresti farlo',
+      attendees: 'Persone attese',
+      attendeesPlaceholder: 'Seleziona una stima',
+      attendeesOptions: ['Fino a 500', 'Da 500 a 2.000', 'Da 2.000 a 10.000', 'Oltre 10.000', 'Non lo so ancora'],
+      message: "L'idea dell'evento",
+      messagePlaceholder: 'Che evento immagini? Tema, pubblico, periodo, budget indicativo…',
+      optional: 'facoltativo',
+      submit: 'Invia la richiesta',
       success: 'Grazie! Ti ricontattiamo al più presto.',
     },
     contactPage: {
@@ -284,15 +377,66 @@ export const translations: Record<Lang, Dict> = {
       contact: 'CONTACT',
     },
     hero: {
-      title: 'CREATIVE STUDIO',
+      titleLines: ['WE CREATE', 'IMMERSIVE', 'EVENTS'],
       tagline: 'We create, produce and sell out immersive formats and experiences. Ours and yours.',
       cta: 'Build your format',
     },
+    posters: { label: 'Our event posters', cta: 'Discover' },
     about: {
       title: 'ABOUT US',
       body:
-        "We're Boost and we do one thing: immersive formats and experiences. We invent and produce our own, like Oktoberland, or we build them from scratch for parks, brands and venues that want an event people actually show up to. From concept to direction, from set design to the marketing that brings people in: we handle it all, end to end.",
+        "We're Boost and we do one thing: immersive formats and experiences. We invent and produce our own, like Horror Drive-In and Oktoberdays, or we build them from scratch for parks, brands and venues that want an event people actually show up to. From concept to direction, from set design to the marketing that brings people in: we handle it all, end to end.",
       cta: "Let's talk about your event",
+    },
+    results: {
+      kicker: 'Our milestones',
+      title: 'THE NUMBERS',
+      subtitle: 'Every event we sign has to fill up. These are the results, added up event by event.',
+      formats: 'Formats produced',
+      people: 'People reached on site',
+      reach: 'Social reach',
+      soldOut: 'Sold-out shows with Horror Drive-In',
+      cta: 'I want these numbers',
+    },
+    spotlight: {
+      kicker: 'Proprietary formats',
+      title: 'BORN HERE',
+      subtitle: 'We invented them, produced them and sold them out. They are proof of what we can build for you.',
+      items: [
+        {
+          slug: 'horror-drive-in',
+          brand: 'Horror Days',
+          name: 'Horror Drive-In',
+          headline: "Europe's first horror drive-in.",
+          body: 'Thirty minutes live, locked in your car, engine off. We planned 7 nights: the audience wanted 8.',
+          image: '/events/horror-drive-in/hdi-008.webp',
+          stats: [
+            { value: '9,700+', label: 'Spectators' },
+            { value: '28', label: 'Sold-out shows' },
+            { value: '99.7%', label: 'Seats filled' },
+          ],
+        },
+        {
+          slug: 'oktoberdays',
+          brand: 'Oktoberdays',
+          name: 'Oktoberdays',
+          headline: 'Bavarian tradition, Neapolitan warmth.',
+          body: 'Six days, four worlds and a tent packed every night at the Palapartenope in Naples, with Erdinger as Main Partner.',
+          image: '/events/oktoberdays/okd-002.webp',
+          stats: [
+            { value: '20,000+', label: 'Attendees' },
+            { value: '15,000 L', label: 'Beer poured' },
+            { value: '10,000+', label: 'Food orders' },
+          ],
+        },
+      ],
+      view: 'See the format',
+      cta: 'I want an event like this',
+    },
+    wall: {
+      title: 'THE NEXT CROWD COULD BE YOURS',
+      subtitle: 'Behind every number there are people who laughed, screamed, raised a glass and danced. Let us build your event and fill it.',
+      cta: "Let's create an event",
     },
     models: {
       title: 'TWO WAYS',
@@ -302,15 +446,15 @@ export const translations: Record<Lang, Dict> = {
           n: '01',
           name: 'Proprietary formats',
           desc: 'Boost formats, created, produced and promoted by us. We look for venues, partners and sponsors to bring them to new cities.',
-          proof: "Oktoberland, Naples' Bavarian festival",
-          cta: 'Discover Oktoberland',
-          href: '/eventi/oktoberland',
+          proof: 'Horror Drive-In (Horror Days) and Oktoberdays',
+          cta: 'Discover Horror Drive-In',
+          href: '/eventi/horror-drive-in',
         },
         {
           n: '02',
           name: 'Commissioned formats',
           desc: 'Got an audience, a venue or an occasion? We build your format from scratch and run all of the event marketing, down to the last ticket.',
-          proof: '7 formats delivered for Edenlandia and other partners',
+          proof: '8 formats delivered for Edenlandia and other partners',
           cta: 'Commission a format',
           href: '#contact',
         },
@@ -347,6 +491,8 @@ export const translations: Record<Lang, Dict> = {
       modelProprietary: 'Proprietary format',
       modelCommissioned: 'Commissioned',
       list: [
+        { slug: 'horror-drive-in', name: 'Horror Drive-In', desc: "Europe's first horror drive-in, by Horror Days: 8 nights, 28 sold-out shows and over 9,700 spectators locked in their cars." },
+        { slug: 'oktoberdays', name: 'Oktoberdays', desc: "Naples' Bavarian village at the Palapartenope: 6 days, 4 worlds, over 20,000 attendees and 15,000 litres of beer." },
         { slug: 'oktoberland', name: 'Oktoberland', desc: "Naples' Bavarian festival at Edenlandia: Erdinger beer, traditional food, live music and premium food partners." },
         { slug: 'wonka-vs-cappellaio', name: 'Wonka vs Cappellaio Matto', desc: "Naples' first Immersive Game-Festival: 16 actors, 4 themed attractions and an original narrative plot." },
         { slug: 'horrorworld', name: 'HorrorWorld', desc: '9 nights of terror at Edenlandia: three themed attractions, horror performers, shows and a final Halloween Parade.' },
@@ -405,24 +551,30 @@ export const translations: Record<Lang, Dict> = {
       success: "Thanks! We received your application.",
     },
     clientForm: {
-      title: "LET'S START",
-      subtitle: 'Tell us about your event. We reply within 24 hours with the next steps.',
+      title: 'SHALL WE CREATE AN EVENT?',
+      subtitle: 'Tell us your idea: we reply within 24 hours with the next steps.',
       firstName: 'First name',
       lastName: 'Last name',
       email: 'Email',
       phone: 'Phone',
-      company: 'Company / Venue',
+      company: 'Company / Brand',
       projectType: 'Request type',
       projectTypePlaceholder: 'Select a request type',
       projectTypes: [
-        'New commissioned format',
+        'New commissioned event',
+        'Bring a Boost format to my city',
         'Marketing for an existing event',
-        'Bring Oktoberland to my venue',
         'Sponsorship / Partnership',
         'Other',
       ],
-      message: 'Your event',
-      messagePlaceholder: 'Type of event, expected audience, venue, period, rough budget…',
+      location: 'Location',
+      locationPlaceholder: 'City or venue where you would like it',
+      attendees: 'Expected attendance',
+      attendeesPlaceholder: 'Select an estimate',
+      attendeesOptions: ['Up to 500', '500 to 2,000', '2,000 to 10,000', 'Over 10,000', "I don't know yet"],
+      message: 'Your event idea',
+      messagePlaceholder: 'What event do you have in mind? Theme, audience, period, rough budget…',
+      optional: 'optional',
       submit: 'Send request',
       success: "Thanks! We'll get back to you shortly.",
     },

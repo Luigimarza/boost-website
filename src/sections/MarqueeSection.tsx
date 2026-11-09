@@ -1,159 +1,149 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
+import {
+  motion,
+  useAnimationFrame,
+  useMotionValue,
+  useReducedMotion,
+  useScroll,
+  useSpring,
+  useTransform,
+  useVelocity,
+} from 'framer-motion';
+import { useLanguage } from '../i18n/LanguageContext';
+import { EVENTS } from '../data/events';
 
-const GIFS = [
-  '/marquee/cose-fighe.gif',
-  '/marquee/proposal-kiss-kiss.png',
-  '/marquee/narte.gif',
-  '/marquee/be-visible.jpg',
-  '/marquee/fap-invest.gif',
-  '/marquee/cisternino.gif',
-  '/marquee/pet-bistr.gif',
-];
+/** Keep v inside [min, max) so the doubled track loops seamlessly. */
+const wrap = (min: number, max: number, v: number) => {
+  const range = max - min;
+  return ((((v - min) % range) + range) % range) + min;
+};
 
-const ROW_1 = GIFS.slice(0, 3);
-const ROW_2 = GIFS.slice(3);
+const BASE_SPEED = 2.4; // % of the track per second
+const TILTS = [-2.5, 1.5, -1, 2.5, -1.8, 1.2];
 
-function tripled<T>(arr: T[]): T[] {
-  return [...arr, ...arr, ...arr];
-}
-
+/**
+ * Infinite poster belt: every event poster drifts left, accelerates and flips
+ * direction with page-scroll velocity, slows down on hover and skews slightly
+ * while the page moves fast.
+ */
 export default function MarqueeSection() {
-  const sectionRef = useRef<HTMLDivElement | null>(null);
-  const row1Ref = useRef<HTMLDivElement | null>(null);
-  const row2Ref = useRef<HTMLDivElement | null>(null);
-  const scroll1Ref = useRef<HTMLDivElement | null>(null);
-  const scroll2Ref = useRef<HTMLDivElement | null>(null);
-  const [isMobile, setIsMobile] = useState(false);
+  const { t } = useLanguage();
+  const reduceMotion = useReducedMotion();
 
-  useEffect(() => {
-    const mq = window.matchMedia('(max-width: 767px)');
-    const onChange = () => setIsMobile(mq.matches);
-    onChange();
-    mq.addEventListener('change', onChange);
-    return () => mq.removeEventListener('change', onChange);
-  }, []);
+  const posters = t.events.list
+    .map((meta) => {
+      const data = EVENTS.find((e) => e.slug === meta.slug);
+      return data ? { slug: meta.slug, name: meta.name, cover: data.cover, year: data.year } : null;
+    })
+    .filter((x): x is NonNullable<typeof x> => x !== null);
 
-  // Desktop: scroll-driven parallax on the inner rows.
-  useEffect(() => {
-    if (isMobile) {
-      if (row1Ref.current) row1Ref.current.style.transform = '';
-      if (row2Ref.current) row2Ref.current.style.transform = '';
-      return;
-    }
-    const onScroll = () => {
-      const section = sectionRef.current;
-      if (!section) return;
-      const rect = section.getBoundingClientRect();
-      const sectionTop = rect.top + window.scrollY;
-      const offset = (window.scrollY - sectionTop + window.innerHeight) * 0.3;
-      const r1 = offset - 200;
-      if (row1Ref.current) {
-        row1Ref.current.style.transform = `translate3d(${r1}px, 0, 0)`;
-      }
-      if (row2Ref.current) {
-        row2Ref.current.style.transform = `translate3d(${-r1}px, 0, 0)`;
-      }
-    };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onScroll);
-    };
-  }, [isMobile]);
+  const baseX = useMotionValue(0);
+  const { scrollY } = useScroll();
+  const scrollVelocity = useVelocity(scrollY);
+  const smoothVelocity = useSpring(scrollVelocity, { damping: 50, stiffness: 400 });
+  const velocityFactor = useTransform(smoothVelocity, [-1000, 0, 1000], [-4, 0, 4], { clamp: false });
+  const skewX = useTransform(smoothVelocity, [-2000, 0, 2000], [5, 0, -5]);
 
-  // Mobile: page-scroll drives the rows (parallax-like) via scrollLeft, so the
-  // user can also swipe left/right by touch — both add up without conflict.
-  useEffect(() => {
-    if (!isMobile) return;
-    const c1 = scroll1Ref.current;
-    const c2 = scroll2Ref.current;
-    if (!c1 || !c2) return;
+  const direction = useRef(-1);
+  const hoverFactor = useRef(1);
+  const [hovered, setHovered] = useState(false);
 
-    const factor = 0.4;
-    let last = window.scrollY;
+  useAnimationFrame((_, delta) => {
+    if (reduceMotion) return;
+    // ease the speed towards 0.15x on hover, back to 1x otherwise
+    const target = hovered ? 0.15 : 1;
+    hoverFactor.current += (target - hoverFactor.current) * 0.08;
 
-    const wrap = (el: HTMLDivElement) => {
-      const third = el.scrollWidth / 3;
-      if (third <= 0) return;
-      if (el.scrollLeft >= third * 2) el.scrollLeft -= third;
-      else if (el.scrollLeft <= 0) el.scrollLeft += third;
-    };
+    const vf = velocityFactor.get();
+    if (vf < 0) direction.current = 1;
+    else if (vf > 0) direction.current = -1;
 
-    // Start in the middle copy so there's headroom scrolling either way.
-    const init = () => {
-      if (c1.scrollWidth > 0) c1.scrollLeft = c1.scrollWidth / 3;
-      if (c2.scrollWidth > 0) c2.scrollLeft = c2.scrollWidth / 3;
-    };
-    init();
-    const initRaf = requestAnimationFrame(init);
+    let moveBy = direction.current * BASE_SPEED * (delta / 1000);
+    moveBy += moveBy * Math.abs(vf);
+    baseX.set(baseX.get() + moveBy * hoverFactor.current);
+  });
 
-    const onScroll = () => {
-      const y = window.scrollY;
-      const dy = y - last;
-      last = y;
-      c1.scrollLeft += dy * factor;
-      wrap(c1);
-      c2.scrollLeft -= dy * factor;
-      wrap(c2);
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
+  const x = useTransform(baseX, (v) => `${wrap(-50, 0, v)}%`);
 
-    return () => {
-      cancelAnimationFrame(initRaf);
-      window.removeEventListener('scroll', onScroll);
-    };
-  }, [isMobile]);
-
-  const scrollWrapClass = isMobile ? 'overflow-x-auto scrollbar-hide' : 'overflow-hidden';
-  const scrollWrapStyle = isMobile
-    ? { touchAction: 'pan-x' as const, WebkitOverflowScrolling: 'touch' as const }
-    : undefined;
+  const track = [...posters, ...posters];
 
   return (
     <section
-      ref={sectionRef}
-      className="pt-24 sm:pt-32 md:pt-40 pb-10 overflow-hidden"
+      aria-label={t.posters.label}
+      className="relative pt-8 sm:pt-10 md:pt-12 pb-12 sm:pb-16 overflow-hidden"
       style={{ background: '#111010' }}
     >
-      <div className="flex flex-col gap-3">
-        <div ref={scroll1Ref} className={scrollWrapClass} style={scrollWrapStyle}>
-          <div
-            ref={row1Ref}
-            className="flex gap-3 w-max"
-            style={{ willChange: 'transform' }}
-          >
-            {tripled(ROW_1).map((src, i) => (
-              <img
-                key={`r1-${i}`}
-                src={src}
-                alt=""
-                loading="lazy"
-                draggable={false}
-                className="w-[300px] h-[195px] sm:w-[420px] sm:h-[270px] rounded-none object-cover flex-shrink-0"
-              />
-            ))}
-          </div>
-        </div>
-        <div ref={scroll2Ref} className={scrollWrapClass} style={scrollWrapStyle}>
-          <div
-            ref={row2Ref}
-            className="flex gap-3 w-max"
-            style={{ willChange: 'transform' }}
-          >
-            {tripled(ROW_2).map((src, i) => (
-              <img
-                key={`r2-${i}`}
-                src={src}
-                alt=""
-                loading="lazy"
-                draggable={false}
-                className="w-[300px] h-[195px] sm:w-[420px] sm:h-[270px] rounded-none object-cover flex-shrink-0"
-              />
-            ))}
-          </div>
-        </div>
+      {/* warm glow behind the belt */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/3 w-[90vw] h-[60%]"
+        style={{
+          background: 'radial-gradient(ellipse at center, rgba(241,85,45,0.18) 0%, rgba(241,85,45,0) 65%)',
+          filter: 'blur(20px)',
+        }}
+      />
+
+      <div
+        className={reduceMotion ? 'overflow-x-auto scrollbar-hide' : 'overflow-hidden'}
+        style={{
+          maskImage: 'linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%)',
+          WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%)',
+        }}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        onTouchStart={() => setHovered(true)}
+        onTouchEnd={() => setHovered(false)}
+      >
+        <motion.div
+          className="flex w-max py-6"
+          style={reduceMotion ? undefined : { x, skewX }}
+        >
+          {track.map((p, i) => (
+            <div
+              key={`${p.slug}-${i}`}
+              className="pr-4 sm:pr-6 md:pr-8 flex-shrink-0"
+              aria-hidden={i >= posters.length ? true : undefined}
+            >
+              <Link
+                to={`/eventi/${p.slug}`}
+                tabIndex={i >= posters.length ? -1 : undefined}
+                className="group relative block w-[190px] sm:w-[230px] md:w-[270px] lg:w-[300px] transition-transform duration-500 ease-out rotate-[var(--tilt)] hover:rotate-0 hover:-translate-y-3 hover:scale-[1.04]"
+                style={{ '--tilt': `${TILTS[i % TILTS.length]}deg` } as React.CSSProperties}
+              >
+                <div
+                  className="relative overflow-hidden border border-white/15 group-hover:border-[#F1552D] transition-colors duration-300"
+                  style={{ aspectRatio: '1000 / 1200', boxShadow: '0 30px 60px -20px rgba(0,0,0,0.8)' }}
+                >
+                  <img
+                    src={p.cover}
+                    alt={p.name}
+                    loading="lazy"
+                    draggable={false}
+                    className="absolute inset-0 w-full h-full object-cover select-none transition-transform duration-700 group-hover:scale-105"
+                  />
+                  {/* sheen sweep on hover */}
+                  <div
+                    aria-hidden="true"
+                    className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out"
+                    style={{ background: 'linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.22) 50%, transparent 65%)' }}
+                  />
+                  <div
+                    className="absolute inset-x-0 bottom-0 p-3 sm:p-4 flex items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{ background: 'linear-gradient(180deg, rgba(17,16,16,0) 0%, rgba(17,16,16,0.9) 100%)' }}
+                  >
+                    <span className="text-[#F2EDE8] font-bold uppercase text-xs sm:text-sm tracking-wide truncate">
+                      {p.name}
+                    </span>
+                    <span className="text-[#F1552D] font-semibold uppercase text-[10px] sm:text-xs tracking-widest flex-shrink-0 ml-2">
+                      {t.posters.cta} →
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
