@@ -72,7 +72,7 @@ export default function HeroSection() {
         </div>
 
         {/* Right portrait — overlaps title, slightly lower */}
-        <div className="absolute right-0 z-10" style={{ top: 'calc(18% + 1.5rem)', width: 'clamp(150px, 44vw, 255px)' }}>
+        <div className="absolute right-0 z-10" style={{ top: 'calc(9% + 1.5rem)', width: 'clamp(150px, 44vw, 255px)' }}>
           <FadeIn delay={0.55} y={30} x={20}>
             <img
               src={PORTRAIT_RIGHT}
@@ -100,7 +100,7 @@ export default function HeroSection() {
         padding={150} strength={3}
         activeTransition="transform 0.3s ease-out"
         inactiveTransition="transform 0.6s ease-in-out"
-        className="hidden md:block absolute right-0 z-10 bottom-0 w-[280px] lg:w-[360px] xl:w-[440px]"
+        className="hidden md:block absolute right-0 z-10 bottom-[7vh] w-[280px] lg:w-[360px] xl:w-[440px]"
       >
         <FadeIn delay={0.6} y={30} x={20}>
           <img src={PORTRAIT_RIGHT} alt="" className="w-full h-auto select-none pointer-events-none" draggable={false} />
