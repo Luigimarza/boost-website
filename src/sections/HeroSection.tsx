@@ -25,7 +25,8 @@ export default function HeroSection() {
         <FadeIn delay={0.15} y={40}>
           <h1
             className="hero-heading no-dot font-black uppercase tracking-tight whitespace-nowrap w-full text-center"
-            style={{ fontSize: 'min(11.5vw, 16vh)', lineHeight: 0.84 }}
+            // widest line ("IMMERSIVI") is ~5.5em wide: 17vw fills the screen edge to edge
+            style={{ fontSize: '17vw', lineHeight: 0.84 }}
           >
             {t.hero.titleLines.map((line, i) => (
               <span key={line} className="block">
@@ -47,7 +48,7 @@ export default function HeroSection() {
                 <span
                   key={line}
                   className="block hero-heading no-dot font-black uppercase tracking-tight"
-                  style={{ fontSize: 'clamp(2.6rem, 16vw, 5.5rem)', lineHeight: 0.84 }}
+                  style={{ fontSize: '17vw', lineHeight: 0.84 }}
                 >
                   {line}
                   {i === t.hero.titleLines.length - 1 && <span className="text-[#F1552D]">.</span>}

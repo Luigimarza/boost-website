@@ -63,7 +63,7 @@ function SpotlightBlock({ item, index }: { item: Item; index: number }) {
         <FadeIn delay={0.05} y={30}>
           <h3
             className="hero-heading font-black uppercase leading-[0.9] tracking-tight"
-            style={{ fontSize: 'clamp(2.2rem, 6vw, 88px)' }}
+            style={{ fontSize: 'clamp(2rem, 4.2vw, 64px)' }}
           >
             {item.name}
           </h3>
@@ -83,7 +83,7 @@ function SpotlightBlock({ item, index }: { item: Item; index: number }) {
           <div className="grid grid-cols-3 border-t border-b border-white/15">
             {item.stats.map((s, i) => (
               <div key={s.label} className={`py-4 sm:py-5 ${i > 0 ? 'pl-3 sm:pl-5 border-l border-white/15' : ''}`}>
-                <span className="block font-display font-black text-[#F2EDE8] leading-none" style={{ fontSize: 'clamp(1.4rem, 3.4vw, 2.8rem)' }}>
+                <span className="block font-display font-black text-[#F2EDE8] leading-none" style={{ fontSize: 'clamp(1.15rem, 2.4vw, 2.2rem)' }}>
                   {s.value}
                 </span>
                 <span className="block mt-2 text-[#F2EDE8]/60 uppercase tracking-widest text-[10px] sm:text-xs leading-snug">

@@ -98,7 +98,7 @@ export default function ResultsSection() {
             >
               <span
                 className="font-display font-black text-[#F2EDE8] leading-none"
-                style={{ fontSize: 'clamp(1.9rem, 3.8vw, 64px)' }}
+                style={{ fontSize: 'clamp(1.9rem, 3.8vw, 56px)' }}
               >
                 <CountUp to={s.to} suffix={s.suffix} />
               </span>
