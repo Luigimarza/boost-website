@@ -72,10 +72,12 @@ export default function EventsSection() {
                         'linear-gradient(180deg, rgba(17,16,16,0) 50%, rgba(17,16,16,0.85) 100%)',
                     }}
                   />
-                  <span className="absolute top-3 left-3 sm:top-4 sm:left-4 inline-flex items-center rounded-none bg-[#F1552D] text-white text-[10px] sm:text-[11px] font-semibold uppercase tracking-widest px-2.5 py-1 sm:px-3">
-                    {item.category}
-                  </span>
-                  <ModelBadge model={item.model} className="absolute top-3 right-3 sm:top-4 sm:right-4" />
+                  <div className="absolute top-3 left-3 sm:top-4 sm:left-4 right-3 sm:right-4 flex flex-col items-start gap-1.5">
+                    <ModelBadge model={item.model} />
+                    <span data-badge className="inline-flex items-center whitespace-nowrap bg-[#111010]/70 backdrop-blur-sm border border-white/20 text-[#F2EDE8]/90 text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.14em] leading-none px-2.5 py-1.5 sm:px-3">
+                      {item.category}
+                    </span>
+                  </div>
                 </div>
                 <div className="p-4 sm:p-5 md:p-6 flex flex-col gap-2 sm:gap-3">
                   <div className="flex items-center justify-between text-[#F2EDE8]/60 text-[11px] sm:text-sm uppercase tracking-widest">
