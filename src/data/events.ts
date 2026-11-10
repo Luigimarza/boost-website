@@ -6,6 +6,8 @@ export type EventStat = {
 export type EventItem = {
   slug: string;
   cover: string;
+  /** Full official poster (uncropped), shown on the event page when available. */
+  poster?: string;
   gallery: string[];
   year: string;
   date: { it: string; en: string };
@@ -21,6 +23,7 @@ export const EVENTS: EventItem[] = [
   {
     slug: 'horror-drive-in',
     cover: '/events/horror-drive-in.webp',
+    poster: '/events/posters/horror-drive-in.webp',
     gallery: [
       '/events/horror-drive-in/hdi-001.webp',
       '/events/horror-drive-in/hdi-002.webp',
@@ -59,6 +62,7 @@ export const EVENTS: EventItem[] = [
   {
     slug: 'oktoberdays',
     cover: '/events/oktoberdays.webp',
+    poster: '/events/posters/oktoberdays.webp',
     gallery: [
       '/events/oktoberdays/okd-001.webp',
       '/events/oktoberdays/okd-002.webp',

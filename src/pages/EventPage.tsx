@@ -121,12 +121,12 @@ export default function EventPage() {
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6 }}
-              src={data.cover}
+              src={data.poster ?? data.cover}
               alt={meta.name}
               fetchPriority="high"
               decoding="async"
-              className="w-full h-full object-cover rounded-none sm:rounded-none md:rounded-none"
-              style={{ aspectRatio: '4 / 5' }}
+              className={data.poster ? 'w-full h-auto' : 'w-full h-full object-cover'}
+              style={data.poster ? undefined : { aspectRatio: '4 / 5' }}
             />
           </FadeIn>
 
