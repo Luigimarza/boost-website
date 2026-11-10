@@ -214,7 +214,7 @@ export const EVENTS: EventItem[] = [
     ],
     year: '2026',
     date: { it: '19, 20, 24, 25, 26, 27 Settembre 2026', en: 'September 19, 20, 24, 25, 26, 27, 2026' },
-    location: 'Palapartenope, Napoli',
+    location: 'Palapartenope',
     category: 'Festival',
     model: 'proprietary',
     attendance: '20.000+',
