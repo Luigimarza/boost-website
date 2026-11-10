@@ -171,11 +171,11 @@ export default function EventPage() {
                       viewport={{ once: true, amount: 0.3 }}
                       transition={{ duration: 0.5, delay: i * 0.06 }}
                       className="rounded-none border border-[#F2EDE8]/15 px-2 py-4 sm:px-3 sm:py-5 md:px-4 md:py-6 flex flex-col items-center justify-center text-center gap-1.5 sm:gap-2 transition-colors duration-300 hover:border-[#F1552D]"
-                      style={{ background: 'rgba(215, 226, 234, 0.04)' }}
+                      style={{ background: 'rgba(215, 226, 234, 0.04)', containerType: 'inline-size' }}
                     >
                       <span
                         className="text-[#F1552D] font-display font-extrabold leading-none break-words tracking-[-0.02em]"
-                        style={{ fontSize: 'clamp(1.25rem, 4.8vw, 2.2rem)' }}
+                        style={{ fontSize: 'min(2.2rem, 27cqw)' }}
                       >
                         {stat.value}
                       </span>

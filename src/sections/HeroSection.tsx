@@ -11,6 +11,8 @@ const PORTRAIT_RIGHT = '/IMAGE 01 PNG.png';
 
 export default function HeroSection() {
   const { t } = useLanguage();
+  // Scale so the widest line fills the screen edge to edge (24px breathing room).
+  const titleSize = `calc((100vw - 24px) / ${t.hero.titleEm})`;
 
   return (
     <>
@@ -25,8 +27,7 @@ export default function HeroSection() {
         <FadeIn delay={0.15} y={40}>
           <h1
             className="hero-heading no-dot font-black uppercase tracking-tight whitespace-nowrap w-full text-center"
-            // widest line ("IMMERSIVI") is ~5.5em wide: 17vw fills the screen edge to edge
-            style={{ fontSize: '17vw', lineHeight: 0.84 }}
+            style={{ fontSize: titleSize, lineHeight: 0.84 }}
           >
             {t.hero.titleLines.map((line, i) => (
               <span key={line} className="block">
@@ -48,7 +49,7 @@ export default function HeroSection() {
                 <span
                   key={line}
                   className="block hero-heading no-dot font-black uppercase tracking-tight"
-                  style={{ fontSize: '17vw', lineHeight: 0.84 }}
+                  style={{ fontSize: titleSize, lineHeight: 0.84 }}
                 >
                   {line}
                   {i === t.hero.titleLines.length - 1 && <span className="text-[#F1552D]">.</span>}

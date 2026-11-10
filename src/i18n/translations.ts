@@ -2,7 +2,7 @@ export type Lang = 'it' | 'en';
 
 export type Dict = {
   nav: { about: string; events: string; careers: string; contact: string };
-  hero: { titleLines: string[]; tagline: string; cta: string };
+  hero: { titleLines: string[]; /** width of the widest title line, in em (measured) */ titleEm: number; tagline: string; cta: string };
   posters: { label: string; cta: string };
   about: { title: string; body: string; cta: string };
   results: {
@@ -146,6 +146,7 @@ export const translations: Record<Lang, Dict> = {
     },
     hero: {
       titleLines: ['CREIAMO', 'EVENTI', 'IMMERSIVI'],
+      titleEm: 5.8,
       tagline: 'Ideiamo, produciamo e portiamo al sold out format ed esperienze immersive. I nostri e i tuoi.',
       cta: 'Crea il tuo format',
     },
@@ -378,6 +379,7 @@ export const translations: Record<Lang, Dict> = {
     },
     hero: {
       titleLines: ['WE CREATE', 'IMMERSIVE', 'EVENTS'],
+      titleEm: 6.15,
       tagline: 'We create, produce and sell out immersive formats and experiences. Ours and yours.',
       cta: 'Build your format',
     },
